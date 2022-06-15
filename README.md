@@ -60,7 +60,7 @@ Install both **docker** and **docker-compose**:
 1. Clone repository:
 
 ```bash
-git clone https://gitlab.com/idrisk/idrisk
+git clone https://gitlab.com/arkhamlord666/forms
 ```
 
 
