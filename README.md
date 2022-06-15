@@ -44,8 +44,8 @@ The databases hosts present in the *.env* file, depends whether is running in do
 Notes:
 * By default, the django application is set with DEBUG = False
 * By default, client side console messages are enabled (*LOG, DEBUG, INFO*). To disable them, set *DEBUG* to *false* in these files:
-	+ [/web/templates/base.html](https://gitlab.com/idrisk/idrisk/-/blob/master/web/templates/base.html)
-	+ [/web/designer/templates/designer/_scripts.html](https://gitlab.com/idrisk/idrisk/-/blob/master/web/designer/templates/designer/_scripts.html)
+	+ [/web/templates/base.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/templates/base.html)
+	+ [/web/designer/templates/designer/_scripts.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/designer/templates/designer/_scripts.html)
 
 You can also add others console messages to the list, such as *warn* and *error* (not recommended).
 
@@ -66,10 +66,10 @@ git clone https://gitlab.com/idrisk/idrisk
 
 2. Change files:
 
-* [docker-compose.yml](https://gitlab.com/idrisk/idrisk/-/blob/master/docker-compose.yml)
-	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/idrisk/idrisk/-/blob/master/docker-compose.yml).
+* [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)
+	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml).
 
-* [_env](https://gitlab.com/idrisk/idrisk/-/blob/master/web/idrisk/_env/) (at */web/idrisk/*)
+* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env/) (at */web/idrisk/*)
 	+ Rename *_env_* file to *.env* and change its contents accordingly.
 	+ Define a *SECRET_KEY* if desired. If not, comment or remove line. A random key will be generated for you.
 	+ Change the *IDRISK* and *WORLD* databases hosts to *db*. 
@@ -169,7 +169,7 @@ python manage.py createsuperuser
 ```
 
 
-Migrations (only if clean slate - also check Essential Tables chapter, otherwise, restore with the databases present at [databases](https://gitlab.com/idrisk/idrisk/-/blob/master/databases/):
+Migrations (only if clean slate - also check Essential Tables chapter, otherwise, restore with the databases present at [databases](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/):
 
 ```bash
 python manage.py makemigrations
@@ -182,7 +182,7 @@ python manage.py runserver
 ```
 
 * Page will be available at: *http://127.0.0.1:8000* (if running on a local computer) or *http[s]://domain|ip:8000* (if on a server).
-* All necessary databases to restore the most up to date version of the database are present in [databases](https://gitlab.com/idrisk/idrisk/-/blob/master/databases/) directory. Restoring avoids the need to create +  apply migrations + populate essential tables. It also contains 3 + 3 forms and a default superuser.
+* All necessary databases to restore the most up to date version of the database are present in [databases](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/) directory. Restoring avoids the need to create +  apply migrations + populate essential tables. It also contains 3 + 3 forms and a default superuser.
 * A default superuser (*admin*) is already present. The password is *pass2022* (**change it after a successfully completed installation**).
 
 
@@ -202,9 +202,9 @@ Currently supported databases (for elements creation and/or database queries):
 * Oracle
 
 The current project requires a MySql/MariaDB database named IDRISK.
-Use [idrisk.sql](https://gitlab.com/idrisk/idrisk/-/blob/master/databases/idrisk.sql) to restore the most up to date version of the database, which also avoids the need to create and apply migrations.
+Use [idrisk.sql](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/idrisk.sql) to restore the most up to date version of the database, which also avoids the need to create and apply migrations.
 
-A [world.sql](https://gitlab.com/idrisk/idrisk/-/blob/master/_databases/world.sql) database is also provided to be used for follow the [Example](https://gitlab.com/idrisk/idrisk/-/blob/master/help/templates/help/examples/_examples.html) #3.
+A [world.sql](https://gitlab.com/arkhamlord666/forms/-/blob/master/_databases/world.sql) database is also provided to be used for follow the [Example](https://gitlab.com/arkhamlord666/forms/-/blob/master/help/templates/help/examples/_examples.html) #3.
 
 
 For **PostgreSQL** databases, it's necessary to specify the schema:
@@ -289,15 +289,15 @@ INSERT INTO `query` (`id`, `name`, `query`, `date`, `status_id`, `description`) 
 
 | Link | Description |
 | ------ | ------ |
-| [Dev Document](https://gitlab.com/idrisk/idrisk/-/blob/master/media/files/forms_dev_notes.pdf) | Development document |
-| [User's Manual](https://gitlab.com/idrisk/idrisk/-/blob/master/media/files/users_manual.pdf) | Use's manual |
+| [Dev Document](https://gitlab.com/arkhamlord666/forms/-/blob/master/media/files/forms_dev_notes.pdf) | Development document |
+| [User's Manual](https://gitlab.com/arkhamlord666/forms/-/blob/master/media/files/users_manual.pdf) | Use's manual |
 | ------ | ------ |
 | [dev_notes](https://docs.google.com/spreadsheets/d/1vGtAhm7YxXVWHyIYrxnPj9vx_n9GWocKswIZAJKdyl8/edit?usp=sharing) | roadmap, TODO, bugs |
 | [EAs](https://docs.google.com/spreadsheets/d/1M9wPL5e4km3ARaaxbRxLKjaMaoH-18uzLWDx4HoJghs/edit?usp=sharing) | Some details related with the Events/Actions system |
 | [signals](https://docs.google.com/spreadsheets/d/1bPw0vpfPpsd3XMWVl6kVoWHcYo2vqMETD3jmf11JyxM/edit?usp=sharing) | Signals description, with the indication of the listeners and the dispatchers |
 | [visibility_flags](https://docs.google.com/spreadsheets/d/1U0p8UJiKmRLNKj6XakN14UHgtOg6xIp8c8ba2m1tHEs/edit?usp=sharing) | Spreadsheet used to calculate the properties visibility hex per element |
 | [validations](https://docs.google.com/spreadsheets/d/1GFaBA1l_m57rE9__GRErP0fiSPNdTC3h_3nUE5pxA7I/edit?usp=sharing) | Validation flags for each "transferable" element |
-| [log](https://gitlab.com/idrisk/idrisk/-/blob/master/log.txt) | Major changes between commits |
+| [log](https://gitlab.com/arkhamlord666/forms/-/blob/master/log.txt) | Major changes between commits |
 
 
 
@@ -305,7 +305,7 @@ INSERT INTO `query` (`id`, `name`, `query`, `date`, `status_id`, `description`) 
 
 For now, it's only possible to electronically sign with the portuguese identification card.
 Also, it's only possible to sign in windows and in chrome.
-Both the extension and the native application can be found in: [_extension](https://gitlab.com/idrisk/idrisk/-/blob/master/_extension).
+Both the extension and the native application can be found in: [files](https://gitlab.com/arkhamlord666/forms/-/tree/master/web/media/files).
 
 
 
@@ -339,7 +339,7 @@ Both the extension and the native application can be found in: [_extension](http
 | Rest API E/A | LOW ||
 | Graphical interface for the E/A system | LOW ||
 
-Check the [User's Manual](https://gitlab.com/idrisk/idrisk/-/blob/master/web/media/files/users_manual.pdf) or the [Dev Document](https://gitlab.com/idrisk/idrisk/-/blob/master/web/media/files/forms_dev_notes.pdf) for more info.
+Check the [User's Manual](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/media/files/users_manual.pdf) or the [Dev Document](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/media/files/forms_dev_notes.pdf) for more info.
 
 
 ## License
