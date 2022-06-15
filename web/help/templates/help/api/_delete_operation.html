@@ -1,0 +1,84 @@
+<section id="delete-operation">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3>Delete an Operation</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="card bg-dark text-white font-weight-bold text-monospace">
+                <div class="card-body">
+                    <span class="request-method">POST</span> {server}/api/delete_operation/
+                </div>
+            </div>
+
+            <p>Deletes a specified <span class="badge badge-dark p-1">COMPLETED</span> operation, including all its assets, if any.</p>
+
+
+    <div class="alert alert-danger text-center"><b>	
+	TO DELETE A COMPLETED OPERATION, AN ADMINISTRATOR MUST DELETED IT DIRECTLY IN THE DATABASE OR THROUGH
+	THE ADMINISTRATIVE PANEL.
+	</b>
+	</div>
+
+            <br>
+
+            <span class="header-params">HEADER PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">Authorization</dt>
+                <dt class="col-1"><span class="badge badge-secondary">-</span></dt>
+                <dd class="col-9">Token [token]</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">REQUEST BODY SCHEMA:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">operation_id</dt>
+                <dt class="col-1"><span class="badge badge-secondary">number</span></dt>
+                <dd class="col-9">Operation ID</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">RESPONSES:</span>
+            <hr>
+
+            <div class="response-success p-2">
+                <div class="response-title">200 Successful</div>
+                Sucesseful message.
+<pre>{
+  "message": "Operation removed"
+}
+</pre>
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">400 Bad Request</div>
+                Body parameter missing or incorrect.
+            </div>            
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">403 Forbidden</div>
+                Invalid token or Authentication credentials were not provided.
+                Attempt to change the status of a COMPLETED operation.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">404 Not Founded</div>
+                Specified operation does not exist.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">500 Internal Server Error</div>
+                Unknown error.
+            </div>
+            <br>
+
+        </div>
+    </div>
+
+</section>

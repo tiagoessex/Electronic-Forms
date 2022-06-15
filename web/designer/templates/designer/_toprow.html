@@ -1,0 +1,40 @@
+{% load i18n %}
+
+<div class="row p-0 bg-light align-items-center unselectable">
+  <div class="col-5">
+    <h4 class="text-dark">
+      <span id="form-name">
+      </span>
+      <button id="btn-properties" class="btn btn-outline-success properties ml-2">
+        <i class="fa fa-edit">
+        </i>
+      </button>
+      <button id="form-reload" class="btn btn-outline-primary font-weight-bold" data-toggle="tooltip" title='{% trans "Reload" %}'>
+        <i class="fa fa-sync">
+        </i>
+      </button>      
+      <button id="form-quick-save" class="btn btn-danger font-weight-bold menu-save" style="display: none;" data-toggle="tooltip" title='{% trans "Quick save" %}'>
+        <i class="fa fa-save">
+        </i>
+      </button>
+    </h4>
+  </div> 
+  <!-- /col -->
+  <div class="col-3">
+    <h5 class="text-secondary">{% trans "Created in" %}:
+      <small>
+        <span id="form-creation-date">
+        </span>
+      </small>
+    </h5>
+  </div>
+  <!-- /col -->
+  <div class="col-4">
+    <button id="btn-preview"class="btn btn-success float-right m-2" data-toggle="tooltip" title='{% trans "Save and Preview form" %}'>
+      <i class="fa fa-eye" aria-hidden="true">
+      </i> {% trans "Preview" %}
+    </button>
+  </div> 
+  <!-- /col -->
+</div> 
+<!-- /row -->

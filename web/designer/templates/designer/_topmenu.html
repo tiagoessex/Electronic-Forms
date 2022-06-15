@@ -1,0 +1,104 @@
+{% load i18n %}
+{% load static %}
+
+<div class="row unselectable">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark w-100 fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> 
+      <span class="navbar-toggler-icon">
+      </span>
+    </button>
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/logos/logo_project.png' %}" width="30" height="30" class="d-inline-block align-top" alt=""> 
+      <span class="menu-collapsed">{% trans "Designer" %}
+      </span>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active dropdown"> 
+          <a class="nav-link dropdown-toggle" href="#" id="navbarMain" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% trans "Main" %}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarMain"> 
+            <a class="dropdown-item" href="javascript:void(0);" id="menu-new">{% trans "New" %}
+            </a>
+            <a class="dropdown-item" href="javascript:void(0);" id="menu-open">{% trans "Open" %}
+            </a>
+            <a class="dropdown-item menu-save" href="javascript:void(0);">{% trans "Save" %}
+            </a>
+            <!--
+            <div class="dropdown-divider">
+            </div> 
+            <a class="dropdown-item" href="javascript:void(0);" id="menu-export">{% trans "Export" %}
+            </a>
+            <a class="dropdown-item" href="javascript:void(0);" id="menu-import">{% trans "Import" %}
+            </a>
+            -->
+            <div class="dropdown-divider">
+            </div> 
+            <a class="dropdown-item properties" href="javascript:void(0);" id="menu-properties">{% trans "Properties" %}
+            </a>
+            <div class="dropdown-divider">
+            </div> 
+            <a class="dropdown-item" href="{% url 'formsmanager:formsmanager' %}">{% trans "Forms Manager" %}
+            </a>
+            <a class="dropdown-item" href="{% url 'home' %}">{% trans "Main Page" %}
+            </a>								
+          </div>
+        </li>
+        <li class="nav-item active"> 
+          <a class="nav-link" href="javascript:void(0);" id="menu-tables">{% trans "Tables" %}
+          </a>
+        </li>
+        <li class="nav-item active dropdown"> 
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDatasources" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% trans "Configuration" %}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDatasources">             
+            <a class="dropdown-item" href="javascript:void(0);" id="menu-add-fields">{% trans "Create Elements from the Database" %}
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:void(0);" id="menu-auto-save">{% trans "Auto Save" %}
+            </a>
+          </div>
+        </li>
+        <li class="nav-item active"> 
+          <a class="nav-link" href="{% static 'help/manual/users_manual.pdf' %}" target="_blank" id="menu-help">{% trans "Help" %}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ul class="navbar-nav">
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarConfigurations" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+          <span id="selected-language" class='flag-icon flag-icon-{% if LANGUAGE_CODE == "en" %}gb{% else %}{{LANGUAGE_CODE}}{% endif %}'>
+          </span> 
+          {% trans "Language" %}				
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarConfigurations">
+          <a data-lang= "en" class="dropdown-item language-select" href="javascript:void(0);">
+            <span class="flag-icon flag-icon-gb">
+            </span> 
+            English
+          </a>        
+          <a data-lang= "pt" class="dropdown-item language-select" href="javascript:void(0);">
+            <span class="flag-icon flag-icon-pt">
+            </span> 
+            Portugues
+          </a>
+          <a data-lang= "hr" class="dropdown-item language-select" href="javascript:void(0);">
+            <span class="flag-icon flag-icon-hr">
+            </span> 
+            Hrvatski
+          </a>
+        </div>
+      </li> 
+    </ul>
+  </nav>
+</div>  
+<!-- /row -->
+
+<form id="lang-select-form" action="{% url 'set_language' %}" method="post">
+  {% csrf_token %}
+  <input name="next" type="hidden" value="{{ redirect_to }}" />
+  <input id="selected-lang-form" name="language" type="hidden" value="{{LANGUAGE_CODE}}" />
+</form>  

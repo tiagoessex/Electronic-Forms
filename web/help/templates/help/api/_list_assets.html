@@ -1,0 +1,180 @@
+<section id="list-assets">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3>List all Assets of an Operation</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="card bg-dark text-white font-weight-bold text-monospace">
+                <div class="card-body">
+                    <span class="request-method">GET</span> {server}/rest/api/list_operation_assets/{operation_id}/
+                </div>
+            </div>
+
+            <p>Returns a list of all assets associated with the specific operation, or an empty array if <i>operation_id</i> does not exist.</p>
+
+            <span class="header-params">PATH PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">operation_id</dt>
+                <dt class="col-1"><span class="badge badge-secondary">number</span></dt>
+                <dd class="col-9">ID of the operation</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">HEADER PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">Authorization</dt>
+                <dt class="col-1"><span class="badge badge-secondary">-</span></dt>
+                <dd class="col-9">Token [token]</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">RESPONSES:</span>
+            <hr>
+
+            <div class="response-success p-2">
+                <div class="response-title">200 Successful</div>
+                List of all assets.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">403 Forbidden</div>
+                Invalid token or Authentication credentials were not provided.
+            </div>
+
+            <br>
+
+            <span class="header-params">RESPONSE FIELDS DESCRIPTION:</span>
+            <hr>
+            
+            <br>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>integer</td>
+                        <td>Asset ID</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>Asset name</td>
+                    </tr>
+                    <tr>
+                      <td>type</td>
+                      <td>integer</td>
+                      <td>Asset type</td>
+                    </tr>
+                    <tr>
+                      <td>type_name</td>
+                      <td>string</td>
+                      <td>Asset type name</td>
+                    </tr>
+                    <tr>
+                      <td>is_annex</td>
+                      <td>boolean</td>
+                      <td>Is annex?</td>
+                    </tr>
+                    <tr>
+                      <td>date</td>
+                      <td>string | datetime</td>
+                      <td>When was the asset uploaded</td>
+                    </tr>
+                    <tr>
+                      <td>operation</td>
+                      <td>integer</td>
+                      <td>Operation's ID</td>
+                    </tr>                                                                                           
+                </tbody>
+            </table>
+            <br>
+
+            <kbd>Assets types:</kbd>
+
+            <br>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>IMAGE</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>CSV</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>JSON</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>PDF</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>OTHER</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <br>
+            <span class="header-params">EXAMPLE:</span>
+            <hr>            
+            <h5>Request</h5>
+            <span class="example-request m-2">{server}/rest/api/list_operation_assets/341/</span>
+            
+            <br>
+            <br>
+
+            <h5>Response</h5>
+            <div class="example-response text-monospace m-2 p-2">
+                <pre>
+[
+  {
+    "id": 730,
+    "name": "DOC_341_SIGNED.pdf",
+    "asset": "http://127.0.0.1:8000/media/operation_assets/341/DOC_341_SIGNED.pdf",
+    "type": 4,
+    "type_name": "PDF",
+    "is_annex": true,
+    "date": "2022-01-17T14:59:59.856123Z",
+    "operation": 341
+  },
+  {
+    "id": 730,
+    "name": "brush.png",
+    "asset": "http://127.0.0.1:8000/media/operation_assets/341/brush.png",
+    "type": 1,
+    "type_name": "IMAGE",
+    "is_annex": false,
+    "date": "2022-01-18T20:12:33.949468Z",
+    "operation": 341
+  },  
+  ...
+]
+</pre>
+            </div>
+        </div>
+    </div>
+
+</section>

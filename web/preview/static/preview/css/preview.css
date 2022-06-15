@@ -1,0 +1,19 @@
+
+
+.tablet-area {
+    /*height:45%;/* calc(100vh-250px);/*100vh;*/
+    height:82vh;
+    overflow-y:auto;
+    overflow-x:auto;
+    /*   white-space: nowrap; */
+    background-color: #ABABAB;
+}
+
+
+.btn-group.preview-button {
+    display: flex;
+}
+  
+.preview-button .btn {
+    flex: 1
+}

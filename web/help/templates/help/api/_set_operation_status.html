@@ -1,0 +1,111 @@
+<section id="set-operation-status">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3>Set the Status of an Operation</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="card bg-dark text-white font-weight-bold text-monospace">
+                <div class="card-body">
+                    <span class="request-method">POST</span> {server}/api/set_operation_status/
+                </div>
+            </div>
+
+            <p>Set the status of a specified non <span class="badge badge-dark p-1">COMPLETED</span> operation. 
+            If successful, returns the <a href="{% url 'help:api' %}#operation">operation details</a>.</p>
+
+            <p>States:</p>
+            <ul>
+                <li><span class="badge badge-success p-1">OPEN</span></li>
+                <li><span class="badge badge-primary p-1">CLOSED</span></li>
+                <li><span class="badge badge-dark p-1">COMPLETED</span></li>
+            </ul>
+
+
+	<div class="alert alert-danger text-center"><b>ONCE AN OPERATION IS SET TO COMPLETED, IT'S ONLY 
+	POSSIBLE TO CONSULT IT.<br/>
+	WILL NO LONGER POSSIBLE TO EDIT ANY PART OF THE OPERATION!<br/></b>
+	</div>
+
+    <div class="alert alert-danger text-center"><b>	
+	TO CHANGE THE STATUS OF A COMPLETED OPERATION, AN ADMINISTRATOR MUST CHANGE IT DIRECTLY IN THE DATABASE OR THROUGH
+	THE ADMINISTRATIVE PANEL.</b>
+	</div>
+
+            <br>
+
+            <span class="header-params">HEADER PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">Authorization</dt>
+                <dt class="col-1"><span class="badge badge-secondary">-</span></dt>
+                <dd class="col-9">Token [token]</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">REQUEST BODY SCHEMA:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">operation_id</dt>
+                <dt class="col-1"><span class="badge badge-secondary">number</span></dt>
+                <dd class="col-9">Operation ID</dd>
+            </div>
+            <div class="row ml-4">
+                <dt class="col-2">status</dt>
+                <dt class="col-1"><span class="badge badge-secondary">string</span></dt>
+                <dd class="col-9">Status  (OPEN | CLOSED | COMPLETED)</dd>
+            </div>
+            <br>
+
+            <span class="header-params">RESPONSES:</span>
+            <hr>
+
+            <div class="response-success p-2">
+                <div class="response-title">200 Successful</div>
+                Sucesseful message.
+<pre>{
+  "id": 100,
+  "name": "group3",
+  "description": "",
+  "form": 2839,
+  "form_name": "7bd9602c-d33a-4497-a23c-6dee57bf0bed",
+  "date_creation": "2021-09-07T08:39:43.685505Z",
+  "date_updated": "2021-09-07T08:53:59.884398Z",
+  "author": 1,
+  "author_name": "admin",
+  "updated_by": 1,
+  "updated_by_name": "admin",
+  "status_name": "CLOSED"
+}
+</pre>
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">400 Bad Request</div>
+                Body parameter missing or incorrect.
+            </div>            
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">403 Forbidden</div>
+                Invalid token or Authentication credentials were not provided.<br>
+                Attempt to change the status of a COMPLETED operation.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">404 Not Founded</div>
+                Specified operation does not exist.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">500 Internal Server Error</div>
+                Unknown error.
+            </div>
+            <br>
+
+        </div>
+    </div>
+
+</section>

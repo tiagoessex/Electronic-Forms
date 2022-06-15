@@ -1,0 +1,213 @@
+<section id="operation-operation-form-data-validations">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3>Get Operation Data (inputs/state) + Validations</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="card bg-dark text-white font-weight-bold text-monospace">
+                <div class="card-body">
+                    <span class="request-method">GET</span> {server}/rest/api/get_operation_data_val/{operation_id}/
+                </div>
+            </div>
+
+            <p>Returns an array of <i>elements</i> and <i>groups</i> with the following information:<p>
+
+            For <i>elements</i>:
+            <ul>
+              <li>Element ID</li>
+              <li>Input Value</li>
+              <li>Element Name</li>
+              <li>Element Label</li>
+              <li>Database Field</li>
+              <li>Is Element enabled?</li>
+              <li>Is Element visible?</li>
+              <li>Object with all validations to apply to the element</li>
+            </ul>
+
+            For <i>groups</i>:
+            <ul>
+              <li>Group ID</li>
+              <li>Group Name</li>
+              <li>Database Field</li>
+              <li>Is Group enabled?</li>
+              <li>Is Group visible?</li>              
+              <li>Is required to be selected?</li>
+              <li>Group type: CHECKBOX or RADIO</li>
+              <li>Array with the {ID, name, label} of the selected elements (radios and checkboxes)</li>
+            </ul>
+
+            <br> 
+
+            <p>All assets (images and documents) are accessible at  
+            <kbd>{server}/media/operation_assets/{operation_id}/{asset_file}</kbd>.</p>
+
+
+            <span class="header-params">PATH PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">operation_id</dt>
+                <dt class="col-1"><span class="badge badge-secondary">number</span></dt>
+                <dd class="col-9">ID of the operation</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">HEADER PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">Authorization</dt>
+                <dt class="col-1"><span class="badge badge-secondary">-</span></dt>
+                <dd class="col-9">Token [token]</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">RESPONSES:</span>
+            <hr>
+
+            <div class="response-success p-2">
+                <div class="response-title">200 Successful</div>
+                Operation details.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">403 Forbidden</div>
+                Invalid token or Authentication credentials were not provided.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">404 Not Founded</div>
+                Specified operation does not exist or No data to validate (no operation data).
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">500 Internal Server Error</div>
+                Unknown error.
+            </div>
+
+            <br> 
+            <span class="header-params">RESPONSE FIELDS DESCRIPTION:</span>
+            <hr>
+
+            <p>The response is split into two objects:</p>
+            <ul>
+              <li><i>elements</i>: array of elements (except CHECKBOXES and RADIOS), with:
+                <ul>
+                  <li>main properties: <i>id</i> [string], <i>name</i> [string], <i>label</i> [string] and the 
+                  <i>database field</i> [string]</li>
+                  <li>status: <i>enabled</i> [boolean] and <i>visible</i> [boolean]</li>
+                  <li>value: user's input (*)</li>
+                  <li>validations: an object with all the validation to apply to this field, which may include:</li>
+                  <ul>
+                    <li>max-length [string]</li>
+                    <li>max [string]</li>
+                    <li>min [string]</li>
+                    <li>uppercase [boolean]</li>
+                    <li>required [boolean]</li>
+                    <li>pattern [string]</li>
+                  </ul>
+                </ul>
+              <li><i>groups</i>: array of groups (of CHECKBOXES and RADIOS), with:
+                <ul>
+                  <li>main properties: <i>id</i> [string], <i>name</i> [string], and the 
+                      <i>database field</i> [string]</li>
+                  <li>whether or not it's required to have at least one element selected: 
+                      <i>required</i> [boolean]</li>
+                  <li>status of the group: <i>enabled</i> [boolean] and <i>visible</i> [boolean]</li>
+                  <li>A list of objects indicating the selected elements.
+                  Each of these objects should contain:<i>id</i> [string], <i>name</i> [string], and the 
+                      <i>label</i> [string]</li>
+                </ul>
+            </ul>
+
+
+            <kbd>(*)value:</kbd>
+            <br><br>
+            Each <i>element</i> has a <i>value</i>, which depends on the element's type:
+            <br><br>
+              {% include 'help/api/_values.html' %}
+
+            <br>
+
+
+            <br>
+
+            <span class="header-params">EXAMPLE:</span>
+            <hr>            
+            <h5>Request</h5>
+            <span class="example-request m-2">{server}/rest/api/get_operation_data_val/99</span>
+            
+            <br>
+            <br>
+
+            <h5>Response</h5>
+            <div class="example-response text-monospace m-2 p-2">
+                <pre>
+{
+  "elements": [
+    {
+      "id": "text_0",
+      "value": "sdfsdsfsdfsdfsdf",
+      "name": "",
+      "label": "",
+      "database": "",
+      "type": "TEXT",
+      "enabled": true,
+      "visible": true,
+      "validations": {
+        "max-length": "100",
+        "uppercase": false,
+        "required": true,
+        "pattern": ""
+      }
+    },
+    {
+      "id": "text_1",
+      "value": "",
+      "name": "",
+      "label": "",
+      "database": "",
+      "type": "TEXT",
+      "enabled": true,
+      "visible": true,
+      "validations": {
+        "max-length": "100",
+        "uppercase": false,
+        "required": false,
+        "pattern": ""
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "gp-0",
+      "name": "Group 0",
+      "database": "",
+      "required": true,
+      "selected_elements": [
+        {
+          "name": "",
+          "label": "",
+          "id": "checkbox_0"
+        },
+        {
+          "name": "",
+          "label": "",
+          "id": "checkbox_1"
+        }
+      ],
+      "type": "CHECKBOX",
+      "enabled": true,
+      "visible": true
+    }
+  ],
+  "annexes": []
+}</pre>
+            </div>
+        </div>
+    </div>
+
+</section>

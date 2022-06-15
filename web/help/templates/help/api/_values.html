@@ -1,0 +1,143 @@
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Element Type</th>
+                        <th>Value type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TEXT</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>EMAIL</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>PHONE</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>WEBSITE</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>TEXTBOX</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>NUMBER</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>DROPDOWN</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>CHECKBOX</td>
+                        <td>-</td>
+                        <td>Always null (use <i>selected</i> instead)</td>
+                    </tr>
+                    <tr>
+                        <td>RADIO</td>
+                        <td>-</td>
+                        <td>Always null (use <i>selected</i> instead)</td>
+                    </tr>
+                    <tr>
+                        <td>DATE</td>
+                        <td>string</td>
+                        <td>YYYY-MM-DD</td>
+                    </tr>
+                    <tr>
+                        <td>TIME</td>
+                        <td>string</td>
+                        <td>HH:MM</td>
+                    </tr>
+                    <tr>
+                        <td>PHOTO</td>
+                        <td>string</td>
+                        <td>filename</td>
+                    </tr>
+                    <tr>
+                        <td>BARCODE_TEXT</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>BARCODE_IMAGE</td>
+                        <td>object</td>
+                        <td><pre>{code: string_value, image: string_value}</pre>
+                          <ul>
+                            <li><i>code</i>: [string] containing the barcode numbers</li>
+                            <li><i>image</i>: [filename] path to the barcode picture</li>
+                          </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>GPS_TEXT</td>
+                        <td>object</td>
+                        <td><pre>{lat: decimal, lng: decimal}</pre>
+                          <ul>
+                            <li><i>lat</i>: [decimal] latitude</li>
+                            <li><i>lng</i>: [decimal] longitude</li>
+                          </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>GPS_MAP</td>
+                        <td>object</td>
+                        <td><pre>{lat: decimal, lng: decimal}</pre>
+                          <ul>
+                            <li><i>lat</i>: [decimal] latitude</li>
+                            <li><i>lng</i>: [decimal] longitude</li>
+                          </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SIGNATURE</td>
+                        <td>string</td>
+                        <td>filename</td>
+                    </tr>
+                    <tr>
+                        <td>DRAWING</td>
+                        <td>string</td>
+                        <td>filename</td>
+                    </tr>
+                    <tr>
+                        <td>USERIMAGE</td>
+                        <td>string</td>
+                        <td>filename</td>
+                    </tr>
+                    <tr>
+                        <td>TABLE</td>
+                        <td>object</td>
+                        <td>
+                            <pre>{
+    row_x_col_y: value,
+    ...
+}</pre>
+                            Example:
+                            <pre>{
+    row_0_col_0: 10,
+    row_0_col_1: 20,
+    row_1_col_0: 40,
+    row_1_col_1: 60,
+}</pre>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>FOODEX</td>
+                        <td>string</td>
+                        <td>-</td>
+                    </tr>                                       
+                </tbody>
+            </table>

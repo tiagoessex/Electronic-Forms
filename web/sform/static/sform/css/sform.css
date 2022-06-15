@@ -1,0 +1,288 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+  }
+
+
+
+/* ------ */
+/* TABLES */
+/* ------ */
+/* highlight rows when mouse hovers */
+table.table-hover tbody tr:hover {
+  background-color: #FFBEBE;
+}
+
+.scroll-table {
+  position: relative;
+  max-height: 500px;
+  overflow: auto;
+}
+
+
+/* ------------------ */
+/* SCREENS MAIN TITLE */
+/* ------------------ */
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  letter-spacing: 2px;
+  word-spacing: -0.2px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: rgb(68, 68, 68);
+  font-style: italic;
+  font-variant: small-caps;
+  text-transform: none;
+}
+
+
+
+
+
+
+/* ------------------- */
+/* MAIN SCREEN BUTTONS */
+/* ------------------- */
+.square-icons .button {
+  float: right;
+  line-height: 40px;
+  /*color: #fff;*/
+  color: #000;
+  
+  height: 100%;
+  width: 100%;
+  
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border: 3px solid #e0e0e0;
+
+  box-shadow: 4px 3px 8px 1px #969696;
+  -webkit-box-shadow: 4px 3px 8px 1px #969696;  
+  /*
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+  */
+  background-color: #F0FFFF;
+
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;  
+}
+
+.square-icons .button > span {
+  text-align: center;
+  text-transform: uppercase;
+ /* color: #fff;*/
+ color: #000;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.square-icons .button:hover {
+  color: #fff;
+  /*background: #cb2027;
+  border: 1px solid #cb2027;*/
+  background: #b22222;
+  border: 1px solid #b22222;
+
+  text-decoration: none;
+
+  box-shadow: none;
+  -webkit-box-shadow: none;  
+
+  transform: scale(1.05);
+}
+
+.square-icons .button:active {
+  transform: scale(0.95);
+}
+
+.square-icons .button:hover > span {
+  color: #fff;
+}
+
+/* ---------------- */
+/*  GENERAL BUTTONS */
+/* ---------------- */
+/* currently in use in _operation_details.html | _manager.html | _transfer.html | TransferCard.js */
+
+.anim-btn {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.anim-btn:hover {
+  transform: scale(1.1);
+}
+
+.anim-btn:active {
+  transform: scale(0.9);
+}
+
+/* --------- */
+/* VIEWS TAB */
+/* --------- */
+/* views selection tabs */
+
+.views > .nav-tabs .nav-link {
+  background:#272e38;
+  color: white;
+  border: #000000;
+  border-width: 2px;
+}
+
+.views > .nav-tabs .nav-link.active {
+  font-weight:bold;
+  background: #e74c3c;
+  color: white;
+  /*border-bottom:3px solid #dd0000;  
+  border-right: none;
+  border-left: none;
+  border-top: none;*/
+}
+/*
+nav .views  > div a.nav-item.nav-link:hover,
+nav .views > div a.nav-item.nav-link:focus
+{
+  border: none;
+    background: #e74c3c;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
+*/
+
+
+
+
+
+/* ----------------------- */
+/* ---- BARCODE MODAL ---- */
+/* ----------------------- */ 
+ 
+#interactive.viewport {
+  position: relative;
+}
+
+#interactive.viewport > canvas, #interactive.viewport > video {
+  max-width: 100%;
+  width: 100%;
+}
+
+canvas.drawing, canvas.drawingBuffer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+ 
+@media (max-width: 603px) {
+    .reader-config-group {
+      width: 100%;
+    }
+    .reader-config-group label > span {
+        width: 50%;
+    }
+    .reader-config-group label > select, .reader-config-group label > input {
+        max-width: calc(50% - 2px);
+    }
+    #interactive.viewport {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
+}
+
+
+
+/* ------------------------ */
+/* ---- TRANSFER MODAL ---- */
+/* ------------------------ */ 
+
+
+.borderless td, .borderless th {
+  border: none;
+}
+
+
+
+/* ----------------------- */
+/* ---- SIGNING MODAL ---- */
+/* ----------------------- */ 
+
+
+.signature-location-page {
+	height: 297px;
+	width: 210px;
+	background-color: cyan;
+	position: relative;
+	border: 2px solid black;
+}
+
+.signature-location {
+	height: 30px;
+	width: 58px;
+	background-color: yellow;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border: 1px dashed gray;
+  z-index: 50;  /* têm que ser superior ao do signature-location-done */
+}
+
+.signature-location-done {
+	height: 30px;
+	width: 58px;
+	background-color: rgb(2, 206, 94);
+	position: absolute;
+	top: 0px;
+	left: 0px;  
+	border: 1px dashed gray;
+  color: white;
+  z-index: 40;  /* têm que ser inferior ao do signature-location */
+}
+
+.signature-status-color {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* ---------------------- */
+/* ---- FOODEX MODAL ---- */
+/* ---------------------- */ 
+	  
+.foodex-cols {
+  overflow: auto;  
+  max-height: 70vh;
+}
+
+
+.foodex-div-search-results {
+  border: solid 1px; 
+  width: 100%;
+  min-height: 70%;
+  height: 70%;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.foodex-search-result {
+  cursor: default;
+  color: blue;
+}
+
+.foodex-search-result:hover {
+  background-color: gray;
+  color: white !important;
+}
+
+.foodex-search-result-selected {
+  background-color: red !important; /* important => show this when selected and hover */
+  color: white !important;
+}

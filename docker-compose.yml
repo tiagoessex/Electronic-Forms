@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+  db:
+    container_name: idrisk_mariadb
+    image: mariadb:10.5.1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "pass2022"      
+    ports:
+      - "3307:3306"
+    expose:
+      - "3307"
+    command: --sql_mode=""
+    command: --max_allowed_packet=64M
+    command: --innodb_log_file_size=64M
+    command: --lower_case_table_names=1    
+    volumes:
+      - ./databases/:/docker-entrypoint-initdb.d/
+      - db_data:/var/lib/mysql/ 
+
+      
+  web:
+    container_name: idrisk_web
+    build: .
+    # manage.py collectstatic --noinput already executed  
+    command: sh -c "./wait-for-it.sh db:3306 -t 60 && gunicorn idrisk.wsgi -b 0.0.0.0:8000 --workers=4 --threads=4 --worker-class=gthread"
+    volumes:
+      - ./web:/home/web/
+      - static:/home/web/static
+      - media:/home/web/media
+      #- ./web:/web
+      #- ./web/static:/static
+      #- ./web/media:/media      
+    #ports:
+    #  - "8000:8000"
+    expose:
+      - "8000"      
+    depends_on:
+      - db
+
+
+  workers:
+    container_name: idrisk_workers
+    build: .
+    command: sh -c "./wait-for-it.sh db:3306 -t 60 && python manage.py qcluster"
+    volumes:
+      - ./web:/home/web/  
+    depends_on:
+      - web
+
+
+  nginx:
+    image: nginx
+    container_name: idrisk_nginx  
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./web:/home/web/
+      - static:/home/web/static
+      - media:/home/web/media
+    depends_on:
+      - web
+
+
+volumes:
+  db_data:
+  static:
+  media:
+

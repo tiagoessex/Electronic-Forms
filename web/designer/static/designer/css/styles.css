@@ -1,0 +1,537 @@
+/* ------- */
+/* GLOBALS */
+/* ------- */
+:root {
+  --left-sidebar-width: 250px;
+  --right-sidebar-width: 300px;
+  --sidebar-back-color: rgb(108, 117, 125);
+}
+
+/* Used to indicate that something is empty. Ex: groups without elements. */
+.is-empty {
+  background-color: #ff4500;
+  color: white;
+}
+
+.is-ok {
+  background-color: #98fb98;
+  color: black;
+}
+
+/* Links have no disabled attribute, but adding to it, it will not complain. */
+a[disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* to prevent the mouse in selecting text and other stuff when in selection marquee */
+*.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+/*
+  Introduced in IE 10.
+  See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+*/
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ------------------ */
+/*  THE ENCLOSURE     */
+/* ------------------ */
+
+/* required for the content adapt to the sidebars visibility */
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+/* -------- */
+/* SIDEBARS */
+/* -------- */
+
+#wrapper.left-toggled {
+  padding-left: var(--left-sidebar-width);
+}
+
+#wrapper.right-toggled {
+  padding-right: var(--right-sidebar-width);
+}
+
+#left-sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: var(--left-sidebar-width);
+  width: 0;
+  height: 95%;  /* 100 */
+  margin-left: calc(-1 * var(--left-sidebar-width));
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color:  var(--sidebar-back-color);
+}
+
+#right-sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  right: var(--right-sidebar-width);
+  width: 0;
+  height: 95%;  /* 100 */
+  margin-right: calc(-1 * var(--right-sidebar-width));
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color:  var(--sidebar-back-color);
+}
+
+#wrapper.left-toggled #left-sidebar-wrapper {
+  width: var(--left-sidebar-width);
+}
+
+#wrapper.right-toggled #right-sidebar-wrapper {
+  width: var(--right-sidebar-width);
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+#wrapper.left-toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: calc(-1 * var(--left-sidebar-width));
+}
+
+#wrapper.right-toggled #page-content-wrapper {
+  position: absolute;
+}
+
+
+@media(min-width:768px) {
+  #wrapper {
+      padding-left: var(--left-sidebar-width);
+      padding-right: var(--right-sidebar-width);
+  }
+
+  #wrapper.left-toggled {
+      padding-left: 0;
+  }
+
+  #wrapper.right-toggled {
+      padding-right: 0;
+  }
+
+  #left-sidebar-wrapper {
+      width: var(--left-sidebar-width);
+  }
+
+  #right-sidebar-wrapper {
+      width: var(--right-sidebar-width);
+  }
+
+  #wrapper.left-toggled #left-sidebar-wrapper {
+      width: 0;
+  }
+
+  #wrapper.right-toggled #right-sidebar-wrapper {
+      width: 0;
+  }
+
+  #page-content-wrapper {
+      /*padding: 20px;*/
+      padding: 0px;
+      position: relative;
+  }
+
+  #wrapper.left-toggled #page-content-wrapper {
+      position: relative;
+      margin-right: 0;
+  }
+
+  #wrapper.right-toggled #page-content-wrapper {
+      position: relative;
+      margin-left: 0;
+  }
+}
+
+/* --------------- */
+/* SIDEBAR BUTTONS */
+/* --------------- */
+
+/* Toggle Buttons */
+
+.toggle-button-left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;  
+}
+
+.toggle-button-right {
+  position: absolute;
+  top: 0px;
+  right: 0px; 
+}
+
+#left-menu-toggle{
+  color:white;
+  /*transform: rotate(90deg);*/
+  background: rgb(52, 58, 64);
+  /*height: 52px !important;*/
+  height: 100px;
+}
+
+#right-menu-toggle{
+  color:white;
+/*  transform: rotate(90deg);*/
+  background: rgb(52, 58, 64);
+  height: 100px;
+}
+
+
+
+.toggle-button-left2 {
+  position: absolute;
+  /*top: 30px;*/
+  top: calc( 100vh - 150px );
+  left: -35.75px;
+  width: 100%;
+}
+
+.toggle-button-right2 {
+  position: absolute;
+  /*top: 30px;*/
+  top: calc( 100vh - 150px );
+  right: -40.75px; 
+}
+
+
+/* --------------------- */
+/* --------------------- */
+
+
+/* scroll page inside tab */
+/*.form-view-tab {*/
+  #form-tab {   
+    height: calc( 100vh - 200px );
+    overflow-y:auto;
+    overflow-x:auto; 
+    /*width: 100%;*/
+   /* justify-content: center !important;*/
+ /*   white-space: nowrap; */
+  }
+
+
+  #form-pages {
+    transform-origin: top left;
+    -o-transform-origin:top left;
+    -moz-transform-origin:top left;
+    transform-origin: top left;
+  }
+  
+  .list-view-tab {
+    height:calc( 100vh - 200px );
+    overflow-y:auto;
+    overflow-x:auto;
+/*   white-space: nowrap; */
+  }
+
+  .groups-view-tab {
+    /*height:85vh;*/
+    height:calc( 100vh - 200px );
+    overflow-y:auto;
+    overflow-x:auto;
+/*   white-space: nowrap; */
+  }
+  
+  .ea-view-tab {
+    height:calc( 100vh - 200px );
+    overflow-y:auto;
+    overflow-x:auto;
+/*   white-space: nowrap; */
+  }
+
+  body {
+    padding-top: 40px;  /* if nav-bar fixed top */
+    /*overflow:hidden;*/  /* no windows scrolling ... otherwise, it woudl required to fix the navbar */
+  /*  padding-bottom: calc( 100vh - 100px );*/
+  }
+
+  
+
+a.disabled{
+  pointer-events:none;
+  text-decoration:line-through !important;
+}
+
+  
+  /* --------- */
+  /* list view */
+  /* --------- */
+  
+  .lv-gp-item {
+    background-color: #CCFFFF;
+  }
+
+  /* --------- */
+  /* form view */
+  /* --------- */
+
+  /* all elements positions are absolute in the page */
+  .pagePos {
+    position:absolute;
+  }
+
+  #marquee {
+    border: 1px dotted #000;
+    position: absolute;
+    z-index: 999999;
+  }
+
+
+/* ---------------------- */
+/* PAGES MANAGEMENT MODAL */
+/* ---------------------- */
+
+/*#PM-sortable div { margin: 3px 3px 3px 0; padding: 1px;    }*/
+
+
+.pm-item:hover {
+border-style:dotted;
+color:green;
+}
+
+.pm-item.active {
+border-style:dotted;
+color:red;
+}
+
+.pm-item {float: left; text-align: center; width:120px;height:130px; background:white}
+
+
+
+/* --------------- */
+/* CollapsibleCard */
+/* --------------- */
+
+
+.card-header .fa {
+  transition: .3s transform ease-in-out;
+}
+.card-header .collapsed .fa {
+  transform: rotate(90deg); 
+}
+
+
+/* -------------- */
+/* ELEMENT LOCKED */
+/* -------------- */
+
+/* sync with elements/constants.js */
+
+.element-locked {
+    outline: thick solid #ff363663 !important;
+  /*  outline-offset: 1px;*/
+}
+
+
+
+
+/* ------------------ */
+/* REPEATABLE ELEMENT */
+/* ------------------ */
+
+/* sync with elements/constants.js */
+
+.element-repeatable {
+   outline: thick solid #00ff4063 !important;
+  /* outline-offset: 1px;*/
+ }
+ /*
+.element-repeatable:hover,
+.element-repeatable:focus {
+  outline: thick solid #00ff4063 !important;
+  background-color: #00ff4063 !important;
+}
+*/
+
+.element-repeatable.element-locked {
+  outline: thick solid #1100ff !important;
+ /* outline-offset: 1px;*/
+}
+
+
+/* ---------------- */
+/* DISABLED ELEMENT */
+/* ---------------- */
+
+.element-disabled {
+  background-color: rgb(175, 175, 175) !important;
+}
+
+
+
+
+/* --------------- */
+/* CROSSED ELEMENT */
+/* --------------- */
+  
+.element-crossed {
+  overflow: hidden !important; /*hide overflow of pseudo elements*/
+}
+
+.element-crossed:before, .element-crossed:after {
+  position: absolute !important;
+  content: '' !important;
+  background: red !important;
+  display: block !important;
+  width: 100% !important;
+  height: 5px !important; /* cross width */ 
+  -webkit-transform: rotate(-45deg) !important;
+  transform: rotate(-45deg) !important;
+  /* center the X vertically and horizontally */
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  margin: auto !important;
+}
+
+.element-crossed:after {
+  -webkit-transform: rotate(45deg) !important;    
+  transform: rotate(45deg) !important;
+}
+
+
+
+/* ---- */
+/* GRID */
+/*----- */
+
+.page-grid {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0.25;
+}
+
+
+/* -------- */
+/*  E/A     */
+/* -------- */
+
+/* cards headers colors */
+
+.ea-append {
+  background-color: #98fb98;
+  color: black;
+}
+.ea-temporal {
+  background-color: #ace1af;
+  color: black;
+}
+.ea-format {
+  background-color: #90ee90;
+  color: black;
+}
+.ea-selection {
+  background-color: #76ff7a;
+  color: black;
+}
+.ea-visibility {
+  background-color: #c5e384;
+  color: black;
+}
+.ea-status {
+  background-color: #8fbc8f;
+  color: black;
+}
+.ea-dbquery {
+  background-color: #b2ec5d;
+  color: black;
+}
+.ea-tablequery {
+  background-color: #e9ffdb;
+  color: black;
+}
+.ea-required {
+  background-color: #3eff78;
+  color: black;
+}
+
+
+/* ------- */
+/* TABLES  */
+/* ------- */
+
+table.tight-table td{
+  padding:2px !important;
+}
+
+.selected-row {
+  background-color: #f5c4c4;
+}
+
+/* -------------- */
+/* ANIMATIONS     */
+/* -------------- */
+
+.pulsate-opacity {
+  -webkit-animation: pulsate-opacity 2s ease-out;
+  -webkit-animation-iteration-count: infinite; 
+  opacity: 0.5;
+}
+@-webkit-keyframes pulsate-opacity {
+  0% { 
+      opacity: 0.5;
+  }
+  50% { 
+      opacity: 1.0;
+  }
+  100% { 
+      opacity: 0.5;
+  }
+}
+
+
+/* -------------- */
+/* TABLE ELEMENT     */
+/* -------------- */
+
+.table-element {
+  width: 100%; 
+  height: 100%;
+  border:1px solid black;
+  font-size: 16;
+}
+
+.table-element th,
+.table-element td {
+  border:1px solid black;
+  font-size: 16;
+}
+
+/* parent must have position: relative */
+.center-all {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+

@@ -1,0 +1,84 @@
+
+{% extends "auth_base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Sign Up" %}{% endblock %}
+
+
+{% block content %}
+
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+  <div class="text-center mb-3">
+    <h3>{% trans 'SIGN UP' %}</h3>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="csrfmiddlewaretoken" value="pJeMiBP6fGXIVqnzp3l36ZcORZFoDMi3vcrEjswaOdE1LgxiSyluh5BynO9JtCSB">
+    
+    <div class="input-group has-feedback mb-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+      </div>
+      <input type="text" name="username" class="form-control" maxlength="150" autocapitalize="none" 
+              autocomplete="username" autofocus required id="id_username" placeholder="{% trans 'Username' %}">   
+    </div>
+
+    {% if form.username.errors %}
+      {% for error in form.username.errors %}
+        <div class="alert alert-danger mt-1">
+          {{ error }}
+        </div>
+      {% endfor %}
+    {% endif %}         
+
+        <div class="input-group has-feedback mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon2"><i class="fas fa-lock"></i></span>
+            </div>
+            <input type="password" name="password1" autocomplete="new-password" id="id_password1" class="form-control"
+                   placeholder="{% trans 'New password' %}" required >  
+        </div>
+
+            {% if form.password1.errors %}
+                {% for error in form.password1.errors %}
+                    <div class="alert alert-danger mt-1">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+            {% endif %}          
+
+        <div class="input-group has-feedback mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3"><i class="fas fa-lock"></i></span>
+            </div>
+            <input type="password" name="password2" autocomplete="new-password" id="id_password2"
+            class="form-control" placeholder="{% trans 'Confirm password' %}" required > 
+        </div>
+
+            {% if form.password2.errors %}
+                {% for error in form.password2.errors %}
+                    <div class="alert alert-danger mt-1">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+            {% endif %}            
+
+    <div class="row">
+      <div class="col text-center">
+        <button type="submit" class="btn btn-primary btn-block">{% trans 'Sign up' %}</button>
+      </div>
+    </div>
+
+  </form>
+
+
+{% endblock %}

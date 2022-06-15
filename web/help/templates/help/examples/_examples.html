@@ -1,0 +1,964 @@
+{% load static %}
+
+<section class="contents" id="contents">
+	<h2>Contents</h2>
+	<ul style="list-style: none;">
+		<li class="level-1"><a href="#example-1">Example #1: Using an existing Form</a></li>
+		<li class="level-1"><a href="#example-2">Example #2: Creating a new Form from scratch</a></li>
+
+
+		<li class="level-1"><a href="#example-3">Example #3: Full Example</a></li>
+		<ul style="list-style: none;">
+			<li class="level-2"><a href="#example-3-goal">Objective</a></li>
+			<li class="level-2"><a href="#example-3-assets">Tables and Database</a></li>
+			<li class="level-2"><a href="#example-3-login">Login</a></li>
+			<li class="level-2"><a href="#example-3-designer">The Designer</a></li>			
+			<ul style="list-style: none;">			
+				<li class="level-3"><a href="#example-3-Naming">Naming the Form</a></li>				
+				<li class="level-3"><a href="#example-3-recomendations">Recomendations</a></li>				
+				<li class="level-3"><a href="#example-3-elements">Creating the Elements</a></li>
+				<ul style="list-style: none;">
+					<li class="level-4"><a href="#example-3-Header">The Header</a></li>
+					<li class="level-4"><a href="#example-3-Footer">The Footer</a></li>
+					<li class="level-4"><a href="#example-3-Page1">Page #1</a></li>
+					<li class="level-4"><a href="#example-3-Page2">Page #2</a></li>
+					<li class="level-4"><a href="#example-3-Page3">Page #3</a></li>
+				</ul>
+				<li class="level-3"><a href="#example-3-groups">Setting up the Groups</a></li>
+				<li class="level-3"><a href="#example-3-sections">Setting up the Sections</a></li>				
+				<li class="level-3"><a href="#example-3-actions">Setting up Events/Actions</a></li>
+			</ul>
+			<li class="level-2"><a href="#example-3-formsmanager">Forms manager</a></li>
+			<li class="level-2"><a href="#example-3-app">Using the Form in an Operation - using the App</a></li>
+			<li class="level-2"><a href="#example-3-print">Print / Pdf</a></li>
+
+		</ul>
+
+	</ul>
+</section>
+
+
+<br/>
+<br/>
+
+
+<section id="example-1">
+	<h2 class="title">Example #1 - Using an existing Form</h2>
+	<br/>
+	
+	<p>If a form already exists, either in paper or in some electronic format, it&rsquo;s possible to save time and prevent unnecessary work, by using the existing form as a background image, and setting up only the editables elements.</p>
+	
+	<p>Consider the following form:</p>
+	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6"> <img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/designer_html_d9011a4b2e527462.png' %}" name="Image29" /> </div>
+	</div>
+	<br/>
+
+	<p>By using it as a background image and adding the editables we can quickly have a form ready to be used.</p>
+	
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<video controls src="{% static '/help/video/example_01.mp4' %}" width="100%">
+				<div class="alert alert-danger" role="alert"> Sorry, your browser doesn't support embedded videos. </div>
+			</video>
+		</div>
+	</div>
+
+	<br/>
+	<br/>
+
+
+</section>
+
+
+<section id="example-2">
+
+	<h2 class="title">Example #2 - Creating a new Form from scratch</h2>
+	<br/>
+
+	<p>Goal:</p>
+
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6"> <img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/form_01.png' %}" name="Image29" /> </div>
+	</div>
+	<br/>
+
+	<p>Analysis - Static Elements:</p>
+
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10"> <img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/form_02.png' %}" name="Image29" /> </div>
+	</div>
+	<br/>
+
+	<p>Analysis - Editable Elements:</p>
+
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10"> <img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/form_03.png' %}" name="Image29" /> </div>
+	</div>
+	<br/>
+
+	<p><kbd>Construction</kbd></p>
+	<p>First the <i>Static Elements</i>, where we will use the form in the background to help in putting all elements in the right place (at the end, the background image will be removed).</p>
+	
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<video controls src="{% static '/help/video/form_01.mp4' %}" width="100%">
+				<div class="alert alert-danger" role="alert"> Sorry, your browser doesn't support embedded videos. </div>
+			</video>
+		</div>
+	</div>
+	<br/>
+
+	<p>Now the <i>Editable Elements</i> and also adding the checkboxes and radios into groups. Using preview to keep checking if everything is ok.</p>
+	
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<video controls src="{% static '/help/video/form_02.mp4' %}" width="100%">
+				<div class="alert alert-danger" role="alert"> Sorry, your browser doesn't support embedded videos. </div>
+			</video>
+		</div>
+	</div>
+
+
+	<br/>
+	<br/>
+
+</section>
+
+
+<section id="example-3">
+	<h2 class="title">Example #3: Full Example</h2>
+	<br/>
+
+	<p>In this example, we will go through all main features of the designer, including 
+	its Events/Actions system.
+	Once the form is finished, we will <i>"publish"</i> the form, so it can be used by the agents / inspectors
+	in their operations.</p>
+
+	<br/>
+
+	<h3 class="title" id="example-3-goal">Objective</h3>
+	<br/>
+
+	<p>A simple two page form, with the following sections and elements:</p>
+
+	<img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/example_3_01.png' %}" name="Image5"/>
+	<br/>
+	<br/>
+
+
+	<h3 class="title" id="example-3-assets">Tables and Database</h3>
+	<br/>
+
+	<p>We will be using one simple table (comma separated <i>CSV</i> file), containing informations about the inspectors.
+	The top line should be the header, which identifies each column:</p>
+	<pre>
+ID,Name,Address,Telephone,Email
+1000,John Doe,23 Glendale Ave,+1 229-370-2722,EQFKG8N9BHJG@email.com
+2000,Jane Doe,1051 Northview St,+1 582-222-5935,2YVJ6W27Y7WO@emai.com
+3000,Monsieur Untel,505 E Grant St #A,+1 412-706-6431,6ESUUDXKXJOX@emai.com
+4000,Madame Unetelle,333 Groton St,+1 202-812-3949,7N511GNA17VF@emai.com
+5000,Ivan Horvat ,22821 Ann Miller Rd,+1 505-399-3549,6ZFMXY56L656@emai.com
+6000,Ivana Horvat ,9099 Waters Edge,+1 210-472-6043,W4M48FE70K1O@emai.com
+7000,Erika Mustermann ,1811 W Cheltenham Ave,+1 582-444-4325,MBB77U2Q44L2@emai.com
+8000,Lieschen Müller ,301 NE 174th St #611,+1 513-219-2333,IXYE63S4DQD6@emai.com
+9000,Nguy?n V?n A ,6387 Dustin Rd,+1 458-477-9497,QMP4LFAVJ9MH@emai.com
+10000,Nguy?n Th? B ,114 Myrtle Ave #B4,+1 614-630-2364,HQ1H6DX6JN8Y@emai.com
+11000,Jan Jansen ,1395 Zion Ridge Rd,+1 223-289-9765,AUCOU7PPKXR0@emai.com
+12000,Maija Meikäläinen ,89911 52nd St,+1 517-940-5628,K9B60LZJ38UX@emai.com
+</pre>
+
+	<p>Download the file <a href="{% static '/help/tables/table_example.csv' %}">here</a>.</p>
+
+	<br/>
+
+	<p>We will be using the database <i>world</i> which includes some data about world and its countries, and 
+	also about some random people.
+	It's composed by four tables:</p>
+	<div class="row ml-4">
+		<dt class="col-2">people</dt>
+        <dd class="col-10">Provides informations about people, like name, address, discal number, contacts, and so on</dd>
+        <dt class="col-2">country</dt>
+        <dd class="col-10">Provides the countries code, name, continent, surface area, and so on</dd>
+		<dt class="col-2">city</dt>
+        <dd class="col-10">Provides data about several cities, like its population</dd>
+		<dt class="col-2">countrylanguage</dt>
+        <dd class="col-10">It specifies the languages spoken in certain countries, and also an indication if they are an official language</dd>
+    </div>
+
+	<br/>
+	
+	<img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/example_3_02.png' %}" name="Image5"/>
+
+	<br/>
+	<p>We will also use a database query to set an Event/Action.
+	For security reasons, only an administrator can create a query in the database:</p>
+<pre>SELECT $name$, $address$, $telephone$, $email$ FROM people WHERE fiscal_number = #fiscal#
+</pre>
+
+	<br/>
+	<br/>
+
+
+	<h3 class="title" id="example-3-login">Login</h3>
+	<br/>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_01.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+
+	<h3 class="title" id="example-3-designer">The Designer</h3>
+	<br/>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_02.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+
+	<h4 class="title" id="example-3-Naming">Naming the Form</h4>
+	<br/>
+
+		<p>By default, the system will provide a random sequence of characters for the name.
+		While the form is <i>Editable</i>, the user can change  
+		its name and/or its description at any time.</p>
+
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_03.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+
+		<br/>
+		<br/>
+
+	<h4 class="title" id="example-3-recomendations">Recomendations</h4>
+	<br/>
+
+	<p><i>Preview</i> is your best friend when creating a form.
+	Check it periodically to verify if the elements, sections, groups and so on 
+	are in the correct position and working as expected.</p>
+
+	<p>Activate and set the <i>Auto-Save</i> or make sure 
+	to periodically <i>Save</i> the form.
+	Another reason to use <i>Preview</i>, is that everytime you use it the form is automatically saved.</p>
+
+	<br/>
+	<br/>
+
+
+	<h4 class="title" id="example-3-elements">Creating the Elements</h4>
+	<br/>
+
+	<h5 class="title" id="example-3-Header">The Header</h5>
+	<br/>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_04.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+	<h5 class="title" id="example-3-Footer">The Footer</h5>
+	<br/>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_05.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>	
+
+	<h5 class="title" id="example-3-Page1">Page #1</h5>
+	<br/>
+
+		<kbd>Subheader</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_06.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+
+		<p>Remarks:</p>
+		<ul>
+			<li>In the List View, the <i>Text/Label</i> property has precedence to <i>Name</i> property.</li>
+			<li>The <i>z-index</i> property is an extremely important and yet many times forgotten property.
+			This property allows to bring elements to the front or back (the higher the number the forward the 
+			element is).
+			In the current form, we use <i>Boxes</i> elements as a way to visually separate the different sections.
+			These <i>Boxes</i> require a <i>z-index</i> lower than the elements inside them, otherwise, it would be 
+			impossible to interact with these elements with the mouse</li>
+		</ul>
+
+		<br/>
+		<br/>
+
+
+		<kbd>Personal Info</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_07.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+		<kbd>Target Info</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_08.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+
+		<p>Remarks:</p>
+		<ul>
+			<li>Avoid creating lists with too many items. It may work relatively well in a desktop computer, 
+			but it can cause slowdowns, both globally as well in presenting the list 
+			or even worst problems in mobile devices.</li>
+			<li>In rate occasions, an the position of an element in the designer and in the preview mismatch.
+			When that occurs, just move the element a little and put it in place.</i>
+			<li>Automatically fetching the coordinates is only possible in a <i>secure context</i>.
+			If an error occurs contact the system administrator.
+			A <i>secure context</i> is only achieved when certain minimum standards of authentication 
+			and confidentiality are met:
+			<ul>
+				<li>must be served over https:// or wss:// URLs</li>
+				<li>the security properties of the network channel used to deliver 
+				the resource must not be considered deprecated</li>
+			</ul>
+		</ul>
+
+		<br/>
+		<br/>
+
+
+
+	<h5 class="title" id="example-3-Page2">Page #2</h5>
+	<br/>
+
+		<kbd>Drawing</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_09.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+
+		<kbd>Sample</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_10.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>		
+
+		<kbd>Signatures</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_11.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>	
+
+
+	<h5 class="title" id="example-3-Page3">Page #3</h5>
+	<br/>
+
+		<kbd>Extras</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_12.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+
+
+		<p>Remarks:</p>
+		<ul>
+			<li>As with the <i>Continent</i> example, if the options presented by checkboxes, radios and 
+			dropdowns are present in a database, it's to allow the program to fetch that data, 
+			so it can automatically create and setup all the necessary elements and options.</li>
+		</ul>
+
+		<br/>
+		<br/>
+
+	<h4 class="title" id="example-3-groups">Setting up the Groups</h4>
+	<br/>
+
+
+
+
+	<div class="row">
+		<div class="col-md-6">
+      <img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/example_3_03.png' %}" name="Image18" />
+		</div>
+		<div class="col-md-6">
+      <img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/example_3_04.png' %}" name="Image17" />
+		</div>
+	</div>
+
+  	<br/>
+	<p>Six <i>Groups</i>:</p>
+	<ul>
+		<li>Drawing</li>
+		<li>Toxicity</li>
+		<li>Container?</li>
+		<li>Container</li>
+		<li>Signatures</li>
+		<li>Continent</li>
+	</ul>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_13.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>	
+
+		<p>Remarks:</p>
+		<ul>
+			<li>Checkboxes and radios are required to be placed inside a group, since otherwise, they will remain 
+					in the <i>default</i> group.
+					The problem with the <i>default</i> group, is that in the <i>List View</i>, all these elements appear 
+					in the same "box".</li>
+			<li>Since the element in the <i>Continent</i> group were created directly from the database, the group 
+						was automatically created.
+						All it's missing is setting its name.</li>
+			<li>Instead of individually selecting the individual elements in their respective group, 
+			the quicker way is to create the groups and then in the <i>Form View</i> select all 
+			elements of a group and set their respective group in the properties in one go.
+			</li>
+			<li><i>Lock</i> the box to multi-select elements inside the box.</li>
+		</ul>
+
+		<br/>
+		<p><b>Note:</b> In the video, on the first preview, the default names (Group-0, ...) appear instead 
+		of the ones we introduzed.
+		This was a bug, which was solved since then, as we can observe during the last seconds of the video, 
+		on the second preview.</p>
+
+
+
+		<br/>
+		<br/>
+
+	<h4 class="title" id="example-3-sections">Setting up the Sections</h4>
+	<br/>
+
+  	<br/>
+	<p>Once the groups have being set, we need to set how the different elements will appear in the <i>List View</i>.
+	We have to decide in which order they will apear and whether we will group them into related sections.</p>
+	<p>We can group elements into seven distinct <i>Sections</i>:</p>
+	<ul>
+		<li>Subheader</li>
+		<li>Personal Info</li>
+		<li>Target Info</li>
+		<li>Drawing</li>
+		<li>Sample</li>
+		<li>Signatures</li>
+		<li>Extras</li>
+	</ul>
+
+	<p>Since the Designer's <i>List View</i> only presents either the <i>Name</i> of the element or its <i>ID</i>,
+	there can be situation where same name eleemnts can cause confusion.
+	In this example we have at least four elements that have common names, both in the Personal and in the 
+	Target sections: name, address, phone, email.:</p>
+
+	<br/>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6"> <img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/example_3_05.png' %}" name="Image29" /> </div>
+	</div>
+	<br/>
+
+	<p>To differentiate between them, we will add the prefixes Personal and Target to each of them accordindly:</p>
+		
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_14.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>	
+
+	<p>We end up with:</p>
+	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6"> <img class="img-fluid mx-auto d-block" src="{% static '/help/images/examples/example_3_06.png' %}" name="Image29" /> </div>
+	</div>
+	<br/>
+
+	</p>Let's now create the sections, include their respective elements and order them:</p>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_15.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+
+	</p>When using the <i>List View</i> to fill the form, the user may need more info, other than just the 
+	<i>Name</i> of the element.
+	For that, the <i>Label/Text</i> property should be used, since it has precendence over the <i>Name</i> property:</p>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_16.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+
+
+		<p>Remarks:</p>
+		<ul>
+			<li>Instead of individually dragging the elements to their respective section, 
+			the quicker way is to create the sections and then in the <i>Form View</i> select all 
+			elements of a section and set their respective section in the properties in one go.			
+			Then all it's necessary is to order them.</li>
+			<li><i>Checkboxes</i> and <i>Radios</i> groups require to be dragged to their respective sections.</li>
+			<li>Since the headers and footer have no editable or user interactable elements, they don't 
+			appear in the <i>List View</i> and therefore cannot be included in any section.</li>
+			<li>It's always better to waste some time giving proper names to each element, to prevent confusion
+			later on - <i>only editable / interactable elements can be placed in a section</i>.</li>
+			<li>Use the <i>Name</i> property for identifying the different elements in the Designer 
+			and use the <i>Label/Text</i> to set what will be presented to the end user in the <i>List View</i>.</li>
+		</ul>
+
+		<br/>
+		<br/>
+
+	<h4 class="title" id="example-3-actions">Setting up the Events/Actions</h4>
+	<br/>
+	
+		<p>We will define the following E/As:</p>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+			<th scope="col">#</th>
+			<th scope="col">Event</th>
+			<th scope="col">Action Class</th>
+			<th scope="col">Action Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Insert <b>Personal ID</b></td>
+				<td>Table Query</td>
+				<td>Retrieve the personal <i>Name</i>, <i>Address</i>, <i>Telephone</i> and <i>Email</i></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Insert <b>Target Fiscal Number</b></td>
+				<td>Database Query</td>
+				<td>Retrieve the Target <i>Name</i>, <i>Address</i>, <i>Telephone</i> and <i>Email</i></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Check / Uncheck <b>Drawing?</b> checkbox</td>
+				<td>Status</td>
+				<td>Enable / Disable <i>Drawing Description</i> and <i>Drawing Area</i> (*)</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Check / Uncheck <b>Container?</b> checkbox</td>
+				<td>Status</td>
+				<td>Enable / Disable <i>Container Group</i> (*)</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>Check / Uncheck <b>Other</b> radio of the Container Group</td>
+				<td>Status</td>
+				<td>Enable / Disable <i>Container Other</i> (*)</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>Check / Uncheck <b>Other</b> radio of the Container Group</td>
+				<td>Required</td>
+				<td>Required / Not Required <i>Container Other</i> (***)</td>
+			</tr>			
+			<tr>
+				<td>7</td>
+				<td>Check / Uncheck <b>Signature #2?</b></td>
+				<td>Visibility</td>
+				<td>Show / Hide <i>Signature #2</i> (**)</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>Check / Uncheck <b>Signature #3?</b></td>
+				<td>Status</td>
+				<td>Cross / Uncross <i>Signature #3</i></td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>Fill <b>First Name</b> and <b>Last Name</b></td>
+				<td>Append</td>
+				<td><i>Full Name</i> = <b>First Name</b> #-# <b>Last Name</b></td>
+			</tr>			
+		</tbody>
+		</table>
+		
+		<br/>
+
+		<p>Notes:</p>
+		<ul>
+			<li>(*) - Disabled by default</li>
+			<li>(**) - Enabled by default</li>
+			<li>(***) - Not required by default</li>
+		</ul>
+
+		<br/>
+
+		<p>Remarks:</p>
+		<ul>
+			<li>Use the <i>Required</i> property of an element or of the Group to set whether a value or selection is 
+			mandatory.</li>
+			<li>Use the <i>Enabled</i> property of an element to set whether the element is enabled by default.</li>
+			<li>Use the <i>Visible</i> property of an element to set whether the element is visible by default.</li>
+			<li>Don't forget to create the reverse E/A, when available.</li>
+			<li>Despite in this example we create the entire form and then set its sections, groups and E/As,
+			it's good pratice to as soon all elements corresponding to a visual section are layed out,
+			to set its section, all its groups and its E/As.
+			This avoid the time consuming task of searching specific elements in what could end up being a
+			very long lists of elements.</li>
+			<li>Cloning similar E/As allows for a faster E/A creation, specially when we have an high number of 
+			elements.
+			</li>			
+		</ul>
+
+		<br/>
+		<br/>
+
+		<kbd>#1</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_17.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+
+		<br/>
+		<br/>
+
+		<kbd>#2</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_18.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+
+		<p>Remarks:</p>
+		<ul>
+			<li>Make sure to select the right fields (don't confuse textlabels with texts elements), 
+			otherwise, either an error or no data will be displayed.
+			This is why, a correct naming/labelling is always important.</li>
+		</ul>
+
+		<br/>
+		<br/>
+
+
+		<kbd>#3</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_19.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+
+		<kbd>#4</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_20.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+		<kbd>#5</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_21.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+		<kbd>#6</kbd>
+
+		<br/>
+		<br/>
+
+		<p>In this case we don't need to create an E/A for setting whether or not <i>Container Other</i> is required
+		in case the <i>Other</i> is selected, because the validation system will only validate those elements 
+		that are both enabled and visible.
+		So, in this case all we need to do is to set the <i>Required</i> property of <i>Container Other</i> 
+		to Yes.</p>
+
+		<br/>
+		<br/>
+
+		<kbd>#7</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_22.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+		<kbd>#8</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_23.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+		<kbd>#9</kbd>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_24.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+
+	<h3 class="title" id="example-3-formsmanager">Forms manager</h3>
+	<br/>
+
+	<p>Once the form is ready to be used, we need to set its <i>status</i>
+	 from <span class="badge badge-primary">EDITABLE</span> to <span class="badge badge-success">IN USE</span>.
+	 Before changing its status, make sure the form is ready to be used, otherwise, only an administrator possesses
+	 the privileges to revert the <span class="badge badge-success">IN USE</span> status back to 
+	 <span class="badge badge-primary">EDITABLE</span>, or as an alternative, create a clone of the 
+	 form.</p>
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_25.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+	<h3 class="title" id="example-3-app">Using the Form in an Operation - using the App</h3>
+	<br/>	
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_26.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		
+		
+		<p>Note: check the <i>Validations</i> section 
+		to understand the results of the validation process.</p>
+				
+		
+		<br/>
+		<br/>
+
+	<h3 class="title" id="example-3-print">Print / Pdf</h3>
+	<br/>	
+
+		<p>The result of printing a form deeply depends on the browser.
+		The best results are obtained using <i>Chrome</i>.
+		In other some minor scaling ajustments may be required.</p>
+
+
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<video controls src="{% static '/help/video/example_3_27.mp4' %}" width="100%">
+					<div class="alert alert-danger" role="alert">
+						Sorry, your browser doesn't support embedded videos.
+					</div>
+				</video>	
+			</div>
+		</div>
+		<br/>
+		<br/>
+
+		 
+
+</section>
+
+

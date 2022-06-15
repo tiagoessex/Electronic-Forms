@@ -1,0 +1,29 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;    
+  }
+/*
+  .button {
+    font-size: 150%;
+    text-align: center;
+    width: 150px;
+  }
+
+  a {
+    background-color: red;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  a:hover {
+    background-color: #555;
+  }
+  
+  a:active {
+    background-color: black;
+  }
+  */

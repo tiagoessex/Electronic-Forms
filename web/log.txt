@@ -1,0 +1,632 @@
+== W26-D ==
+
+- when operation is locked => clean all unsed assets [bug B001: deletes assets from all operations]
+- html5 validations, including styles
+- some spinners
+
+
+== W26-E ==
+
+- bug B001 solved
+- transfer: all zips and individual zip with assets
+
+
+== W27-A ==
+
+- app, save dialog only when something changed
+- validations flags
+- client side validations before transfer (except radios/checks)
+
+
+== W27-F ==
+
+- server side validations (except radios/checks/patterns)
+- Forms manager: code refactoring
+
+== W28-B ==
+
+- Forms manager: code refactoring completed
+- Modals: parent and id removed
+- dropdown element cloning items
+- dropdown source table: show items
+- dropdown source database: show items
+- $().empty / remove()
+
+
+== W28-X ==
+
+- lock/unlock elements
+- collapsable sidebars
+- fontawesome chevron out of css and set it in UIDropMenu
+- designer template: split and cleanup
+
+
+== W29-A ==
+
+- django multi-language support (ongoing)
+- js multi-language support (ongoing)
+
+== W29-X ==
+
+- warning modal
+- dialogs icons
+- urls in same file
+- page grid
+
+
+== W30-B ==
+
+- Global translator class (static class)
+- Cleanups:
+    - ElementsManager - static removal
+    - BaseElement - clear signals
+    - Editor -> Context
+    - context -> self
+- groups refactored inc. signals clean up
+- sections ~ refactored
+- Form2Json / Json2Form refactored, by adding save/restore to all managers
+
+
+== W30-X ==
+
+- on load, no quick save
+- collapse/show replacement with display:none | $().show/hide
+- visible property implemented
+- enabled property implemented
+- designer: image resize
+- checkbox/radio: borders and colors
+- check/radio clone => put clone in same group
+- multi-selection cloning
+- FormView: context buttons status=f(state)
+- ListView: context buttons status=f(state)
+- GroupsView: context buttons status=f(state)
+- EAView: context buttons status=f(state)
+- SectionsManager: static removal
+- multi-selection keyboard move
+
+
+== W31-C ==
+
+- designer:
+    - elements save bug solved
+    - marquee selection with grid on bug solved
+    - multi-selection available properties: section, enable, group, visible, zindex, color, font*, alignment
+    - repeated elements
+    - non-implemented / future options removed
+    - FileInput2 -> ClickOrDrag
+    - Properties tab actions in a file: PropertyTabActions.js
+    
+
+== W31-X ==
+
+- designer:
+    - repeated elements -> E/A filtering
+    - SelectionMarquee -> limited to page (issue: mouse speed vs out of bounds)
+    - new/open "are you sure" dialog bug solved
+    - e/a - validations + colors status
+    - e/a - cleanups
+    - help started
+
+- sform/preview:
+    - checkbox/radio label wrap issue solved
+    - print separated pages issue solved
+    - signals cleanup
+
+
+== W32-B ==
+
+- Help App
+- Selection maquee / multiselection double selection bug solved
+- properties dialog: check name bug solved
+- pages counter display bugs solved
+- clone elements to next/previous pages
+- move elements to next/previous pages
+- sform/preview cleanups
+- ItemsModal > onChange dispatch
+- forms / operations on delete, delete assets directory
+- databases list alert message in case of no database available
+- preview: print empty form
+- preview: pdf empty form
+- preview refactored
+
+== W32-X ==
+
+- preview: print filled/empty form. Images & gps if not set => empty space
+- preview: print/pdf done
+- manager: print/pdf done
+- app: print/pdf done
+- create chain elements getcurrentpage bug solved
+- clone parent page bug solved
+- page numbering bug solved
+- multi-selection / element focus/blur bug solved
+- multi-selection deselect first element props bug solved
+- E/A - dispatch event on change - required for chain events: ev1 => action 1 => ev2 => action 2 => ...
+- E/A - db errors
+- E/A - table errors
+- E/A - actions on groups
+- E/A - DBQueryAction - DROPDOWN
+- daily auto async tasks: remove all temp forms
+- remove unsused tables
+
+
+== W33-C ==
+
+- sform: remove unsused assets to services.py
+- progress dialog
+- replace all fetch/post with fetchget/fetchpost/fetchput
+- fetchX return promise bug solved
+- zoom page management
+- zoom:
+    - drop (FormView, PagesManager)
+    - drag helper (UIFormElementsItem)
+    - move single (BaseElement)
+    - move multiple (-)
+    - scale single (BaseElement)
+    - limits (BaseElement) --- STILL SOME ISSUES WITH RESIZE
+    - checkbox/radio label (BaseElement, CheckboxElement, RadioElement, PropertyTabActions)
+- delete temp when close (AbortController::abort)
+- formsmanager: group ops buttons and non-op buttons
+- block save form if already IN USE
+- help formsmanager
+- pages added/removed in baseelement bug solved
+
+
+== W33-F ==
+
+- daily auto async tasks: remove all empty assets folders
+- dropdown: table/database, show value && n_items > 20 => AYS modal?
+- db field selection: default type + universal types (check/rad/drop)
+- db-> field: dropdown
+- db-> field: checkbozx
+- db-> field: radio
+- db types: postgresql
+
+
+== W34-C ==
+
+- translation: designer
+- group: required
+- validations group
+- validations in form filling screen
+- help designer (25%)
+- save visibility bug solved
+- save asset bug solved
+- e/a: groups
+- db types: oracle
+
+
+== W34-E ==
+
+- sform: validation in services.py
+- server validations: pattern
+- server validations: groups
+- operations app setup and table
+
+
+== W35-D ==
+
+- operations manager
+- operations helper
+- print background images
+- geo elements: getCurrentPosition error check, secure context check, browser compability check.
+- custom accounts templates
+- email service
+
+
+== W35-E ==
+
+- groups: admin, manager, inspector
+- group check in templates
+- group check in views
+
+
+== W36-C ==
+
+- datatable single row + dropdown buttons issue solved
+- token generation and authentication
+- rest api
+- rest api help
+
+
+== W36-E ==
+
+- designer help: videos
+- db elements -> drag -> delete bug solved
+
+
+== W37-A ==
+
+- sform: save/restore bug solved
+- element renamed -> E/A bug solved
+- BUG [Novos elementos não respeitam a grelha]: solved
+- BUG [Remover elementos duplicados]: solved
+- BUG [Caixa de Seleção]: solved
+- designer: help - E/A
+
+
+== W37-B ==
+
+- designer: required E/A
+- E/A system: required
+- validation: required action
+- SUGESTÃO/BUG [Evento: Preenchimento obrigatório]: solved
+
+== W37-E ==
+
+- validations: yes->true | no->false
+- sform: annexes
+- operations: annexes
+- assets cleanup: forms and operations on save
+
+
+== W38-B ==
+
+- update rest app --- extras + annexes
+- update help api
+- full path -> only filename
+- update help operations
+- exec query: database specification
+
+== W38-E ==
+
+- radio unselect issue solved
+- check/radio -> gp list label bug  solved
+- designer help +
+
+
+== W39-E ==
+
+- pwa setup
+- database dropdown elements > unique values
+- selection bug solved
+- name='' check/radio bug solved
+- display name for img based elements bug solved
+- lock/unlock page bug solved
+- lock/unlock no selection
+- examples help: 50%
+
+
+== W40-B ==
+
+- groups name bug solved
+- print/pdf: dropdown
+- print/pdf: total pages
+- print/pdf: page number
+- print: geo solved (firefox requires scale)
+- print: multipage mess solved
+- clone form id bug solved
+- clone form table assets bug solved
+- form table asset: name
+- table query: multiple targets
+
+
+== W40-D ==
+
+- delete non existent form bug solved
+- E/A elements selection: checkboxes/radios in their own section
+
+
+
+== W40-E ==
+
+- color properties save/load bug solved
+- brush tool
+- designer: disabled element visual display
+
+
+== W41-C ==
+
+- multiple: border
+- cross property
+- list view header
+
+
+== W41-F ==
+
+- inc performance when drop db checks/radios
+
+
+== W42-D ==
+
+- models / databases: database table removed
+- models / databases: formsquery table removed
+- exec query without database specification
+
+
+== W43-A ==
+
+- new logo and icons
+
+
+== W44-A ==
+
+- PWA: 
+    ~ forms    
+    - forms assets    
+    ~ list forms
+    - operations
+    - operations assets
+    - list operations
+    
+
+
+== W44-B ==
+
+- PWA:
+    - table query action
+    - operation data
+- APP - completed removed
+
+
+== W44-E ==
+
+- list view: radio circle
+- photoelement / userimageelement save/restore bug solved
+- PWA:
+    - new op (on/off)
+    - update op (on/off)
+    - delete op (on/off)
+    - upload assets (on/off)
+    *- list operation assets (on/off)
+    *- sync Forms
+    *- sync ops
+    
+== W45-A ==
+
+- upload / delete assets => update operation last update date
+- PWA:
+    ~ rewrite v3.0
+
+
+== W45-F ==
+
+- PWA:
+    - forms full sync
+    - list forms
+    - deletion/pending local/remote
+
+== W46-C ==
+
+- PWA:
+    - ops full sync
+    - when offline, check same filename => append random string to filename
+    - new op when offline -> upload asset when online -> op syncs
+
+- upload/remove assets => automatically saves operation
+
+
+== W46-D ==
+
+- PWA:
+    - list annexes
+    - annexes sync
+    - sync when resume/manager screens
+    - operation data sync
+- designer:
+    - tables management bug solved
+
+== W46-F ==
+
+- operations completed => no more changes other than annexing files
+- PWA
+    - get data sync
+
+
+== W46-G ==
+
+- pages management and swap pages bug solved
+
+== W48-E ==
+
+- bugs solved:
+    - Alinhamento dos elementos entre editor e preview diferem às vezes
+    - Alinhamento dos elementos quando multi-selecção
+    - Alinhamento dos elementos na sua criação e arraste para posição inicial
+    - Alinhamento com a grelha quando se move
+    - Texto/Etiqueta que permanece quando se cria um novo elemento
+    - Menu da grelha que atrapalha às vezes
+    
+
+
+== W49-B ==
+
+- bugs solved:
+    - move selected page issue
+    - focus scroll issue
+    - Imagem que desaparece ou não aparece
+- shift + click/marquee
+
+
+
+== W50-D ==
+
+- designer:
+    - PropertyTabAction condionals added
+    - last selected elements added
+    - ...
+- sform:
+    - temporal action bug solved
+    - checkbox / radio elements cross bug solved
+
+
+== W50-G ==
+
+- manual rev. 1.0
+- status selection
+- bugs solved
+
+
+== W51-A ==
+
+- load/save forms bug tracking
+- help simplification
+
+
+== W51-C ==
+
+== W51-D ==
+
+- designer:
+    - table element
+    - table element menu    
+    - brush: crossproperty
+    
+== W51-E ==
+
+- designer:
+    - table element header text
+    - table element bugs solved
+- formview:
+    - table element struct and inputs
+
+
+== W52-A ==
+
+- designer:
+    - table element bugs solved
+- formview:
+    - table element save/restore
+- manual updated
+
+
+== W52-B ==
+
+- formview:
+    - table element dynamic rows
+- manual updated
+
+
+== W02-B ==
+
+- translations
+- sform:
+    - signing modal
+    - fill form: close operation refactored
+
+
+== W02-D ==
+
+- designer:
+    - text locations
+    - static table element
+- preview/sform:
+    - static table element
+- manual update
+
+
+== W03-A ==
+
+- async restore
+- bugs:
+    - drawelement upload asset --- SOLVED
+    - signatureelement upload asset --- SOLVED
+
+
+== W03-D ==
+
+- signature modal (pc only)
+- extension (pc + chrome) + native application
+- communication app <-> extension <-> native (pc only)
+- signing with cc (pc only)
+
+
+== W03-E ==
+
+- signature modal bugs solved
+- serviceworker bugs solved
+- chrome extension finished and submitted to the store
+- manual update
+
+== W05-A ==
+
+- foodex element
+- foodex modal
+
+
+== W05-F ==
+
+- dataconfig app
+- foodex modal imp.
+
+
+== W06-A ==
+
+- async foodex data load
+- foodex data file error handling 
+- foodex/table E/A
+- manual update
+- translation update
+- dataconfig app removed
+- files app added
+
+
+== W06-E ==
+
+- data files cache (through service worker listing)
+- zoom - horizontal center
+
+== W07-A ==
+
+- print dynamic table
+- auto task: remove operations assets empty dirs
+- dev notes
+
+
+== W07-E ==
+
+- raster images list bug solved
+- documents update
+
+
+== W07-G ==
+
+- table multi-selection bug solved
+- name elements display bug solved
+- raster image null load bug solved
+
+== W09-C ==
+
+- selection marquee in bug solved
+- docs update
+
+
+== W10-C ==
+
+- designer:
+    - clone multi-selection bug solved
+    - grid snap bug solved
+    - open form - quicksavebutton false bug solved
+    - table width bug solved
+    - print table bug solved
+- docs update
+
+
+== W18-A ==
+
+- foodex pt
+
+== W19-D ==
+
+== W19-X ==
+
+*- offline foodex data
+*- cache data files thorugh date
+*- [check manual for todo]
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+

@@ -1,0 +1,1273 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-14 14:20+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\designer\templates\designer\_grid_menu.html:7
+msgid "Mouse"
+msgstr ""
+
+#: .\designer\templates\designer\_grid_menu.html:25
+msgid "Cursor"
+msgstr ""
+
+#: .\designer\templates\designer\_grid_menu.html:43
+msgid "Grid: "
+msgstr ""
+
+#: .\designer\templates\designer\_progress.html:10
+msgid "Preparing"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:13
+msgid "Global"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:17
+#: .\designer\templates\designer\_table_menu.html:110
+msgid "Rows"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:23
+msgid "Columns"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:29
+msgid "Width"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:39
+msgid "Header"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:43
+#: .\designer\templates\designer\_table_menu.html:114
+msgid "Height"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:49
+msgid "Alignment"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:52
+msgid "Left"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:53
+msgid "Right"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:54
+msgid "Center"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:55
+msgid "Justify"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:60
+msgid "Font"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:71
+msgid "Size"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:77
+msgid "Style"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:80
+#: .\designer\templates\designer\_table_menu.html:89
+msgid "Normal"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:81
+msgid "Italic"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:86
+msgid "Weight"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:90
+msgid "Bold"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:95
+msgid "Color"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:101
+msgid "Back Color"
+msgstr ""
+
+#: .\designer\templates\designer\_table_menu.html:123
+msgid "Cols"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:12
+#: .\templates\adminlte\lib\_main_sidebar.html:45
+msgid "Designer"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:19
+msgid "Main"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:22
+#: .\sform\templates\sform\_main.html:10
+msgid "New"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:24
+#: .\operations\templates\operations\operations.html:66
+msgid "Open"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:26
+#: .\opeditview\templates\opeditview\opeditview.html:39
+msgid "Save"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:31
+msgid "Export"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:33
+msgid "Import"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:38
+msgid "Properties"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:42
+#: .\formsmanager\templates\formsmanager\formsmanager.html:18
+#: .\formsmanager\templates\formsmanager\formsmanager.html:26
+#: .\templates\adminlte\lib\_main_sidebar.html:50
+msgid "Forms Manager"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:44
+msgid "Main Page"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:49
+msgid "Tables"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:54
+msgid "Configuration"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:57
+msgid "Create Elements from the Database"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:60
+msgid "Auto Save"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:65
+msgid "Help"
+msgstr ""
+
+#: .\designer\templates\designer\_topmenu.html:75
+#: .\templates\adminlte\lib\_main_header.html:47
+msgid "Language"
+msgstr ""
+
+#: .\designer\templates\designer\_toprow.html:12
+msgid "Reload"
+msgstr ""
+
+#: .\designer\templates\designer\_toprow.html:16
+msgid "Quick save"
+msgstr ""
+
+#: .\designer\templates\designer\_toprow.html:24
+#: .\formsmanager\templates\formsmanager\formsmanager.html:75
+#: .\operations\templates\operations\operations.html:109
+#: .\sform\templates\sform\_resume_operation_selection.html:22
+msgid "Created in"
+msgstr ""
+
+#: .\designer\templates\designer\_toprow.html:33
+msgid "Save and Preview form"
+msgstr ""
+
+#: .\designer\templates\designer\_toprow.html:35
+#: .\preview\templates\preview\preview.html:30
+msgid "Preview"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:9
+#: .\opeditview\templates\opeditview\opeditview.html:62
+#: .\preview\templates\preview\preview.html:38
+#: .\sform\templates\sform\_fill_form.html:24
+msgid "Form View"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:15
+#: .\opeditview\templates\opeditview\opeditview.html:61
+#: .\preview\templates\preview\preview.html:39
+#: .\sform\templates\sform\_fill_form.html:23
+msgid "List View"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:21
+#: .\preview\templates\preview\preview.html:149
+msgid "Groups"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:27
+#: .\preview\templates\preview\preview.html:167
+msgid "E/A"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:32
+#: .\sform\templates\sform\_signing_modal.html:23
+msgid "Page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:37
+msgid "Zoom in"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:41
+msgid "Zoom out"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:45
+msgid "Copy/Paste formatting"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:49
+msgid "Clone selected element(s)"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:53
+msgid "Clone/Move element(s)"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:59
+msgid "Clone selected element(s) to next page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:61
+msgid "Clone selected element(s) to previous page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:64
+msgid "Move selected element(s) to next page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:66
+msgid "Move selected element(s) to previous page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:70
+msgid "Delete selected element(s)"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:74
+msgid "Lock/Unlock element(s)"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:80
+msgid "Lock selected element(s)"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:82
+msgid "Lock all elements in current page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:84
+msgid "Lock all elements"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:87
+msgid "Unlock selected element(s)"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:89
+msgid "Unlock all elements in the current page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:91
+msgid "Unlock all elements"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:95
+msgid "Repeatable element(s): only STATIC and AUTOFIELDS are allowed!"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:101
+msgid "Create chains for all selected elements"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:103
+msgid "Break all selected elements from the chains"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:107
+msgid "Previous page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:111
+msgid "Next page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:115
+msgid "Add page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:119
+msgid "Remove page"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:123
+msgid "Remove all pages"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:131
+msgid "Several"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:137
+msgid "Pages manager and control"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:137
+msgid "Pages Manager"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:139
+msgid "Set a background image"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:139
+msgid "Add Background Image"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:141
+msgid "Remove a background image"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:141
+msgid "Remove Background Image"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:143
+msgid "Grid menu visibility"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:143
+msgid "Show/Hide Menu Grid Menu"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:152
+msgid "Create new section"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:156
+msgid "Remove selected section"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:160
+msgid "Remove all sections"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:167
+msgid "Expand all groups"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:171
+msgid "Collapse all groups"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:175
+msgid "Create new group"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:179
+msgid "Remove all groups"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:186
+msgid "Expand all E/As"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:190
+msgid "Collapse all E/As"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:200
+msgid "Selection"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:202
+#: .\formsmanager\templates\formsmanager\formsmanager.html:82
+#: .\operations\templates\operations\operations.html:112
+#: .\sform\templates\sform\_manager.html:43
+msgid "Status"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:204
+msgid "Visibility"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:208
+msgid "Append"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:210
+msgid "Format"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:214
+msgid "Query Database"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:216
+msgid "Query Table"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:219
+msgid "Temporal"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:221
+msgid "Required"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:224
+msgid "Remove all E/As"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:259
+msgid "SECTIONS"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:279
+msgid "No Groups Yet"
+msgstr ""
+
+#: .\designer\templates\designer\_workingarea.html:295
+msgid "No Events/Actions Yet"
+msgstr ""
+
+#: .\designer\templates\designer\designer.html:18
+msgid "Forms Designer"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:23
+#: .\help\templates\help\api.html:24 .\help\templates\help\examples.html:24
+#: .\help\templates\help\videos.html:24
+#: .\opeditview\templates\opeditview\opeditview.html:29
+#: .\operations\templates\operations\operations.html:23
+#: .\preview\templates\preview\preview.html:28
+#: .\templates\adminlte\lib\_main_header.html:16
+#: .\templates\applications.html:21 .\templates\error_pages\404.html:8
+#: .\templates\home.html:5 .\templates\home.html:21
+#: .\templates\registration\password_reset_complete.html:16
+msgid "Home"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:50
+msgid "Create a new blank form"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:50
+msgid "Create New Form"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:51
+msgid "Delete all temporary forms"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:51
+msgid "Remove Temps"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:54
+msgid "Filter by Status"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:56
+msgid "IN USE"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:57
+msgid "IN PROGRESS"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:58
+msgid "DISABLED"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:59
+msgid "TEMPORARY"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:60
+#: .\operations\templates\operations\operations.html:94
+msgid "NO FILTER"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:72
+#: .\operations\templates\operations\operations.html:106
+#: .\preview\templates\preview\preview.html:101 .\sform\_lixo\_transfer.html:14
+#: .\sform\templates\sform\_form_selection.html:21
+#: .\sform\templates\sform\_manager.html:40
+#: .\sform\templates\sform\_resume_operation_selection.html:20
+msgid "Name"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:73
+#: .\operations\templates\operations\operations.html:107
+#: .\preview\templates\preview\preview.html:105
+#: .\sform\templates\sform\_form_selection.html:22
+#: .\sform\templates\sform\_manager.html:41
+#: .\sform\templates\sform\_operation_details.html:17
+#: .\sform\templates\sform\_resume_operation_selection.html:21
+#: .\templates\applications.html:45
+msgid "Description"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:74
+#: .\operations\templates\operations\operations.html:108
+msgid "Author"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:76
+msgid "Last updated by"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:77
+#: .\operations\templates\operations\operations.html:111
+msgid "Last update in"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:78
+msgid "Locked by"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:79
+msgid "Locked in"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:80
+msgid "Disabled by"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:81
+msgid "Disabled in"
+msgstr ""
+
+#: .\formsmanager\templates\formsmanager\formsmanager.html:83
+#: .\operations\templates\operations\operations.html:113
+msgid "Actions"
+msgstr ""
+
+#: .\help\templates\help\api.html:18 .\help\templates\help\api.html:26
+#: .\help\templates\help\videos.html:26
+msgid "Help: Rest API"
+msgstr ""
+
+#: .\help\templates\help\examples.html:18
+#: .\help\templates\help\examples.html:26
+msgid "Help: Examples"
+msgstr ""
+
+#: .\help\templates\help\videos.html:18
+msgid "Help: Videos"
+msgstr ""
+
+#: .\opeditview\templates\opeditview\opeditview.html:31
+msgid "Operation Edit/View"
+msgstr ""
+
+#: .\opeditview\templates\opeditview\opeditview.html:40
+msgid "Validate"
+msgstr ""
+
+#: .\opeditview\templates\opeditview\opeditview.html:41
+msgid "Reset"
+msgstr ""
+
+#: .\opeditview\templates\opeditview\opeditview.html:42
+msgid "Annexes"
+msgstr ""
+
+#: .\opeditview\templates\opeditview\opeditview.html:43
+#: .\preview\templates\preview\preview.html:40
+#: .\sform\templates\sform\_form_selection.html:23
+#: .\sform\templates\sform\_signing_modal.html:55
+msgid "Print"
+msgstr ""
+
+#: .\opeditview\templates\opeditview\opeditview.html:44
+#: .\preview\templates\preview\preview.html:41
+msgid "PDF"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:18
+#: .\operations\templates\operations\operations.html:26
+#: .\operations\templates\operations\operations.html:75
+#: .\sform\templates\sform\_manager.html:44
+#: .\templates\adminlte\lib\_main_sidebar.html:63
+msgid "Operations"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:51
+msgid "Select all"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:53
+msgid "Select All"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:55
+msgid "Unselect all"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:57
+msgid "Unselect"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:63
+msgid "Change to"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:67
+msgid "Close"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:68
+msgid "Complete"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:78
+msgid "Write all selected operations to the database"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:78
+msgid "Send to Database"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:79
+msgid "Generate a json file with the data of all selected operations"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:79
+msgid "Json File"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:80
+msgid "Zip the data of all selected operations, including images"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:80
+msgid "Zip File"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:83
+#: .\operations\templates\operations\operations.html:85
+msgid "Delete"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:89
+#: .\sform\templates\sform\_manager.html:23
+msgid "Filter by"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:91
+msgid "OPEN"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:92
+msgid "CLOSED"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:93
+msgid "COMPLETED"
+msgstr ""
+
+#: .\operations\templates\operations\operations.html:110
+msgid "Last update by"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:42
+msgid "Stats"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:109
+msgid "Creation Date"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:113
+msgid "Number of Pages"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:127
+msgid "Number of Sections"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:131
+msgid "Sections"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:145
+msgid "Number of Groups"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:163
+msgid "Number of E/A"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:181
+msgid "Number of Elements"
+msgstr ""
+
+#: .\preview\templates\preview\preview.html:185
+msgid "Elements"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:10
+msgid "Properties to transfer"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:12
+msgid "Select a properties"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:15
+msgid "Label"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:16
+msgid "Type"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:17
+msgid "DB Field"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:18
+msgid "Value"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:19
+msgid "Validations"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:26
+msgid "Refresh"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:31 .\sform\templates\sform\_manager.html:19
+msgid "Transfer All"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:33
+msgid "Single Json file"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:34
+msgid "ZIP file"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:35
+msgid "Splitted ZIP file"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:36
+msgid "To Database"
+msgstr ""
+
+#: .\sform\_lixo\_transfer.html:42
+msgid "Execute"
+msgstr ""
+
+#: .\sform\templates\sform\_fill_form.html:8
+#: .\sform\templates\sform\_resume_operation_selection.html:23
+msgid "Form"
+msgstr ""
+
+#: .\sform\templates\sform\_fill_form.html:9
+msgid "No Form Name"
+msgstr ""
+
+#: .\sform\templates\sform\_fill_form.html:12
+msgid "Operation"
+msgstr ""
+
+#: .\sform\templates\sform\_fill_form.html:13
+msgid "No Operation Name"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:9
+msgid "Foodex"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:21
+msgid "Search"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:26
+msgid "Include notes"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:30
+msgid "Results"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:43
+#: .\sform\templates\sform\_foodex_modal.html:82
+msgid "Term Code"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:47
+#: .\sform\templates\sform\_foodex_modal.html:83
+msgid "Term Extended Code"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:51
+#: .\sform\templates\sform\_foodex_modal.html:84
+msgid "Term Name"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:55
+#: .\sform\templates\sform\_foodex_modal.html:85
+msgid "Term Extended Name"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:59
+msgid "Scope Notes"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:71
+msgid "English"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:72
+msgid "Portuguese"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:76
+#: .\sform\templates\sform\_operation_details.html:24
+#: .\sform\templates\sform\_signing_modal.html:58
+msgid "Cancel"
+msgstr ""
+
+#: .\sform\templates\sform\_foodex_modal.html:79
+msgid "Insert"
+msgstr ""
+
+#: .\sform\templates\sform\_form_selection.html:15
+msgid "Select the Form to use in the Operation"
+msgstr ""
+
+#: .\sform\templates\sform\_form_selection.html:34
+msgid "No forms available"
+msgstr ""
+
+#: .\sform\templates\sform\_form_selection.html:35
+#: .\sform\templates\sform\_manager.html:56
+#: .\sform\templates\sform\_resume_operation_selection.html:35
+msgid "Try to synchronize the APP or contact an administrador"
+msgstr ""
+
+#: .\sform\templates\sform\_main.html:18
+msgid "Resume"
+msgstr ""
+
+#: .\sform\templates\sform\_main.html:26
+msgid "Manage"
+msgstr ""
+
+#: .\sform\templates\sform\_main.html:35
+msgid "Synchronize"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:16
+msgid "Close All"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:17
+msgid "Open All"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:21
+msgid "Delete All"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:25
+msgid "Show All"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:26
+msgid "Opened"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:27
+msgid "Closed"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:34
+msgid "Non Completed Operations"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:42
+msgid "Date"
+msgstr ""
+
+#: .\sform\templates\sform\_manager.html:55
+msgid "No operations Opened or Close"
+msgstr ""
+
+#: .\sform\templates\sform\_operation_details.html:10
+msgid "Name to identify this operation by"
+msgstr ""
+
+#: .\sform\templates\sform\_operation_details.html:14
+msgid "A name is required"
+msgstr ""
+
+#: .\sform\templates\sform\_operation_details.html:21
+msgid "Selected Form"
+msgstr ""
+
+#: .\sform\templates\sform\_operation_details.html:25
+#: .\sform\templates\sform\_signing_modal.html:61
+#: .\templates\registration\password_change_done.html:11
+#: .\templates\registration\password_reset_confirm.html:62
+#: .\templates\registration\password_reset_done.html:12
+msgid "Ok"
+msgstr ""
+
+#: .\sform\templates\sform\_resume_operation_selection.html:14
+msgid "Open operations"
+msgstr ""
+
+#: .\sform\templates\sform\_resume_operation_selection.html:34
+msgid "There are no open operations"
+msgstr ""
+
+#: .\sform\templates\sform\_signing_modal.html:14
+msgid "Sign"
+msgstr ""
+
+#: .\sform\templates\sform\_signing_modal.html:29
+msgid "Last Page"
+msgstr ""
+
+#: .\sform\templates\sform\_signing_modal.html:34
+msgid "Restart"
+msgstr ""
+
+#: .\sform\templates\sform\_signing_modal.html:37
+msgid "Add Signature"
+msgstr ""
+
+#: .\sform\templates\sform\_signing_modal.html:41
+msgid "Signatures"
+msgstr ""
+
+#: .\sform\templates\sform\_signing_modal.html:46
+msgid "Where to place the signature"
+msgstr ""
+
+#: .\sform\templates\sform\sform.html:44
+msgid "Synchronizing"
+msgstr ""
+
+#: .\templates\admin\lib\_main_header.html:25
+msgid "Change Password"
+msgstr ""
+
+#: .\templates\admin\lib\_main_header.html:26
+msgid "Sign Out"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_header.html:19
+msgid "Admin"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_header.html:85
+msgid "Member since"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_header.html:89
+msgid "Not Logged in"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_header.html:98
+msgid "Change password"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_header.html:99
+msgid "Sign out"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_header.html:101
+#: .\templates\adminlte\lib\_main_sidebar.html:24
+msgid "Sign in"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:33
+msgid "MAIN"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:41
+msgid "FORMS"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:58
+msgid "OPERATIONS"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:70
+msgid "App"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:75
+msgid "HELP"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:80
+msgid "Examples"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:85
+msgid "Rest API"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:91
+msgid "Videos"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:96
+msgid "Manual"
+msgstr ""
+
+#: .\templates\adminlte\lib\_main_sidebar.html:103
+msgid "APPLICATIONS"
+msgstr ""
+
+#: .\templates\applications.html:5 .\templates\applications.html:33
+msgid "Applications"
+msgstr ""
+
+#: .\templates\applications.html:43
+msgid "What"
+msgstr ""
+
+#: .\templates\applications.html:44
+msgid "Application"
+msgstr ""
+
+#: .\templates\applications.html:50 .\templates\applications.html:67
+msgid "PT Smart Card PDF Signing"
+msgstr ""
+
+#: .\templates\applications.html:51
+msgid "CC Native Application"
+msgstr ""
+
+#: .\templates\applications.html:55 .\templates\applications.html:59
+msgid "Chrome Extension"
+msgstr ""
+
+#: .\templates\home.html:52
+msgid "Flexible Forms"
+msgstr ""
+
+#: .\templates\home.html:56
+msgid "Next steps"
+msgstr ""
+
+#: .\templates\home.html:56
+msgid "check README for more"
+msgstr ""
+
+#: .\templates\home.html:151
+msgid "Inputs and operations"
+msgstr ""
+
+#: .\templates\home.html:162
+msgid "Dual synchronized views"
+msgstr ""
+
+#: .\templates\home.html:172
+msgid "Presentations"
+msgstr ""
+
+#: .\templates\registration\login.html:4
+#: .\templates\registration\password_reset_complete.html:13
+msgid "Login"
+msgstr ""
+
+#: .\templates\registration\login.html:11
+msgid "Please correct the error below."
+msgstr ""
+
+#: .\templates\registration\login.html:12
+msgid "Please correct the errors below."
+msgstr ""
+
+#: .\templates\registration\login.html:17
+msgid "USER LOGIN"
+msgstr ""
+
+#: .\templates\registration\login.html:27
+#: .\templates\registration\signup.html:32
+msgid "Username"
+msgstr ""
+
+#: .\templates\registration\login.html:44
+msgid "Password"
+msgstr ""
+
+#: .\templates\registration\login.html:65
+msgid "Log In"
+msgstr ""
+
+#: .\templates\registration\login.html:70
+msgid "Forgot Password?"
+msgstr ""
+
+#: .\templates\registration\login.html:80
+#, python-format
+msgid ""
+"You are authenticated as %(user)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: .\templates\registration\password_change_done.html:4
+msgid "Password changed confirmation"
+msgstr ""
+
+#: .\templates\registration\password_change_done.html:7
+msgid "Your password was changed sucessfully!"
+msgstr ""
+
+#: .\templates\registration\password_change_form.html:4
+msgid "Password change"
+msgstr ""
+
+#: .\templates\registration\password_change_form.html:19
+msgid "PASSWORD CHANGE"
+msgstr ""
+
+#: .\templates\registration\password_change_form.html:31
+msgid "Old Password"
+msgstr ""
+
+#: .\templates\registration\password_change_form.html:47
+#: .\templates\registration\signup.html:48
+msgid "New password"
+msgstr ""
+
+#: .\templates\registration\password_change_form.html:63
+msgid "Confirm new password"
+msgstr ""
+
+#: .\templates\registration\password_change_form.html:76
+#: .\templates\registration\password_reset_confirm.html:51
+msgid "Change my password"
+msgstr ""
+
+#: .\templates\registration\password_reset_complete.html:5
+#: .\templates\registration\password_reset_complete.html:8
+msgid "Password reset complete"
+msgstr ""
+
+#: .\templates\registration\password_reset_complete.html:9
+msgid "Your new password has been set. You can log in now on the log in page!"
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:4
+msgid "Enter new password"
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:11
+msgid "NEW PASSWORD"
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:23
+msgid "New Password"
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:38
+msgid "Confirm Password"
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:59
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:4
+msgid "Email Sent"
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:7
+msgid "Check your inbox."
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:8
+msgid ""
+"We've emailed you instructions for setting your password. You should receive "
+"the email shortly!"
+msgstr ""
+
+#: .\templates\registration\password_reset_form.html:4
+msgid "Reset password"
+msgstr ""
+
+#: .\templates\registration\password_reset_form.html:10
+msgid "RESET PASSWORD"
+msgstr ""
+
+#: .\templates\registration\password_reset_form.html:20
+msgid "Email"
+msgstr ""
+
+#: .\templates\registration\password_reset_form.html:33
+msgid "Reset my password"
+msgstr ""
+
+#: .\templates\registration\signup.html:5
+msgid "Sign Up"
+msgstr ""
+
+#: .\templates\registration\signup.html:20
+msgid "SIGN UP"
+msgstr ""
+
+#: .\templates\registration\signup.html:64
+msgid "Confirm password"
+msgstr ""
+
+#: .\templates\registration\signup.html:77
+msgid "Sign up"
+msgstr ""

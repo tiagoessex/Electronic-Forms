@@ -1,0 +1,56 @@
+<section id="fetchexamples">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3>Fetch GET/POST examples</h3>
+        </div>
+
+        <div class="card-body">
+            Example #1: List all operations
+
+            <div class="example-response text-monospace m-2 p-2">
+
+<pre>
+const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Authorization': 'Token token_here',
+        },
+}
+fetch('http://34.134.170.7/rest/api/list_operations/', options)
+	.then(response => response.json())
+	.then(data => console.log(data))
+	.catch(error => console.log(error))
+</pre>
+            </div>
+
+            <br>
+
+            Example #2: Token generation
+
+            <div class="example-response text-monospace m-2 p-2">        
+<pre>
+const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+			"username": "someuser",
+			"password": "somepassword"
+		}),
+}
+fetch('http://34.134.170.7/rest/api/api-token-auth/', options)
+	.then(response => response.json())
+	.then(data => console.log(data))
+	.catch(error => console.log(error))
+</pre>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>

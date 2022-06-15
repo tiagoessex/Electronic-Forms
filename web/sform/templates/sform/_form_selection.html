@@ -1,0 +1,46 @@
+{% load i18n %}
+
+<section id="section-form-selection" class="collapse">
+
+		<div class="row">
+			<div class="col-sm-12">				
+					<div class="card shadow mt-2 p-0 m-0 bg-white rounded">
+
+						<div id="form-selection-spinner" class="risk-spinner-overlay">
+              				<i class="fa fa-sync-alt fa-spin" aria-hidden="true"></i>
+            			</div>
+
+  						<div class="card-body">
+						  	<div id="select-form-has-contents" class="collapse">
+								<h3>{% trans "Select the Form to use in the Operation" %}:</h3>
+								<div class="table-responsive scroll-table">
+									<table class="table table-striped table-hover table-sm">
+										<thead>
+											<tr>
+												<th scope="col">ID</th>
+												<th scope="col">{% trans "Name" %}</th>
+												<th scope="col">{% trans "Description" %}</th>
+												<th scope="col" class="align-middle text-center">{% trans "Print" %}</th>
+											</tr>
+										</thead>
+										<tbody id="available-forms">
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<div id="select-form-no-contents" class="collapse">
+								<div class="text-center">
+									<h2><span class="badge badge-warning">{% trans "No forms available" %}!</span></h2>
+									<h5>{% trans "Try to synchronize the APP or contact an administrador" %}!</h5>
+								</div>
+							</div>
+						</div><!-- ./card-body-->
+					</div><!-- ./card-->
+			</div><!-- ./col-->
+		</div><!-- ./row-->
+
+	<br>
+	<br>
+
+	</section>	<!-- ./section-new-->

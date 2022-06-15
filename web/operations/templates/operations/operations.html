@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Operations{% endblock %}
+
+{% block extra_head %}
+	{{ block.super }}
+
+	{% include 'operations/_styles.html' %}
+
+{% endblock %}
+
+{% block no_heading %}
+<div class="container-fluid">
+	<div class="row mb-2">
+		<div class="col-sm-6">
+			<h1>{% trans "Operations" %}
+      </h1>
+		</div>
+		<div class="col-sm-6">
+			<ol class="breadcrumb float-sm-right">
+				<li class="breadcrumb-item">	<a href="{% url 'home' %}">{% trans "Home" %}
+          </a>
+				</li>
+				<li class="breadcrumb-item active">{% trans "Operations" %}</li>
+			</ol>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+
+				<!-- loading spinner -->
+				<div id="manager-spinner" class="risk-spinner-overlay">
+              		<i class="fa fa-sync-alt fa-spin" aria-hidden="true"></i>
+            	</div>
+
+				<div class="card-header with-border">
+
+					<div class="btn-group" role="group" aria-label="Basic example">
+
+						<button type="button" class="btn btn-outline-primary mr-1" id="btn-select-all" data-toggle="tooltip" title="{% trans 'Select all' %}">
+							<i class="fas fa-check"></i> 
+							{% trans "Select All" %}
+						</button>
+						<button type="button" class="btn btn-outline-primary mr-1" id="btn-unselect" data-toggle="tooltip" title="{% trans 'Unselect all' %}">
+							<i class="fas fa-times"></i> 
+							{% trans "Unselect" %}
+						</button>
+
+						<div class="dropdown">
+							<button id="btn-changeto" type="button" class="btn btn-primary dropdown-toggle mr-1" data-toggle="dropdown">
+								<i class="fas fa-thermometer-three-quarters"></i>
+								{% trans "Change to" %} 
+							</button>
+							<div class="dropdown-menu">
+								<a id="btn-open" class="dropdown-item" href="javascript:void(0)" style="color: blue;"><i class="fas fa-lock-open"></i> {% trans "Open" %}</a>
+								<a id="btn-close" class="dropdown-item" href="javascript:void(0)" style="color:  #ffa500;"><i class="fas fa-lock"></i> {% trans "Close" %}</a>
+								<a id="btn-complete" class="dropdown-item" href="javascript:void(0)"><i class="fas fa-window-close"></i> {% trans "Complete" %}</a>
+							</div>
+						</div>
+
+						<div class="dropdown">
+							<button id="btn-operations" type="button" class="btn btn-success dropdown-toggle mr-1" data-toggle="dropdown">
+								<i class="fas fa-cart-arrow-down"></i>
+								{% trans "Operations" %} 
+							</button>
+							<div class="dropdown-menu">
+								<a id="btn-database" class="dropdown-item" href="javascript:void(0)" data-toggle="tooltip" title="{% trans 'Write all selected operations to the database' %}" style="text-decoration:line-through;"><i class="fas fa-database"></i> {% trans "Send to Database" %}</a>
+								<a id="btn-json" class="dropdown-item" href="javascript:void(0)" data-toggle="tooltip" title="{% trans 'Generate a json file with the data of all selected operations' %}"><i class="fas fa-file-alt"></i> {% trans "Json File" %}</a>
+								<a id="btn-zip" class="dropdown-item" href="javascript:void(0)" data-toggle="tooltip" title="{% trans 'Zip the data of all selected operations, including images' %}"><i class="fas fa-file-archive"></i> {% trans "Zip File" %}</a>
+							</div>
+						</div>
+						<button type="button" class="btn btn-danger" id="btn-delete" data-toggle="tooltip" title="{% trans 'Delete' %}">
+							<i class="fas fa-trash"></i> 
+							{% trans "Delete" %}
+						</button>
+
+						<div class="form-inline m-0 p-0 ml-5">
+							<label for="filter-status" class="mr-2">{% trans "Filter by" %}:</label>
+							<select id="filter-status" class="custom-select">
+								<option value="OPEN">{% trans "OPEN" %}</option>
+								<option value="CLOSED">{% trans "CLOSED" %}</option>
+								<option value="COMPLETED">{% trans "COMPLETED" %}</option>
+								<option value="ALL" selected>{% trans "NO FILTER" %}</option>
+							</select>
+						</div>
+
+				</div>
+				<!-- /.card-header -->
+				<div class="card-body" >
+					<table id="table-forms" class="table table-bordered table-hover display nowrap table-sm" style="width:100%;">
+						<thead>
+							<tr>
+								<th></th>
+								<th>ID</th>
+								<th>{% trans "Name" %}</th>
+								<th>{% trans "Description" %}</th>
+								<th>{% trans "Author" %}</th>
+								<th>{% trans "Created in" %}</th>
+								<th>{% trans "Last update by" %}</th>
+								<th>{% trans "Last update in" %}</th>								
+								<th>{% trans "Status" %}</th>
+								<th>{% trans "Actions" %}</th>
+							</tr>
+						</thead>
+						<tbody id='table-body' style='display: none;'>
+              				{% for data in dataset %}
+							<tr id="operation-{{ data.id }}" data-id="{{ data.id }}" data-status="{{ data.status_name }}">
+								<td> </td>
+								<td class="align-middle text-center">{{ data.id }}</td>
+								<td class="align-middle">{{ data.name }}</td>
+								<td class="align-middle">{% if data.description != null %} {{ data.description }} {% endif %}</td>
+								<td class="align-middle">{{ data.author }}</td>
+								<td class="align-middle">{{ data.date_creation }}</td>
+								<td class="align-middle">{{ data.updated_by }}</td>
+								<td class="align-middle">{% if data.date_updated %} {{data.date_updated}} {% endif %}</td>
+								<td class="align-middle  text-center">
+									{{ data.status_name }}
+								</td>
+								<td class="align-middle text-center">
+									<!--									
+										OPERATIONS
+									-->
+								</td>
+							</tr>
+              				{% endfor %}
+            			</tbody>
+          			</table>
+				</div>
+				<!-- /.card-body -->
+			</div>
+			<!-- /.card -->
+		</div>
+		<!-- /.col -->
+	</div>
+	<!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+
+
+
+<!-- ----------------------------------- -->
+<!-- MODALS -->
+<!-- ----------------------------------- -->
+
+<div id="modals-container"></div>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+	{% include 'operations/_scripts.html' %}
+
+{% endblock %}
+

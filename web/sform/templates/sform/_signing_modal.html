@@ -1,0 +1,66 @@
+
+{% load i18n %}
+
+<div class="modal" id="signature-modal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-scroll">
+
+        <div class='card risk-spinner-overlay' id="sm-sign-processing" style="visibility: hidden;">
+            <i class="fa fa-sync-alt fa-spin" aria-hidden='true'></i>
+        </div>
+
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">{% trans "Sign" %}</h4>
+            <button type="button" class="close" id="sm-close-times">&times;
+            </button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="control-group custom-control-inline">
+                            <label for="sm-page-number">{% trans "Page" %}:</label>
+                            <input type="number" class="form-control ml-2 form-control-sm" value="1" id="sm-page-number" min="1">
+                        </div>
+                        <br>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" id='sm-last-page'>{% trans "Last Page" %}
+                            </label>
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-danger btn-block" id="sm-restart-btn">
+                            <i class="fas fa-exclamation-triangle"></i> {% trans "Restart" %}! <i class="fas fa-exclamation-triangle"></i>
+                        </button>
+                        <button type="button" class="btn btn-success btn-block" id="sm-add-btn">
+                            <i class="fas fa-signature"></i> {% trans "Add Signature" %}! <i class="fas fa-signature"></i>
+                        </button>
+                        
+                        <br>
+                        <p>{% trans "Signatures" %}:</p>
+                        <div class="signatures-area" id="sm-signatures-area">
+                        </div>  
+                    </div>
+                    <div class="col-6">
+                        <p>{% trans "Where to place the signature" %}:</p>
+                        <div class="signature-location-page" id="sm-signature-location-page">
+                        </div>			
+                    </div>		
+                </div>	
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">	
+                <button type="button" class="btn btn-warning mr-auto" id="sm-print">
+                    <i class="fas fa-print"></i> {% trans "Print" %}
+                </button>
+                <button type="button" class="btn btn-danger" id="sm-cancel">
+                    <i class="fas fa-times"></i> {% trans "Cancel" %}
+                </button>
+                <button type="button" class="btn btn-primary" id="sm-ok">
+                    <i class="fas fa-check"></i> {% trans "Ok" %}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

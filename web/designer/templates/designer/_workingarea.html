@@ -1,0 +1,306 @@
+{% load i18n %}
+
+<div class="row unselectable">
+  <div class="col-12">
+    <ul class="nav nav-tabs" id="main-tab" role="tablist">
+      <li class="nav-item"> 
+        <a class="nav-link active" id="form-view" data-toggle="tab" href="#form-tab" role="tab" aria-controls="form-tab" aria-selected="true">
+          <i class="fab fa-wpforms" aria-hidden="true">
+          </i> {% trans "Form View" %}
+        </a>
+      </li>
+      <li class="nav-item"> 
+        <a class="nav-link" id="list-view" data-toggle="tab" href="#list-tab" role="tab" aria-controls="list-tab" aria-selected="false">
+          <i class="fa fa-bars" aria-hidden="true">
+          </i> {% trans "List View" %}
+        </a>
+      </li>
+      <li class="nav-item"> 
+        <a class="nav-link" id="groups-view" data-toggle="tab" href="#groups-tab" role="tab" aria-controls="groups-tab" aria-selected="false">
+          <i class="fa fa-object-group" aria-hidden="true">
+          </i> {% trans "Groups" %}
+        </a>
+      </li>							
+      <li class="nav-item"> 
+        <a class="nav-link" id="ea-view" data-toggle="tab" href="#ea-tab" role="tab" aria-controls="ea-tab" aria-selected="false">
+          <i class="fa fa-flash" aria-hidden="true">
+          </i> {% trans "E/A" %}
+        </a>
+      </li>
+      <div class="ml-auto"> 
+        <div class="form-view-ui">
+          <span class="pt-2">{% trans "Page" %}:
+          </span>
+          <span class="pr-2 pt-2" id="pages-counter">1/1
+          </span>
+          <div class="btn-group">
+            <button class="btn btn-primary btn-sm m-1" id="btn-zoom-in" data-toggle="tooltip" title="{% trans 'Zoom in' %}">
+              <i class="fa fa-search-plus" aria-hidden="true">
+              </i>
+            </button>            
+            <button class="btn btn-primary btn-sm m-1" id="btn-zoom-out" data-toggle="tooltip" title="{% trans 'Zoom out' %}">
+              <i class="fa fa-search-minus" aria-hidden="true">
+              </i>
+            </button>
+            <button class="btn btn-primary btn-sm m-1" id="btn-brush" disabled="true" data-toggle="tooltip" title="{% trans 'Copy/Paste formatting' %}">
+              <i class="fa fa-paint-brush" aria-hidden="true">
+              </i>
+            </button>            
+            <button class="btn btn-info btn-sm m-1" id="btn-clone-element" disabled="true" data-toggle="tooltip" title="{% trans 'Clone selected element(s)' %}">
+              <i class="fa fa-copy" aria-hidden="true">
+              </i>
+            </button>
+            <div class="btn-group" data-toggle="tooltip" title="{% trans 'Clone/Move element(s)' %}">
+              <button id="btn-cm-system" class="btn btn-info btn-sm dropdown-toggle m-1 px-2" type="button" data-toggle="dropdown">
+                <i class="fa fa-file-import" aria-hidden="true">
+                </i>
+              </button>
+              <div class="dropdown-menu">
+                <a id="btn-clone-elements-next-page" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Clone selected element(s) to next page" %}
+                </a>
+                <a id="btn-clone-elements-previous-page" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Clone selected element(s) to previous page" %}
+                </a>
+                <div class="dropdown-divider"></div>
+                <a id="btn-move-elements-next-page" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Move selected element(s) to next page" %}
+                </a>
+                <a id="btn-move-elements-previous-page" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Move selected element(s) to previous page" %}
+                </a>
+              </div>
+            </div>            
+            <button class="btn btn-info btn-sm m-1" id="btn-delete-element" disabled="true" data-toggle="tooltip" title="{% trans 'Delete selected element(s)' %}">
+              <i class="fa fa-times" aria-hidden="true">
+              </i>
+            </button>
+            <div class="btn-group" data-toggle="tooltip" title="{% trans 'Lock/Unlock element(s)' %}">
+              <button id="btn-lock-system" class="btn btn-info btn-sm dropdown-toggle m-1 px-2" type="button" data-toggle="dropdown">
+                <i class="fa fa-lock" aria-hidden="true">
+                </i>
+              </button>
+              <div class="dropdown-menu">
+                <a id="btn-lock-elements" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Lock selected element(s)" %}
+                </a>
+                <a id="btn-lock-all-page-elements" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Lock all elements in current page" %}
+                </a>
+                <a id="btn-lock-all-elements" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Lock all elements" %}
+                </a>
+                <div class="dropdown-divider"></div>
+                <a id="btn-unlock-elements" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Unlock selected element(s)" %}
+                </a>
+                <a id="btn-unlock-all-page-elements" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Unlock all elements in the current page" %}
+                </a>
+                <a id="btn-unlock-all-elements" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Unlock all elements" %}
+                </a>
+              </div>
+            </div>
+            <div class="btn-group" data-toggle="tooltip" title="{% trans 'Repeatable element(s): only STATIC and AUTOFIELDS are allowed!' %}">
+              <button id="btn-lock-system" class="btn btn-info btn-sm dropdown-toggle m-1 px-2" type="button" data-toggle="dropdown">
+                <i class="fas fa-link" aria-hidden="true">
+                </i>
+              </button>
+              <div class="dropdown-menu">
+                <a id="btn-create-chain" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Create chains for all selected elements" %}
+                </a>
+                <a id="btn-break-chain" class="dropdown-item" disabled="true" href="javascript:void(0);">{% trans "Break all selected elements from the chains" %}
+                </a> 
+              </div>
+            </div>
+            <button class="btn btn-warning btn-sm m-1" id="btn-previous-page" data-toggle="tooltip" title="{% trans 'Previous page' %}">
+              <i class="fa fa-chevron-left" aria-hidden="true">
+              </i>
+            </button>
+            <button class="btn btn-warning btn-sm m-1" id="btn-next-page" data-toggle="tooltip" title="{% trans 'Next page' %}">
+              <i class="fa fa-chevron-right" aria-hidden="true">
+              </i>
+            </button>
+            <button class="btn btn-warning btn-sm m-1" id="btn-add-page" data-toggle="tooltip" title="{% trans 'Add page' %}">
+              <i class="fa fa-plus" aria-hidden="true">
+              </i>
+            </button>
+            <button class="btn btn-danger btn-sm m-1" id="btn-remove-page" disabled="true" data-toggle="tooltip" title="{% trans 'Remove page' %}">
+              <i class="fa fa-minus" aria-hidden="true">
+              </i>
+            </button>
+            <button class="btn btn-danger btn-sm m-1" id="btn-remove-all-pages" disabled="true" data-toggle="tooltip" title="{% trans 'Remove all pages' %}">
+              <i class="fa fa-minus-circle" aria-hidden="true">
+              </i>
+            </button>
+            <!--
+<button class="btn btn-warning m-1" id="btn-pages-manager" data-toggle="tooltip" title="Manager"><i class="fa fa-wrench" aria-hidden="true"></i>
+</button>
+-->
+            <div class="btn-group" data-toggle="tooltip" title="{% trans 'Several' %}">
+              <button class="btn btn-warning btn-sm dropdown-toggle m-1 px-2" type="button" data-toggle="dropdown">
+                <i class="fa fa-plus-square" aria-hidden="true">
+                </i>
+              </button>
+              <div class="dropdown-menu">
+                <a id="btn-pages-manager" class="dropdown-item" href="javascript:void(0);" data-toggle="tooltip" title="{% trans 'Pages manager and control' %}">{% trans "Pages Manager" %}
+                </a>
+                <a id="btn-add-raster-image" class="dropdown-item" href="javascript:void(0);" data-toggle="tooltip" title="{% trans 'Set a background image' %}">{% trans "Add Background Image" %}
+                </a>
+                <a id="btn-remove-raster-image" class="dropdown-item" href="javascript:void(0);" data-toggle="tooltip" title="{% trans 'Remove a background image' %}">{% trans "Remove Background Image" %}
+                </a>
+                <a id="btn-form-in-menu" class="dropdown-item" href="javascript:void(0);" data-toggle="tooltip" title="{% trans 'Grid menu visibility' %}">{% trans "Show/Hide Menu Grid Menu" %}
+                </a>
+              </div>
+            </div>
+          </div> 
+          <!-- /btn-group -->
+        </div> 
+        <!-- /form-view-ui -->
+        <div class="btn-group list-view-ui" style="display: none;">
+          <button class="btn btn-warning m-1" id="btn-new-section" data-toggle="tooltip" title="{% trans 'Create new section' %}">
+            <i class="fa fa-plus" aria-hidden="true">
+            </i>
+          </button>									
+          <button class="btn btn-danger m-1" id="btn-remove-section" disabled="true" data-toggle="tooltip" title="{% trans 'Remove selected section' %}">
+            <i class="fa fa-minus" aria-hidden="true">
+            </i>
+          </button>
+          <button class="btn btn-danger m-1" id="btn-remove-all-sections" disabled="true" data-toggle="tooltip" title="{% trans 'Remove all sections' %}">
+            <i class="fa fa-minus-circle" aria-hidden="true">
+            </i>
+          </button>
+        </div> 
+        <!-- /btn-group -->
+        <div class="btn-group groups-view-ui" style="display: none;">
+          <button class="btn btn-info m-1" id="btn-expand-all-groups" disabled="true"  data-toggle="tooltip" title="{% trans 'Expand all groups' %}">
+            <i class="fa fa-expand" aria-hidden="true">
+            </i>
+          </button>								
+          <button class="btn btn-info m-1" id="btn-collapse-all-groups" disabled="true"  data-toggle="tooltip" title="{% trans 'Collapse all groups' %}">
+            <i class="fa fa-compress" aria-hidden="true">
+            </i>
+          </button>									
+          <button class="btn btn-warning m-1" id="btn-new-group" data-toggle="tooltip" title="{% trans 'Create new group' %}">
+            <i class="fa fa-plus" aria-hidden="true">
+            </i>
+          </button>
+          <button class="btn btn-danger m-1" id="btn-remove-all-groups" disabled="true"  data-toggle="tooltip" title="{% trans 'Remove all groups' %}">
+            <i class="fa fa-minus-circle" aria-hidden="true">
+            </i>
+          </button>
+        </div> 
+        <!-- /btn-group -->
+        <div class="btn-group ea-view-ui" style="display: none;">
+          <button class="btn btn-info m-1" id="btn-expand-all-eas" disabled="true" data-toggle="tooltip" title="{% trans 'Expand all E/As' %}">
+            <i class="fa fa-expand" aria-hidden="true">
+            </i>
+          </button>								
+          <button class="btn btn-info m-1" id="btn-collapse-all-eas" disabled="true" data-toggle="tooltip" title="{% trans 'Collapse all E/As' %}">
+            <i class="fa fa-compress" aria-hidden="true">
+            </i>
+          </button>
+          <div class="btn-group">
+            <button class="btn btn-warning dropdown-toggle m-1 px-2" type="button" data-toggle="dropdown">
+              <i class="fa fa-plus" aria-hidden="true">
+              </i>
+            </button>
+            <div class="dropdown-menu">											
+              <a id="ea-new-selection" class="dropdown-item" href="javascript:void(0);">{% trans "Selection" %}
+              </a>
+              <a id="ea-new-status" class="dropdown-item" href="javascript:void(0);">{% trans "Status" %}
+              </a>
+              <a id="ea-new-visibility" class="dropdown-item" href="javascript:void(0);">{% trans "Visibility" %}
+              </a>
+              <div class="dropdown-divider">
+              </div> 
+              <a id="ea-new-append" class="dropdown-item" href="javascript:void(0);">{% trans "Append" %}
+              </a>
+              <a id="ea-new-format" class="dropdown-item" href="javascript:void(0);">{% trans "Format" %}
+              </a>
+              <div class="dropdown-divider">
+              </div> 
+              <a id="ea-new-db-query" class="dropdown-item" href="javascript:void(0);">{% trans "Query Database" %}
+              </a>											
+              <a id="ea-new-table-query" class="dropdown-item" href="javascript:void(0);">{% trans "Query Table" %}
+              </a>
+              <div class="dropdown-divider"></div> 
+              <a id="ea-new-temporal" class="dropdown-item" href="javascript:void(0);">{% trans "Temporal" %}</a>
+              <div class="dropdown-divider"></div> 
+              <a id="ea-new-required" class="dropdown-item" href="javascript:void(0);">{% trans "Required" %}</a>              
+            </div>
+          </div>
+          <button class="btn btn-danger m-1" id="btn-remove-all-eas" disabled="true" data-toggle="tooltip" title="{% trans 'Remove all E/As' %}">
+            <i class="fa fa-minus-circle" aria-hidden="true">
+            </i>
+          </button>
+        </div> 
+        <!-- /btn-group -->
+      </div> 
+      <!-- /ml-auto -->
+    </ul>
+    <div class="tab-content" id="main-tab-content">
+    <!--
+      <div id="designer-main-spinner" class="risk-spinner-overlay">
+        <i class="fa fa-sync-alt fa-spin" aria-hidden="true">
+        </i>
+      </div>
+      -->
+      <!-- ----------------------------------- -->
+      <!-- MAIN - FORM -->
+      <!-- ----------------------------------- -->
+      <div id="form-tab" class="tab-pane show active bg-secondary form-view-tab border border-dark"  role="tabpanel" aria-labelledby="form-tab">
+        
+        {% include 'designer/_grid_menu.html' %}
+        {% include 'designer/_table_menu.html' %}
+        <div id="form-pages" class="pages-area">
+        </div>
+      </div> 
+      <!-- /tab-pane -->
+      <!-- ----------------------------------- -->
+      <!-- MAIN - LIST -->
+      <!-- ----------------------------------- -->
+      <div id="list-tab" class="tab-pane list-view-tab pt-3 bg-secondary" role="tabpanel" aria-labelledby="list-tab">
+        <div class="row">
+          <div class="col-3">
+            <div class="nav flex-column nav-pills m-2 text-center" id="sections-tab" role='tablist' aria-orientation='vertical' style="background-color: #f2f2f2">
+              <div class="font-weight-bold text-white bg-dark py-2">
+                {% trans "SECTIONS" %}
+              </div>
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="tab-content p-3 offset-md-2" id="sections-tab-content">
+            </div>								
+          </div>
+        </div>
+      </div> 
+      <!-- /tab-pane -->
+      <!-- ----------------------------------- -->
+      <!-- MAIN - GROUPS -->
+      <!-- ----------------------------------- -->
+      <div id="groups-tab" class="tab-pane groups-view-tab pt-2 bg-secondary" role="tabpanel" aria-labelledby="groups-tab">
+        <div id="no-groups-msg" style="display:none;">
+          <br/>
+          <br/>
+          <div class="alert alert-info text-center shadow p-3 mb-5 mx-5 rounded">
+            <h2>
+              <strong>{% trans "No Groups Yet" %}!
+              </strong>
+            </h2>
+          </div>
+        </div>
+      </div> 
+      <!-- /tab-pane -->							
+      <!-- ----------------------------------- -->
+      <!-- MAIN - E/A -->
+      <!-- ----------------------------------- -->
+      <div id="ea-tab" class="tab-pane ea-view-tab pt-2 bg-secondary" role="tabpanel" aria-labelledby="ea-tab">
+        <div id="no-eas-msg" style="display: none;">
+          <br/>
+          <br/>
+          <div class="alert alert-info text-center shadow p-3 mb-5 mx-5 rounded">
+            <h2>
+              <strong>{% trans "No Events/Actions Yet" %}!
+              </strong>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <!-- /tab-content -->
+  </div> 
+  <!-- /col -->
+</div> 
+<!-- /row -->

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Help: Videos{% endblock %}
+
+{% block extra_head %}
+	{{ block.super }}
+
+	{% include 'help/_styles.html' %}
+
+{% endblock %}
+
+{% block no_heading %}
+<div class="container-fluid">
+	<div class="row mb-2">
+		<div class="col-sm-6">
+			<h1>{% trans "Help: Videos" %}
+      </h1>
+		</div>
+		<div class="col-sm-6">
+			<ol class="breadcrumb float-sm-right">
+				<li class="breadcrumb-item">	
+                    <a href="{% url 'home' %}">{% trans "Home" %}</a>
+				</li>
+				<li class="breadcrumb-item active">{% trans "Help: Rest API" %}</li>
+			</ol>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+
+	{% include 'help/_users_manual.html' %}
+
+	{% include 'help/videos/_contents.html' %}
+
+	<div id="designer">
+		{% include 'help/videos/_tables_dialogue.html' %}
+		{% include 'help/videos/_sidebars.html' %}
+		{% include 'help/videos/_db_checks_radios.html' %}
+		{% include 'help/videos/_repeatable_elements.html' %}
+		{% include 'help/videos/_headers_footers_fv.html' %}
+		{% include 'help/videos/_headers_lv.html' %}
+		{% include 'help/videos/_zoom.html' %}
+		{% include 'help/videos/_clone.html' %}
+		{% include 'help/videos/_move.html' %}
+		{% include 'help/videos/_brush.html' %}
+
+		{% include 'help/videos/_sections_ordering.html' %}
+		{% include 'help/videos/_sections_changing.html' %}
+
+		{% include 'help/videos/_groups_type.html' %}
+
+		{% include 'help/videos/_ea_selection.html' %}
+		{% include 'help/videos/_ea_status.html' %}
+		{% include 'help/videos/_ea_visibility.html' %}
+		{% include 'help/videos/_ea_append.html' %}
+		{% include 'help/videos/_ea_format.html' %}
+		{% include 'help/videos/_ea_database.html' %}
+		{% include 'help/videos/_ea_table.html' %}
+		{% include 'help/videos/_ea_temporal.html' %}
+		{% include 'help/videos/_ea_required.html' %}
+
+		{% include 'help/videos/_options_other.html' %}
+
+
+	</div>
+
+	
+
+	<div id="xxx">
+	</div>
+
+  </div>
+  <!-- /container-fluid -->
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+	{% include 'help/_scripts.html' %}
+
+{% endblock %}
+

@@ -1,0 +1,14 @@
+.nav-sidebar .nav-treeview {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #46464D !important;
+  }
+
+  .nav-treeview > li > a {
+    padding: 5px 5px 5px 15px;
+    display: block;
+    font-size: 1rem;
+  }
+

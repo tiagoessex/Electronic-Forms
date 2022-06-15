@@ -1,0 +1,32 @@
+
+/* actions columns **/
+.btn-actions {
+    width:100%;
+}
+
+
+th.dt-center, td.dt-center {
+    text-align: center; 
+}
+
+/* temporary form */
+.temporary-row {
+    background-color: #ffeaee;
+}
+
+/* ------------- */
+/* assets column */
+/* ------------- */
+td.details-control {
+  /*  background: url('/static/formsmanager/images/open.png') no-repeat center center;*/
+    cursor: pointer;
+	background-size: 32px 32px;
+   	padding-right: 16px;
+    padding-left: 16px;
+}
+tr.shown td.details-control {
+/*    background: url('/static/formsmanager/images/close.png') no-repeat center center;*/
+	background-size: 32px 32px;
+   	padding-right: 16px;
+    padding-left: 16px;	
+}

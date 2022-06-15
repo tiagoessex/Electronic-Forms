@@ -1,0 +1,26 @@
+SECRET_KEY="some key here" # example: 543fgsdfsd=i2qz)4)%vdm!69*rh^)!uvfvdftbai%6%5scvx8twert
+DEBUG=False # False if in dev, True if in production
+N_WORKERS=4 # background cleanup workers
+
+
+###### EMAIL SERVICE ######
+
+# IF USING GMAIL, ACTIVATE 2 STEP AND CREATE A NEW APP
+
+EMAIL_HOST_USER="xxx@gmail.com"
+EMAIL_HOST_PASSWORD="app_password"
+EMAIL_PORT = 587
+
+
+###### DATABASES ######
+# MYSQL #
+IDRISK_URL=mysql://root:pass2022@db:3306/idrisk   # REQUIRED #
+WORLD_URL=mysql://root:pass2022@db:3306/world     # REQUIRED FOR EXAMPLES FORMS #
+
+
+# POSTGRESQL #
+#POSTGRE_URL=postgresql://root:pass2022@127.0.0.1:5432/postgreDatabase
+#POSTGRE_SCHEMA='xxx'
+
+# ORACLE #
+#ORACLE_URL=oracle://user:pass2022@localhost:1521/oracleDatabase

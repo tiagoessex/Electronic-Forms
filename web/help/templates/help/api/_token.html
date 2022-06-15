@@ -1,0 +1,101 @@
+<section id="token">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3>Token</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="card bg-dark text-white font-weight-bold text-monospace">
+                <div class="card-body">
+                    <span class="request-method">POST</span> {server}/rest/api/api-token-auth/
+                </div>
+            </div>
+
+            <p>Token generation for authentication. <span class="badge badge-warning p-1">REQUIRED FOR ALL ENDPOINTS</span>.</p>
+
+            <br>
+
+            <span class="header-params">REQUEST BODY SCHEMA:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-1">username</dt>
+                <dt class="col-1"><span class="badge badge-secondary">string</span></dt>
+                <dd class="col-10">User's username</dd>
+
+                <dt class="col-1">password</dt>
+                <dt class="col-1"><span class="badge badge-secondary">string</span></dt>
+                <dd class="col-10">User's password</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">RESPONSES:</span>
+            <hr>
+
+            <div class="response-success p-2">
+                <div class="response-title">200 Successful</div>
+                The token, user ID and email.               
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">400 Bad Request</div>
+                Missing body parameters. Response example:
+<pre>{
+  "username": [
+    "This field is required."
+  ],
+  "password": [
+    "This field is required."
+  ]
+}</pre>
+
+                Wrong credentials. Response example:
+<pre>{
+  "non_field_errors": [
+    "Unable to log in with provided credentials."
+  ]
+}</pre>
+            </div>
+            <br>
+
+            <div class="response-error p-2">
+                <div class="response-title">401 Unauthorized</div>
+                No permission to generate the token.
+<pre>{
+  "message": "You do not have permission to generate a token"
+}</pre>
+
+            </div>
+
+            <br>
+
+            <span class="header-params">EXAMPLE:</span>
+            <hr>
+            <h5>Request</h5>
+            <span class="example-request m-2">{server}/api-token-auth/</span>
+            <div class="example-request-body text-monospace m-2 p-2">
+            BODY:
+<pre>{
+  "username": "myusername",
+  "password": "mypass"
+}</pre>  
+                </div>          
+
+            <br>
+            <br>
+
+            <h5>Response</h5>
+            <div class="example-response text-monospace m-2 p-2">
+<pre>{
+  "token": "token_here",
+  "user_id": 1,
+  "email": "some@email.com"
+}</pre>
+            </div>
+
+        </div>
+    </div>
+
+</section>

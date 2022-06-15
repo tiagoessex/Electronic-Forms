@@ -1,0 +1,56 @@
+{% extends 'adminlte/base.html' %}
+{% load static %}
+
+{% block prehead %}
+{% endblock %}
+
+{% block extra_head %}
+
+  <!-- FLAGS https://github.com/shadowsky20/flag-icon-css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" type="text/css">
+
+   <!-- adminlte styles override -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/adminlte.css' %}">
+
+  {% include '_favicon.html' %}	
+
+{% endblock %}
+
+<!-- layout-fixed => sidebar fixed -->
+{% block bodyclass %}layout-navbar-fixed layout-fixed{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+
+    <script>
+      // --------------------------
+      // --- LANGUAGE SELECTION ---
+      // --------------------------
+      function setFlag(language_code=null) {
+          if (!language_code) language_code = $('#selected-lang-form').val();
+          $('#selected-language').removeClass();
+          $('#selected-language').addClass('flag-icon');
+          $('#selected-language').addClass('flag-icon-' + language_code);
+      }
+
+      $('.language-select').click(function(e) {
+          const sprache = $(this).attr('data-lang');
+          if (sprache === $('#selected-lang-form').val()) return false;
+            setFlag(sprache);
+            $('#selected-lang-form').val(sprache);
+            $('#lang-select-form').submit();
+      });
+
+      var DEBUG = true;
+      if(!DEBUG){
+        if(!window.console) window.console = {};
+        var methods = ["log", "debug", "info"];
+        for(var i=0;i<methods.length;i++){
+            console[methods[i]] = function(){};
+        }
+      }
+
+    </script>
+
+{% endblock %}
+

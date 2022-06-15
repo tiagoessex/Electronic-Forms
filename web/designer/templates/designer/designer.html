@@ -1,0 +1,86 @@
+<!--
+	This app is independent of the adminlte template.
+-->
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<html lang="en">
+<head>
+ 	{% load static %}
+	<!-- Meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1, shrink-to-fit = no">
+
+	{% include '_favicon.html' %}
+
+	{% include 'designer/_styles.html' %}
+
+	<title>{% trans 'Forms Designer' %}</title>
+
+<style>
+
+  </style>
+
+</head>
+
+<body>
+	<!-- open the form with id=form_id?  -->
+	<input type="hidden" id="form-id-hidden" value="{{form_id}}">
+	<!-- marquee selection tool -->
+	<div id="marquee" class="marquee" style="z-index: 999999;" hidden></div>
+
+	<div id="container">
+
+		<!-- NAVBAR - TOP MENU -->
+		{% include 'designer/_topmenu.html' %}
+
+		<div id="wrapper">
+
+			<!-- Left Sidebar -->
+			<div id="left-sidebar-wrapper">
+				<!-- The sidebar is completely builded in js -->
+				<div class="sidebar" id="form-elements-menu"></div>
+			</div>
+			<!-- /Left Sidebar -->
+
+			<!-- right Sidebar -->
+			<div id="right-sidebar-wrapper">
+				<!-- The sidebar is completely builded in js -->
+				<div class="sidebar" id="properties-menu"></div>
+			</div>
+			<!-- /right Sidebar -->
+
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="toggle-button-left">
+						<button id="left-menu-toggle" class="btn btn-secondary"><i id="toggleIcon-left" class="fa fa-angle-double-left"></i> </i></button>
+					</div>
+					<div class="toggle-button-right">
+						<button id="right-menu-toggle" class="btn btn-secondary"><i id="toggleIcon-right" class="fa fa-angle-double-right"></i></i></button>
+					</div>
+
+					<!-- form name, date, preview button, ... -->
+					{% include 'designer/_toprow.html' %}
+
+					<!-- form view, list view, groups, e/a, ... -->
+					{% include 'designer/_workingarea.html' %}
+
+				</div><!-- /container-fluid -->
+			</div><!-- /page-content-wrapper -->
+
+		</div>
+		<!-- /wrapper -->
+
+	</div>
+	<!-- /container -->
+
+	<!-- MODALS -->
+	<div id="modals-container"></div>
+
+	{% include 'designer/_progress.html' %}
+	
+	{% include 'designer/_scripts.html' %}
+  
+   </body>
+</html>

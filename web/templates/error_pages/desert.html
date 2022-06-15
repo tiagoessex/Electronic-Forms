@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_extra_head %}
+  <link rel="stylesheet" type="text/css" href="{% static '/css/desert.css' %}">
+{% endblock %}
+
+{% block content %}
+    <img src="{% static '/images/desert.jpg' %}" alt="desert" class="center">
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Edit/View Operations{% endblock %}
+
+{% block extra_head %}
+	{{ block.super }}
+
+	{% include 'opeditview/_styles.html' %}
+
+{% endblock %}
+
+
+{% block no_heading %}
+<!-- open the operation with id=operation_id?  -->
+<input type="hidden" id="operation-id-hidden" value="{{operation_id}}">
+<input type="hidden" id="form-id-hidden" value="{{form_id}}">
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-6">
+			<h4 class="text-dark">
+				<span id="operation-name"></span>
+			</h4>
+		</div>
+		<div class="col-sm-6">
+			<ol class="breadcrumb float-sm-right">
+				<li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans "Home" %}</a>
+				</li>
+				<li class="breadcrumb-item active">{% trans "Operation Edit/View" %}</li>
+			</ol>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-2"></div>
+		<div class="col-8">
+			<div class="btn-group d-flex" role="group" aria-label="Basic example" style=" text-align: center; display: block;margin: 0 auto;">
+				<button type="button" id="btn-operation-save" class="btn btn-outline-danger m-1 w-100 disabled"><i class="fa fa-save" aria-hidden="true"></i> {% trans "Save" %}</button>
+				<button type="button" id="btn-operation-validate" class="btn btn-info m-1 w-100"><i class="fa fa-check" aria-hidden="true"></i> {% trans "Validate" %}</button>				
+				<button type="button" id="btn-operation-reset" class="btn btn-warning m-1 w-100 disabled"><i class="fa fa-trash-restore-alt" aria-hidden="true"></i> {% trans "Reset" %}</button>
+				<button type="button" id="btn-operation-annexes" class="btn btn-outline-secondary m-1 w-100"><i class="fa fa-paperclip" aria-hidden="true"></i> {% trans "Annexes" %}</button>
+				<button type="button" id="btn-operation-print" class="btn btn-outline-primary m-1 w-100 disabled"><i class="fa fa-print" aria-hidden="true"></i> {% trans "Print" %}</button>
+				<button type="button" id="btn-operation-pdf" class="btn btn-outline-danger m-1 w-100 disabled"><i class="far fa-file-pdf" aria-hidden="true"></i> {% trans "PDF" %}</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+		<div class="row">
+
+			<div class="col-sm-12">
+				<nav class="nav-justified views mb-3" id="views-tab">
+                  	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+						<a class="nav-item nav-link active" id="list-view-tab" data-toggle="tab" href="#list-view" role="tab" aria-controls="list-view" aria-selected="true"><i class="fa fa-list" aria-hidden="true"></i> {% trans "List View" %}</a>                    
+						<a class="nav-item nav-link" id="form-view-tab" data-toggle="tab" href="#form-view" role="tab" aria-controls="form-view" aria-selected="false"><i class="fab fa-wpforms"></i> {% trans "Form View" %}</a>
+                  	</div>
+                </nav>
+
+				<div class="tab-content bg-secondary" id="nav-tabContent">
+
+					<div id="operation-spinner" class="risk-spinner-overlay">
+              			<i class="fa fa-sync-alt fa-spin" aria-hidden="true"></i>
+            		</div>
+
+                  	<div class="tab-pane fade show active" id="list-view" role="tabpanel" aria-labelledby="list-view-tab">
+					  	<div id="list-view-accordion">
+					  	</div>
+                  	</div>				
+                  	<div class="tab-pane fade mx-auto px-2" id="form-view" role="tabpanel" aria-labelledby="form-view-tab" style="overflow: auto;">
+                    </div>
+                </div>
+			</div>
+		</div>
+
+
+</div><!-- /container -->
+
+<!-- ----------------------------------- -->
+<!-- MODALS -->
+<!-- ----------------------------------- -->
+
+<div id="modals-container"></div>
+
+{% include 'sform/_foodex_modal.html' %}
+
+{% endblock %}
+
+{% block extra_js %}
+
+	{% include 'opeditview/_scripts.html' %}	
+
+{% endblock %}

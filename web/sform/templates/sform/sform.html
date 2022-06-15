@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block prehead %}
+	{% load pwa %}
+{% endblock %}
+
+{% block title %}S-Form{% endblock %}
+
+{% block extra_head %}
+	{% progressive_web_app_meta %}
+	{{ block.super }}	
+
+	{% include 'sform/_styles.html' %}
+
+{% endblock %}
+
+
+{% block no_heading %}
+<!--
+<div class="container-fluid">
+	<div class="row mb-2">
+		<div class="col-sm-6 offset-sm-4">
+			<ol class="breadcrumb float-sm-right">
+				<li class="breadcrumb-item">	
+					<a href="{% url 'home' %}">Home</a>
+				</li>
+				<li class="breadcrumb-item active">Inspector's APP</li>
+			</ol>
+		</div>
+	</div>
+</div>
+-->
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="container-fluid">
+			
+			<div class='card risk-spinner-overlay' id="sync" style="visibility: hidden;">
+				<i class="fa fa-sync-alt fa-spin" aria-hidden='true'></i>
+				<h2 id="sync-message" style="visibility: hidden;"> {% trans "Synchronizing" %} ...</h2>
+			</div>
+			
+		
+
+
+		<div id="title-area"></div>
+
+
+
+
+		{% include 'sform/_main.html' %}
+		{% include 'sform/_form_selection.html' %}
+		{% include 'sform/_operation_details.html' %}
+		{% include 'sform/_fill_form.html' %}
+		{% include 'sform/_resume_operation_selection.html' %}
+		{% include 'sform/_manager.html' %}
+		{% include 'sform/_signing_modal.html' %}
+		{% include 'sform/_foodex_modal.html' %}
+		
+	
+	</div><!-- /container -->
+
+
+	<!--------- -->
+	<!-- MODALS -->
+	<!--------- -->
+	<div id="modals-container"></div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+	{% include 'sform/_scripts.html' %}	
+
+{% endblock %}

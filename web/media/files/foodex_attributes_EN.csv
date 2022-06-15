@@ -1,0 +1,48 @@
+code,name,label
+F02,part,Part-nature
+F01,source,Source
+F27,racsource,Source-commodities
+F28,process,Process
+F04,ingred,Ingredient
+F06,medium,Surrounding-medium
+F08,sweet,Sweetening-agent
+F09,fort,Fortification-agent
+F10,qual,Qualitative-info
+F17,cookext,Extent-of-cooking
+F26,gen,Generic-term
+F21,prod,Production-method
+F18,packformat,Packaging-format
+F19,packmat,Packaging-material
+F03,state,Physical-state
+F07,fat,Fat-content
+F11,alcohol,Alcohol-content
+F12,dough,Dough-Mass
+F20,partcon,Part-consumed-analysed
+F22,place,Preparation-production-place
+F23,targcon,Target-consumer
+F24,use,Intended-use
+F25,riskingred,Risky-Ingredient
+F29,fpurpose,Purpose-of-raising
+F30,replev,Reproductive-level
+F31,animage,Animal-age-class
+F32,gender,Gender
+F33,legis,Legislative-classes
+A01,scientificNames,Scientific names
+A02,commonNames,Common names
+allFacets,allFacets,All implicit facets
+ISSCAAP,ISSCAAP,ISSCAAP
+taxonomicCode,taxonomicCode,taxonomicCode
+alpha3Code,alpha3Code,alpha3Code
+GEMSCode,GEMSCode,GEMSCode
+matrixCode,matrixCode,matrixCode
+LangualCode,LangualCode,LangualCode
+foodexOldCode,foodexOldCode,foodexOldCode
+implicitFacets,implicitFacets,Implicit facets
+detailLevel,detailLevel,Level of detail
+termType,termType,Type of Term
+prodTreat,prodTreat,Production Treatment (SSD1)
+prodMeth,prodMeth,Production Method (SSD1)
+prodPack,prodPack,Production Packaging (SSD1)
+EuringsCode,EuringsCode,EuringsCode
+IFNCode,IFNCode,IFN Code
+EUFeedReg,EUFeedReg,EUFeedReg

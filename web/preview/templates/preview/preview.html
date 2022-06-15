@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Forms Preview{% endblock %}
+
+{% block extra_head %}
+	{{ block.super }}
+
+	{% include 'preview/_styles.html' %}
+
+{% endblock %}
+
+
+{% block no_heading %}
+<!-- open the form with id=form_id?  -->
+<input type="hidden" id="form-id-hidden" value="{{form_id}}">
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-6">
+			<h4 class="text-dark">
+				<span id="form-name"></span>
+			</h4>
+		</div>
+		<div class="col-sm-6">
+			<ol class="breadcrumb float-sm-right">
+				<li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans "Home" %}</a>
+				</li>
+				<li class="breadcrumb-item active">{% trans "Preview" %}</li>
+			</ol>
+		</div>
+	</div>
+	<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8">
+			<div class="btn-group d-flex" role="group" aria-label="Basic example">
+				<button type="button" id="btn-preview-form-view" class="btn btn-success m-1 w-100"><i class="fab fa-wpforms" aria-hidden="true"></i> {% trans "Form View" %}</button>
+				<button type="button" id="btn-preview-list-view" class="btn btn-success m-1 w-100"><i class="fa fa-bars" aria-hidden="true"></i> {% trans "List View" %}</button>
+				<button type="button" id="btn-preview-print" class="btn btn-success m-1 w-100"><i class="fa fa-print" aria-hidden="true"></i> {% trans "Print" %}</button>
+				<button type="button" id="btn-preview-pdf" class="btn btn-success m-1 w-100"><i class="far fa-file-pdf" aria-hidden="true"></i> {% trans "PDF" %}</button>
+				<button type="button" id="btn-preview-stats" class="btn btn-success m-1 w-100"><i class="fa fa-info" aria-hidden="true"></i> {% trans "Stats" %}</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="tablet-area">
+
+		<div id="preview-spinner" class="risk-spinner-overlay">
+			<i class="fa fa-sync-alt fa-spin" aria-hidden="true"></i>
+		</div>
+
+		<div id="form-view" class="show">
+			<div style="text-align: center;  position: relative;">
+				<div id="tablet-form" style="position: absolute; left: 50%; top: 7%;  transform: translate(-50%, 7%);overflow: auto; max-height:1030px; width: 800px;"></div>
+				<img src="{% static 'preview/images/tablet.png' %}" style="position: absolute; left: 50%; top: 0%;  transform: translate(-50%, 0%);height:1210px; width: 1020px;pointer-events:none;">
+			</div>
+		</div>
+		<div id="list-view" class="collapse">
+			<div style="position: relative;">
+				<div id="list-view-accordion" class="fixed-top" style="position: absolute; left: 50%; transform: translateX(-50%); top: 120px; overflow: auto; max-height:975px; width: 750px;">
+				</div>
+				<img src="{% static 'preview/images/tablet.png' %}" style="position: absolute; left: 50%; top: 0%;  transform: translate(-50%, 0%);height:1210px; width: 1020px;pointer-events:none;">
+			</div>
+		</div>
+		<div id="stats-view" class="collapse">
+
+			<div class="row">
+				<div class="col-6 offset-md-3">
+					<div class="card mx-5 mt-5">
+  						<div class="card-body">
+
+							<nav>
+								<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+									<a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-general" aria-selected="true">General</a>
+									<a class="nav-item nav-link" id="nav-sections-tab" data-toggle="tab" href="#nav-sections" role="tab" aria-controls="nav-sections" aria-selected="false">Sections</a>
+									<a class="nav-item nav-link" id="nav-groups-tab" data-toggle="tab" href="#nav-groups" role="tab" aria-controls="nav-groups" aria-selected="false">Groups</a>
+									<a class="nav-item nav-link" id="nav-eas-tab" data-toggle="tab" href="#nav-eas" role="tab" aria-controls="nav-eas" aria-selected="false">E/A</a>
+									<a class="nav-item nav-link" id="nav-elements-tab" data-toggle="tab" href="#nav-elements" role="tab" aria-controls="nav-elements" aria-selected="false">Elements</a>
+								</div>
+							</nav>
+							<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+								<div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
+
+									<table class="table table-bordered mt-3">
+										<colgroup>
+											<col style="width: 30%;">
+											<col style="width: 70%;">
+										</colgroup>
+										<tr>
+											<td class="bg-warning font-weight-bold">ID</td>
+											<td id="id"></td>
+										</tr>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Name" %}</td>
+											<td id="name"></td>
+										</tr>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Description" %}</td>
+											<td id="description"></td>
+										</tr>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Creation Date" %}</td>
+											<td id="date"></td>
+										</tr>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Number of Pages" %}</td>
+											<td id="n_pages"></td>
+										</tr>
+									</table>
+
+								</div><!-- /general -->
+								<div class="tab-pane fade" id="nav-sections" role="tabpanel" aria-labelledby="nav-sections-tab">
+
+									<table class="table table-bordered mt-3">
+										<colgroup>
+											<col style="width: 30%;">
+											<col style="width: 70%;">
+										</colgroup>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Number of Sections" %}</td>
+											<td id="n_sections"></td>
+										</tr>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Sections" %}</td>
+											<td id="sections"></td>
+										</tr>						
+									</table>
+
+								</div><!-- /sections -->
+								<div class="tab-pane fade" id="nav-groups" role="tabpanel" aria-labelledby="nav-groups-tab">
+
+									<table class="table table-bordered mt-3">
+										<colgroup>
+											<col style="width: 30%;">
+											<col style="width: 70%;">
+										</colgroup>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Number of Groups" %}</td>
+											<td id="n_groups"></td>
+										</tr>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Groups" %}</td>
+											<td id="groups"></td>
+										</tr>						
+									</table>
+
+								</div><!-- /groups -->
+								<div class="tab-pane fade" id="nav-eas" role="tabpanel" aria-labelledby="nav-eas-tab">
+
+									<table class="table table-bordered mt-3">
+										<colgroup>
+											<col style="width: 30%;">
+											<col style="width: 70%;">
+										</colgroup>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Number of E/A" %}</td>
+											<td id="n_eas"></td>
+										</tr>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "E/A" %}</td>
+											<td id="eas"></td>
+										</tr>						
+									</table>
+
+								</div><!-- /eas -->
+								<div class="tab-pane fade" id="nav-elements" role="tabpanel" aria-labelledby="nav-elements-tab">
+									
+									<table class="table table-bordered mt-3">
+										<colgroup>
+											<col style="width: 30%;">
+											<col style="width: 70%;">
+										</colgroup>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Number of Elements" %}</td>
+											<td id="n_elements"></td>
+										</tr>
+										<tr>
+											<td class="bg-warning font-weight-bold">{% trans "Elements" %}</td>
+											<td id="elements"></td>
+										</tr>						
+									</table>
+								</div><!-- /elements -->
+							</div>
+					  	</div><!-- /card-body -->
+					</div><!-- /card -->
+  				</div><!-- /col -->
+			</div><!-- /row -->
+
+		</div><!-- /stats-view -->
+	</div><!-- /tablet-area -->
+</div><!-- /container -->
+
+<!-- ----------------------------------- -->
+<!-- MODALS -->
+<!-- ----------------------------------- -->
+
+<div id="modals-container"></div>
+
+{% include 'sform/_foodex_modal.html' %}
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+	{% include 'preview/_scripts.html' %}
+
+{% endblock %}

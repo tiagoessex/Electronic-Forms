@@ -1,0 +1,38 @@
+{% load static %}
+
+<!-- http://millermedeiros.github.io/js-signals/ -->
+<script src="{% static 'plugins/signals/signals.min.js' %}"></script>
+
+<!-- https://leafletjs.com/ -->
+<script src="{% static 'plugins/leaflet-1.7.1/leaflet.js' %} "></script>
+
+<!-- https://serratus.github.io/quaggaJS -->
+<script src="{% static 'plugins/quaggaJS-0.12.1/quagga.min.js' %} "></script>
+
+<!-- https://pdf-lib.js.org -->
+<script src="{% static 'plugins/pdf-lib-1.16.0/pdf-lib.min.js' %} "></script>
+
+<!-- https://github.com/eligrey/FileSaver.js -->
+<script src="{% static 'plugins/fileSaver-2.0.4/FileSaver.min.js' %} "></script>
+
+<!-- https://html2canvas.hertzen.com/ -->
+<script src="{% static 'plugins/html2canvas-1.2.1/html2canvas.min.js' %} "></script>
+
+<!-- https://github.com/mapbox/leaflet-image -->
+<script src="{% static 'plugins/leaflet-image-0.0.4/leaflet-image.js' %} "></script>
+
+<!-- https://www.papaparse.com/ -->
+<script src="{% static 'plugins/PapaParse-5.0.2/papaparse.min.js' %} "></script>
+
+<!-- https://www.jstree.com/ -->
+<script src="{% static 'plugins/jstree-3.3.11-0/jstree.min.js' %}"></script>
+
+<script type="module" src="{% static 'preview/js/preview.js' %}"></script>
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+      trigger : 'hover',
+    });
+  });
+</script>

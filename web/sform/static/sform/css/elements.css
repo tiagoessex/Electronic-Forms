@@ -1,0 +1,616 @@
+
+
+
+/*
+  @media print is mostly not required, since each element is processed accordingly.
+*/
+
+@media print {
+  /* to allow printing background images */
+  .dummy-page {
+    display: list-item;    
+    list-style-position: inside;
+  } 
+}
+
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ------------------ */
+/* PAGE */
+/* ------------------ */
+
+/* set a border aroung the page is usefull when in small screens */
+.page {
+  border: 3px solid black;
+}
+
+
+@media print {
+  .page {
+    border-style: none;
+    min-height: 29.7cm !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+		margin-top: 0.1cm !important;
+		margin-bottom: 0.1cm !important;
+  }
+}
+
+
+
+/* ------------------ */
+/* INPUT PLACEHOLDERS */
+/* ------------------ */
+
+@media print {
+    ::-webkit-input-placeholder {
+      /* WebKit browsers */
+       color: transparent;
+    }
+    :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+    }
+    ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: transparent;
+    }
+    :-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: transparent;
+    }
+    input::placeholder {
+        color: transparent;
+    }
+    textarea::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: transparent;
+    }
+    textarea:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+    }
+    textarea::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: transparent;
+    }
+    textarea:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: transparent;
+    }
+    textarea::placeholder {
+        color: transparent;
+    }
+  }
+
+/* --------- */
+/* DATE/TIME */
+/* --------- */
+
+@media print {
+  /* hide the time pick (chrome) */
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none !important; 
+  }
+  
+  /* hide the calendar pick (chrome) */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background: none !important; 
+  }
+}
+
+
+
+/* -------- */
+/* TEXTAREA */
+/* -------- */
+
+textarea {
+  resize: none;
+}
+
+@media print {
+  /* hide the resize icon at the corner */
+  textarea {
+    resize: none !important;  
+  }
+}
+
+
+/* -------- */
+/* DROPDOWN */
+/* -------- */
+@media print {
+  /* hide the arrow */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+}
+
+/* ------ */
+/* NUMBER */
+/* ------ */
+
+@media print {
+  /* hide the spinners */
+
+  /* Webkit browsers like Safari and Chrome */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* For Firefox */
+  input[type='number'] {
+    -moz-appearance:textfield;
+  }
+}
+
+
+
+
+
+
+/* Chrome, Safari, Edge, Opera */
+
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  text-align: center;
+}
+
+/* ------ */
+/* TABLES */
+/* ------ */
+
+@media print {
+  table, th, td {
+    border-collapse: collapse;
+  }
+}
+
+
+
+/* ---------------- */
+/* HTML VALIDATIONS */
+/* ---------------- */
+
+input:invalid {
+    background-color: #ffdddd !important;
+  }
+  
+  form:invalid {
+    border: 5px solid #ffdddd !important;
+  }
+  /*
+  input:valid {
+    background-color: #ddffdd !important;
+  }
+  
+  form:valid {
+    border: 5px solid #ddffdd !important;
+  }
+  */
+  input:required {
+    border-color: #800000 !important;
+    border-width: 3px !important;
+  }
+  
+  input:required:invalid {
+    border-color: #c00000 !important;
+  }
+  
+  
+  /* ------ */
+  /* STATES */
+  /* ------ */
+  
+  /* DISABLE */
+  
+  input:disabled {
+      background-color: rgb(175, 175, 175) !important;
+  }
+  
+  .elementdisabled {
+    background-color: rgb(175, 175, 175) !important;
+  }
+  
+  /* CROSS */
+  
+  .cross {
+      /* position: relative !important;*/
+      background: gray !important;
+      /*padding: 5px !important;*/
+      overflow: hidden !important; /*hide overflow of pseudo elements*/
+      z-index: 100000 !important;
+  }
+  
+  .cross:before, .cross:after {
+      position: absolute !important;
+      content: '' !important;
+      background: red !important;
+      display: block !important;
+      width: 100% !important;
+      height: 5px !important; /* cross width */ 
+      -webkit-transform: rotate(-45deg) !important;
+      transform: rotate(-45deg) !important;
+      /* center the X vertically and horizontally */
+      left: 0 !important;
+      right: 0 !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      margin: auto !important;
+      z-index: 100000 !important;
+  }
+  
+  .cross:after {
+      -webkit-transform: rotate(45deg) !important;    
+      transform: rotate(45deg) !important;
+      z-index: 100000 !important;     
+  }
+  
+
+  /* CHECKBOXES AND RADIOS IN FORMVIEW CAN'T HAVE OVERFLOW HIDDEN */
+  /* TODO: FIND BETTER WAY */
+  .cross-check-radio {
+    background: gray !important;
+    z-index: 100000 !important;
+}
+
+.cross-check-radio:before, .cross-check-radio:after {
+    position: absolute !important;
+    content: '' !important;
+    background: red !important;
+    display: block !important;
+    width: 100% !important;
+    height: 5px !important; /* cross width */ 
+    -webkit-transform: rotate(-45deg) !important;
+    transform: rotate(-45deg) !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    margin: auto !important;
+    z-index: 100000 !important;
+}
+
+.cross-check-radio:after {
+    -webkit-transform: rotate(45deg) !important;    
+    transform: rotate(45deg) !important;
+    z-index: 100000 !important;     
+}
+
+
+
+
+  
+  
+  /* ------------------- */
+  /* ---- FORM VIEW ---- */
+  /* ------------------- */
+  
+  /* CHECKBOX AND RADIO */
+  
+  
+   /* Customize the label (the container) */
+  .fv-checkradio-container {
+      display: block;
+   /*   position: relative;*/
+     /* padding-left: 35px;
+      margin-bottom: 12px;*/
+      cursor: pointer;
+    /*  font-size: 22px;*/
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      white-space:nowrap;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .fv-checkradio-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;      
+  }
+  
+  
+  /* Create a custom checkbox */
+  .fv-checkradio-checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 26px;
+      width: 26px;
+      background-color: rgba(51,255,255,0.2); 
+      /*outline: 1px solid black;*/
+      
+  }
+  
+  .fv-checkradio-container input:disabled ~ .fv-checkradio-checkmark {
+    background-color: rgb(175, 175, 175) !important;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .fv-checkradio-container:hover input ~ .fv-checkradio-checkmark {
+      background-color: rgba(50,50,200,0.2);
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .fv-checkradio-container input:checked ~ .fv-checkradio-checkmark {
+      background-color: rgba(0,0,255,1); 
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .fv-checkradio-checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .fv-checkradio-container input:checked ~ .fv-checkradio-checkmark:after {
+      display: block;
+  }
+  
+  /* Style the fv-checkradio-checkmark/indicator */
+  .fv-checkradio-container .fv-checkradio-checkmark:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+  } 
+  
+  /* * */
+  
+  .fv-not-implemented {
+    height: 36px;
+    width: 340px;
+    background-color: #ff0000;
+    color: #fff;
+    border: solid;
+    text-align: center;
+  }
+  
+  .fv-gps-coordinates {
+    text-align: center;
+    overflow-wrap: break-word;
+    color: #000000;
+    font-weight: bold;  
+  }
+  
+  /*
+    input text with button attached
+  */
+  .fv-button-input button {
+    background:none;
+    border: solid;
+    /*float:right;*/
+  }
+  
+  .fv-button-input button:hover {
+    background:red;
+  }
+  .fv-button-input button:active {
+    background:green;
+  }
+  
+  /* 
+    button on the top right corner in elements such as PHOTO, DRAWING, ...
+    to remove or the current element value.
+   */
+   /*
+  .fv-remove-button {
+    position: absolute;  
+    top: 0px;
+    right: 0px;
+    background-color: lightgray;
+    color: black;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+  }
+  */
+  
+  .fv-remove-button {
+    border-radius: 50% !important;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+    right: 5px;
+    top: 5px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .fv-remove-button:hover {
+    transition: 0.25s ease-in-out;
+    transform: scale(1.2);    
+    background-color: rgb(255, 0, 0, 1.0) !important;
+  }
+  
+  /*
+  */
+  .fv-left-options {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+   /* background-color: red;*/
+  }
+  
+  .fv-left-bottom-options {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+   /* background-color: red;*/
+  }
+  
+  /*
+  */
+  .fv-center-info {
+    position: absolute;
+    top: 50%;
+    left:  50%;
+    -webkit-transform: translate(-50%, -50%); /* iOS */
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+  }
+
+
+  
+/* TABLE ELEMENT */
+
+.table-element-fv {
+  width: 100%; 
+  height: 100%;
+  border:1px solid black !important;
+}
+
+.table-element-fv th,
+.table-element-fv td {
+  border:1px solid black !important;
+}
+
+
+.table-element-lv-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* TABLE - ADD ROW BUTTON */
+.add-row-btn-fv {
+  position: absolute;
+  top: 0px;
+  left: -30px;
+  width: 30px;
+}
+
+/* TABLE - REMOVE ROW BUTTON */
+.remove-row-btn-fv {
+  position: absolute;
+  top: 0px;
+  right: -30px;
+  width: 30px;
+  background-color: red;
+  color: white;
+}
+  
+  
+  /* ------------------- */
+  /* ---- LIST VIEW ---- */
+  /* ------------------- */ 
+  
+  .lv-label {
+    font-weight: normal !important; /* WHY? */
+   /* text-align: left !important;*/
+  }
+  
+  /* CHECKBOX AND RADIO */
+  
+  /* The container */
+  .lv-checkradio-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: lighter;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .lv-checkradio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;    
+    
+  }
+  
+  /* Create a custom checkbox */
+  .lv-checkradio-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border: solid;
+    border-width: 1px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .lv-checkradio-container:hover input ~ .lv-checkradio-checkmark {
+    background-color: #ccc;
+  }
+  
+  .lv-checkradio-container input:disabled ~ .lv-checkradio-checkmark {
+    background-color: rgb(175, 175, 175) !important;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .lv-checkradio-container input:checked ~ .lv-checkradio-checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .lv-checkradio-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .lv-checkradio-container input:checked ~ .lv-checkradio-checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .lv-checkradio-container .lv-checkradio-checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  
+  
+  /* LIST VIEW - ELEMENTS */
+  
+  .lv-not-implemented {
+    background-color: #ff0000 !important; 
+    color: white !important;
+    border: solid;
+    text-align: center;
+  }
+  

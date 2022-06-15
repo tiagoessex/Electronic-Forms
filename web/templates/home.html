@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block extra_extra_head %}
+
+  <style>
+  </style>
+
+{% endblock %}
+
+{% block no_heading %}
+<div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <!--
+  <div class="row">
+    <dt class="col-sm-3">Designação do projeto:</dt>
+    <dd class="col-sm-9">FEUP/INSA/2021-77453 - Desenvolvimento de um software para uma App para recolha de amostras e o desenvolvimento de um software de classificação de alimentos de acordo com o FoodEx2</dd>
+
+    <dt class="col-sm-3">Código do projeto:</dt>
+    <dd class="col-sm-9">FEUP/INSA/2021-77453</dd>
+
+    <dt class="col-sm-3">Parceiro(s) / Co-promotor(es) / Instituição(ões) participante(s):</dt>
+    <dd class="col-sm-9">Instituto Nacional de Saúde Dr. Ricardo Jorge; Faculdade de Engenharia da Universidade do Porto; </dd>
+
+    <dt class="col-sm-3">Data de início:</dt>
+    <dd class="col-sm-9">2021-02-11</dd>
+
+    <dt class="col-sm-3">Data de conclusão:</dt>
+    <dd class="col-sm-9">2022-01-10</dd>    
+
+  </div>
+
+  -->
+
+    <h1 class="text-center">{% trans "Flexible Forms" %}</h1>
+
+
+    <br>
+    <h4>{% trans "Next steps" %} <i>({% trans "check README for more" %})</i>:</h4>
+  
+    <div class="row">
+      <div class="col-6 offset-md-3">
+      <table class="table table-sm table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">What</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td style="text-decoration: line-through">PDF signing</td>
+            <td style="text-decoration: line-through">Signature with CC (PC)</td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>PDF signing</td>
+            <td>Signature with CC (mobile)</td>
+          </tr>        
+          <tr>
+            <th scope="row">2</th>
+            <td>Starting actions</td>
+            <td>E/A - exec action if event already fullfilled at start</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td style="text-decoration: line-through">Table element</td>
+            <td style="text-decoration: line-through">Dynamically adding/removing rows</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Richtext element</td>
+            <td>Text with several diferent formats</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Form's Table assets</td>
+            <td>Keep synchronized with an external source</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>Import / Export</td>
+            <td>Import and export forms to doc format</td>
+          </tr> 
+          <tr>
+            <th scope="row">7</th>
+            <td>Undo</td>
+            <td>Undo the last operation</td>
+          </tr> 
+          <tr>
+            <th scope="row">8</th>
+            <td>Chain events</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td>Rest API E/A</td>
+            <td>An E/A that make an API call and to fills fields</td>
+          </tr>
+          <tr>
+            <th scope="row">10</th>
+            <td>FoodEx2 element</td>
+            <td><span style="text-decoration: line-through">Element + modal</span> + validations</td>
+          </tr>
+          <tr>
+            <th scope="row">11</th>
+            <td>Table assets</td>
+            <td>Sync table assets</td>
+          </tr>
+          <tr>
+            <th scope="row">12</th>
+            <td>Foodex2 element validation</td>
+            <td>Input validation</td>
+          </tr>
+          <tr>
+            <th scope="row">13</th>
+            <td>Language support</td>
+            <td>Croatian language</td>
+          </tr>
+          <tr>
+            <th scope="row">14</th>
+            <td>Graphical interface for the E/A system</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+  <br>
+  <h4>{% trans "Inputs and operations" %}:</h4>
+
+
+  <div class="row">
+    <div class="col text-center">
+      <img src="{% static 'images/home/image1.png' %}" alt="image1" class="img-fluid">
+    </div>
+  </div>
+
+  <br>
+
+  <h4>{% trans "Dual synchronized views" %}:</h4>
+
+  <div class="row">
+    <div class="col text-center">
+    <img src="{% static 'images/home/image2.png' %}" alt="image1" class="img-fluid">
+    </div>
+  </div>
+
+
+  <br>
+  <h4>{% trans "Presentations" %}:</h4>
+
+  <div class="row">
+    <div class="col offset-md-1">
+      <a href="/media/presentations/IDRISK_FORMS.pdf">IDRISK_FORMS.pdf</a>
+      <br>
+      <a href="/media/presentations/IDRISK_FORMS_rev2.0.pdf">IDRISK_FORMS_rev2.0.pdf</a>
+      <br>
+      <a href="/media/presentations/IDRISK_FORMS_rev3.0.pdf">IDRISK_FORMS_rev3.0.pdf</a>
+      <br>
+      <a href="/media/presentations/IDRISK_FORMS_rev4.0.pdf">IDRISK_FORMS_rev4.0.pdf</a>
+      <br>
+      <a href="/media/presentations/IDRISK_FORMS_rev6.pdf">IDRISK_FORMS_rev6.0.pdf</a>
+      <br>       
+      <a href="/media/presentations/feedback_return_29092021.pdf">feedback_return_29092021.pdf</a>
+      <br>     
+    </div>
+  </div>
+
+ 
+  <br>
+  <br>
+
+
+</div> <!-- /.container-fluid -->
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}
+

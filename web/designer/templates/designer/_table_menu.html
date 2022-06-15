@@ -1,0 +1,142 @@
+{% load static %}
+{% load i18n %}
+
+<div id='element-table-menu' class="m-1 text-white collapse hide" style="position: absolute; right: -100px; width: 340px; max-height: 500px;background-color: black; z-index: 99999;overflow-y: auto;">
+  
+  <div class="text-center" style="">
+    <h4 class="p-0 m-0"><b><span id="element-table-menu-name"></span></b></h4>
+    <hr style="border: 1px solid white;" class="p-0 m-0">
+  </div>
+
+  <div id="element-table-menu-accordion">
+
+    <h3>{% trans "Global" %}</h3>
+    <div class="p-1">
+      <table class="m-1">     
+        <tr>
+          <td class="text-white pr-1">{% trans "Rows" %}:</td>
+          <td>
+            <input type="number" id="element-table-rows" name="element-table-rows" min=1 max=10 value=2 style="width: 100%;">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-white">{% trans "Columns" %}:</td>
+          <td>
+            <input type="number" id="element-table-cols" name="element-table-cols" min=1 max=10 value=2 style="width: 100%;">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-white">{% trans "Width" %}:</td>
+          <td>
+            <input type="number" id="element-table-width" name="element-table-width" min=200 max=800 value=500 style="width: 100%;">
+          </td>
+        </tr>    
+      </table>
+    </div>
+    
+
+
+    <h3>{% trans "Header" %}</h3>
+    <div class="p-1">
+      <table class="m-1">
+        <tr>
+          <td class="text-white pr-1">{% trans "Height" %}:</td>
+          <td>
+            <input type="number" id="element-table-header-height" name="element-table-header-height" min=10 max=200 value=24 style="width: 100%;">
+          </td>
+        </tr>          
+        <tr>
+          <td class="text-white pr-1">{% trans "Alignment" %}:</td>
+          <td>
+            <select id="element-table-header-alignment" name="element-table-header-alignment" style="width: 100%;" autocomplete="off">
+              <option value="left" selected>{% trans "Left" %}</option>
+              <option value="right">{% trans "Right" %}</option>
+              <option value="center">{% trans "Center" %}</option>
+              <option value="justify">{% trans "Justify" %}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-white pr-1">{% trans "Font" %}:</td>
+          <td>
+            <select id="element-table-header-font" name="element-table-header-font" style="width: 100%;" autocomplete="off">
+              <option value="Times" selected>Times
+              </option>
+              <option value="Arial">Arial</option>
+              <option value="monospace">Monospace</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-white pr-1">{% trans "Size" %}:</td>
+          <td>
+            <input type="number" id="element-table-header-font-size" name="element-table-header-font-size" min=6 max=50 value=16 style="width: 100%;">
+          </td>
+        </tr>          
+        <tr>
+          <td class="text-white pr-1">{% trans "Style" %}:</td>
+          <td>
+            <select id="element-table-header-style" name="element-table-header-style" style="width: 100%;" autocomplete="off">
+              <option value="normal" selected>{% trans "Normal" %}</option>
+              <option value="italic">{% trans "Italic" %}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-white pr-1">{% trans "Weight" %}: </td>
+          <td>
+            <select id="element-table-header-weight" name="element-table-header-weight" style="width: 100%;" autocomplete="off">
+              <option value="normal" selected>{% trans "Normal" %}</option>
+              <option value="bold">{% trans "Bold" %}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-white pr-1">{% trans "Color" %}:</td>
+          <td>
+            <input type="color" id="element-table-header-color" name="element-table-header-color" style="width: 100%;">
+          </td>
+        </tr> 
+        <tr>
+          <td class="text-white pr-1">{% trans "Back Color" %}:</td>
+          <td>
+            <input type="color" id="element-table-header-back-color" name="element-table-header-back-color" style="width: 100%;">
+          </td>
+        </tr> 
+      </table>
+    </div>
+
+
+    <h3>{% trans "Rows" %}</h3>
+    <div class="p-1">
+      <table class="m-1">
+        <tr>
+          <td class="text-white">{% trans "Height" %}:</td>
+          <td>
+            <input type="number" id="element-table-rows-height" name="element-table-rows-height" min=10 max=250 value=20 style="width: 100%;">
+          </td>
+        </tr>            
+      </table>
+    </div>
+
+
+    <h3>{% trans "Cols" %}</h3>
+    <div class="p-1" id="element-table-cols-config">
+      <!--
+         Header title
+         Width (%)
+         Alignment
+         Font
+         Size
+         Style
+         Weight
+         Color
+         Back Color
+         -->     
+    </div>
+
+
+  </div>
+
+
+</div> 

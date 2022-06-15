@@ -1,0 +1,262 @@
+<section id="operation-form-data">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3>Operation Data and Form</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="card bg-dark text-white font-weight-bold text-monospace">
+                <div class="card-body">
+                    <span class="request-method">GET</span> {server}/rest/api/get_operation_form_data/{operation_id}/
+                </div>
+            </div>
+
+            <p>Returns the data (inputs and state) of a specific operation and its respective form (only id, name and form), or an empty array if <i>operation_id</i> does not exist.</p>
+            <p>The form is returned just in case, the user required some extra information of some field.</p>
+
+            <p>All assets (images and documents) are accessible at  
+            <kbd>{server}/media/operation_assets/{operation_id}/{asset_file}</kbd>.</p>
+
+            <span class="header-params">PATH PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">operation_id</dt>
+                <dt class="col-1"><span class="badge badge-secondary">number</span></dt>
+                <dd class="col-9">ID of the operation</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">HEADER PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">Authorization</dt>
+                <dt class="col-1"><span class="badge badge-secondary">-</span></dt>
+                <dd class="col-9">Token [token]</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">RESPONSES:</span>
+            <hr>
+
+            <div class="response-success p-2">
+                <div class="response-title">200 Successful</div>
+                Operation details.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">403 Forbidden</div>
+                Invalid token or Authentication credentials were not provided.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">404 Not Founded</div>
+                Specified operation does not exist.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">500 Internal Server Error</div>
+                Unknown error.
+            </div>
+
+            <br> 
+            <span class="header-params">RESPONSE FIELDS DESCRIPTION:</span>
+            <hr>
+            
+            <p>The response is split into two objects:</p>
+            <ul>
+              <li><i>form</i>: description of the form</li>
+              <li><i>data</i>: the same object as presented in <a href="{% url 'help:api' %}#operation-data">Operation Data</a></li>
+            </ul>
+
+
+            <br>            
+            <span class="header-params">EXAMPLE:</span>
+            <hr>            
+            <h5>Request</h5>
+            <span class="example-request m-2">{server}/rest/api/get_operation_form_data/97/</span>
+            
+            <br>
+            <br>
+
+            <h5>Response</h5>
+            <div class="example-response text-monospace m-2 p-2">
+<pre>{
+  "form": {
+    "id": 2916,
+    "name": "dce3c08d-0014-493f-a12a-10dac2c244ba",
+    "form": {
+      "id": 2916,
+      "name": "dce3c08d-0014-493f-a12a-10dac2c244ba",
+      "description": "",
+      "date_created": "2021-09-17",
+      "rasters": [],
+      "pages": [
+        "page-1"
+      ],
+      "dropdowns": {},
+      "repeatables": [],
+      "counter": {
+        "TEXT": 1,
+        "CHECKBOX": 1
+      },
+      "groups": [
+        {
+          "id": "gp-0",
+          "name": "Group 0",
+          "database": "",
+          "required": "no"
+        }
+      ],
+      "elements": [
+        {
+          "id": "text_0",
+          "page": "page-1",
+          "section": "section-0",
+          "type": "TEXT",
+          "props": {
+            "properties-page-number": "1",
+            "properties-section": "section-0",
+            "properties-id": "text_0",
+            "properties-name": "",
+            "properties-label": "",
+            "properties-show-label": "yes",
+            "properties-default": "",
+            "properties-enabled": "yes",
+            "properties-placeholder": "",
+            "properties-max-length": "100",
+            "properties-max": "100",
+            "properties-min": "0",
+            "properties-step": "1",
+            "properties-uppercase": "no",
+            "properties-required": "no",
+            "properties-checked": "no",
+            "properties-database": "",
+            "properties-group": "none",
+            "properties-pattern": "",
+            "properties-image-url": "",
+            "properties-visible": "yes",
+            "properties-zindex": "10",
+            "properties-top": "102",
+            "properties-left": "204",
+            "properties-width": "150",
+            "properties-height": "26",
+            "properties-font": "Times",
+            "properties-font-size": "16",
+            "properties-font-style": "normal",
+            "properties-font-decoration": "none",
+            "properties-font-weight": "normal",
+            "properties-horizontal-alignment": "left",
+            "properties-color": "#000000",
+            "properties-back-color": "#33ffff",
+            "properties-back-alpha": "0.2",
+            "properties-border-borders": "all",
+            "properties-border": "none",
+            "properties-border-width": "1",
+            "properties-border-radius": "0",
+            "properties-rotation": "0"
+          }
+        },
+        {
+          "id": "text_1",
+          "page": "page-1",
+          "section": "section-0",
+          "type": "TEXT",
+          "props": {
+            "properties-page-number": "1",
+            "properties-section": "section-0",
+            "properties-id": "text_1",
+            "properties-name": "",
+            "properties-label": "",
+            ...
+            "properties-border-borders": "all",
+            "properties-border": "none",
+            "properties-border-width": "1",
+            "properties-border-radius": "0",
+            "properties-rotation": "0"
+          }
+        },
+        ...
+      ],
+      "sections": [
+        {
+          "id": "section-0",
+          "name": "Default"
+        }
+      ],
+      "sections_items": {
+        "section-0": [
+          "text_0",
+          "text_1",
+          "gp-0"
+        ]
+      },
+      "sections_groups": {
+        "gp-0": {
+          "name": "Group 0",
+          "section": "section-0"
+        }
+      },
+      "eas": {
+        "ea-0": {
+          "id": "ea-0",
+          "type": "REQUIRED",
+          "ea": {
+            "events": [
+              {
+                "logic": null,
+                "event": "onFilled",
+                "field": "checkbox_0"
+              }
+            ],
+            "actions": {
+              "action": "required",
+              "target_fields": [
+                "text_0"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "data": {
+    "id": 128,
+    "operation": 129,
+    "data": {
+      "elements": [
+        {
+          "id": "text_0",
+          "value": "sdfsdsfsdfsdfsdf",
+          "enabled": true,
+          "crossed": false,
+          "visible": true,
+          "selected": false
+        },
+        ...
+        {
+          "id": "checkbox_1",
+          "value": null,
+          "enabled": true,
+          "crossed": false,
+          "visible": true,
+          "selected": true
+        }
+      ],
+      "extras": {
+        "text_0": {
+          "REQUIRED": true
+        }
+      },
+      "annexes": []
+    }
+  }
+}</pre>
+            </div>
+        </div>
+    </div>
+
+</section>

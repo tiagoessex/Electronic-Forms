@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Help: Rest API{% endblock %}
+
+{% block extra_head %}
+	{{ block.super }}
+
+	{% include 'help/_styles.html' %}
+
+{% endblock %}
+
+{% block no_heading %}
+<div class="container-fluid">
+	<div class="row mb-2">
+		<div class="col-sm-6">
+			<h1>{% trans "Help: Rest API" %}
+      </h1>
+		</div>
+		<div class="col-sm-6">
+			<ol class="breadcrumb float-sm-right">
+				<li class="breadcrumb-item">	
+                    <a href="{% url 'home' %}">{% trans "Home" %}</a>
+				</li>
+				<li class="breadcrumb-item active">{% trans "Help: Rest API" %}</li>
+			</ol>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+
+	{% include 'help/_users_manual.html' %}
+
+	{% include 'help/api/_contents.html' %}
+  
+	{% include 'help/api/_token.html' %}
+	{% include 'help/api/_list_operations.html' %}
+	{% include 'help/api/_list_non_completed_operations.html' %}
+	{% include 'help/api/_operation.html' %}
+	{% include 'help/api/_operation_data.html' %}
+	{% include 'help/api/_operation_form_data.html' %}
+	{% include 'help/api/_validate_inputs.html' %}
+	{% include 'help/api/_operation_form_data_validation.html' %}
+
+	{% include 'help/api/_delete_operation.html' %}
+	{% include 'help/api/_set_operation_status.html' %}
+
+	{% include 'help/api/_list_assets.html' %}
+
+	{% include 'help/api/_fetchexamples.html' %}
+
+  </div>
+  <!-- /container-fluid -->
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+	{% include 'help/_scripts.html' %}
+
+{% endblock %}
+

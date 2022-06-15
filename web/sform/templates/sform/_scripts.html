@@ -1,0 +1,93 @@
+{% load static %}
+
+<!-- https://github.com/uuidjs/uuid -->
+<script src="{% static 'plugins/uuid/uuidv4.min.js' %}"></script>
+
+<!-- http://millermedeiros.github.io/js-signals/ -->
+<script src="{% static 'plugins/signals/signals.min.js' %}"></script>	
+
+<!-- https://leafletjs.com/ -->
+<script src="{% static 'plugins/leaflet-1.7.1/leaflet.js' %} "></script>
+	
+<!-- https://github.com/eligrey/FileSaver.js -->
+<script src="{% static 'plugins/fileSaver-2.0.4/FileSaver.min.js' %} "></script>
+
+<!-- https://stuk.github.io/jszip/ -->
+<script src="{% static 'plugins/jszip-3.2.0/jszip.min.js' %} "></script>
+
+<!-- https://serratus.github.io/quaggaJS -->
+<script src="{% static 'plugins/quaggaJS-0.12.1/quagga.min.js' %} "></script>
+
+
+<!-- https://pdf-lib.js.org -->
+<script src="{% static 'plugins/pdf-lib-1.16.0/pdf-lib.min.js' %} "></script>
+
+<!-- https://html2canvas.hertzen.com/ -->
+<script src="{% static 'plugins/html2canvas-1.2.1/html2canvas.min.js' %} "></script>
+
+<!-- https://github.com/mapbox/leaflet-image -->
+<script src="{% static 'plugins/leaflet-image-0.0.4/leaflet-image.js' %} "></script>
+
+<!-- https://www.papaparse.com/ -->
+<script src="{% static 'plugins/PapaParse-5.0.2/papaparse.min.js' %} "></script>
+
+<!-- https://www.jstree.com/ -->
+<script src="{% static 'plugins/jstree-3.3.11-0/jstree.min.js' %}"></script>
+
+
+<script type="module" src="{% static 'sform/js/app.js' %}"></script>
+
+
+<script>
+	$(document).ready(function(){
+
+		$('[data-toggle="tooltip"]').tooltip({
+			trigger : 'hover',
+		});
+
+		const broadcast = new BroadcastChannel('sync-channel');
+		broadcast.addEventListener("message", function eventListener(event) {
+				if (event.data === 'sync_finished') {
+					$('#sync').css('visibility','hidden');
+					$('#sync-message').css('visibility','hidden');
+					console.log("---- HIDE ----");
+				}
+				else if (event.data === 'sync_started') {
+					 $('#sync').css('visibility','visible');
+					$('#sync-message').css('visibility','visible');
+					console.log("---- SHOW ----");
+				}
+			})
+
+		// send security token to the serviceworker
+		broadcast.postMessage({msg:'token', value: getCookie('csrftoken')});
+
+		// clear local storage everytime the browser/tab closes
+		window.onbeforeunload = () => {
+			localStorage.removeItem('has_sign_extension');
+		}		
+  	});  
+
+
+
+
+
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
+</script>

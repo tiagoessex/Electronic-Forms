@@ -1,0 +1,35 @@
+{% load i18n %}
+
+<section id="section-operation-details" class="collapse">
+		<div class="row">
+			<div class="col-sm-12">	
+				<div class="card shadow mt-2 p-0 m-0 bg-white rounded">
+					<div class="card-body">
+						<form>
+							<div class="form-group">
+								<label for="form-operation-name">{% trans "Name to identify this operation by" %}:</label>
+								<input type="text" class="form-control" id="form-operation-name" default="" max-length=80>
+							</div>
+							<div id="alert-name" class="alert alert-danger mx-auto collapse" role="alert">
+  								{% trans "A name is required" %}!
+							</div>
+							<div class="form-group">
+								<label for="form-operation-description">{% trans "Description" %}:</label>
+								<textarea class="form-control" id="form-operation-description" default=""></textarea>
+							</div>
+							<div class="form-group">
+								<label for="form-name">{% trans "Selected Form" %}:</label>
+								<input type="text" class="form-control" id="form-name" disabled>
+							</div>							
+							<button id="form-name-2-main-btn" type="button" class="btn btn-warning anim-btn mr-2"><i class="fa fa-times" aria-hidden="true"></i> {% trans "Cancel" %}</button>
+							<button id="form-name-ok-btn" type="button" class="btn btn-primary anim-btn"><i class="fa fa-check" aria-hidden="true"></i> {% trans "Ok" %}</button>							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<br>
+		
+	</section>

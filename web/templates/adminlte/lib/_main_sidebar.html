@@ -1,0 +1,109 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %} 
+{% load static %} 
+{% load i18n %}	<!-- translation -->
+{% load adminlte_helpers %}
+{% load auth_filters %}
+
+{% block logo %}
+<a href="/" class="brand-link">
+	<img src="{% static 'images/logos/logo_project.png' %}" alt="Project logo" class="brand-image img-square elevation-3" style="opacity: .8">
+  {% block logo_text %}<span class="brand-text font-weight-light">FORMS </span>{% endblock %}
+</a>
+{% endblock %}
+
+{% block user_panel %}
+	<!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          	<img src="{% avatar_url size=90 %}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+			{% if request.user.is_authenticated %}
+          	<a href="javascript:void(0);" class="d-block">{% firstof request.user.get_full_name request.user.username %}</a>
+			{% else %}
+          	<a href="{% url 'login' %}" class="d-block"><b>{% trans 'Sign in' %}</b></a>
+			{% endif %}
+        </div>
+      </div>
+{% endblock %}
+
+
+{% block nav_heading %}
+	{% if request.user.is_authenticated %}
+		{% trans 'MAIN' %}
+	{% endif %}
+{% endblock %}
+
+{% block nav_links %}
+
+{% if request.user.is_authenticated and request.user|has_group:"manager" %}
+
+	<li class="nav-header">{% trans "FORMS" %}</li>
+
+	<li class="nav-item">
+		<a href="{% url 'designer:designer' %}" class="nav-link"> <i class="nav-icon fas fa-drafting-compass"></i>
+			<p>{% trans 'Designer' %}</p>
+		</a>
+	</li>
+	<li class="nav-item">
+		<a href="{% url 'formsmanager:formsmanager' %}" class="nav-link"> <i class="nav-icon fas fa-tasks"></i>
+			<p>{% trans 'Forms Manager' %}</p>
+		</a>
+	</li>
+
+{% endif %}
+
+{% if request.user.is_authenticated %}
+
+	<li class="nav-header">{% trans "OPERATIONS" %}</li>
+
+	{% if request.user|has_group:"manager" %}
+		<li class="nav-item">
+			<a href="{% url 'operations:operations' %}" class="nav-link"> <i class="nav-icon fas fa-project-diagram"></i>
+				<p>{% trans "Operations" %}</p>
+			</a>
+		</li>
+	{% endif %}
+
+	<li class="nav-item">
+		<a href="{% url 'sform:sform' %}" class="nav-link"> <i class="nav-icon fas fa-mobile-alt"></i>
+			<p>{% trans "App" %}</p>
+		</a>
+	</li>
+
+	
+	<li class="nav-header">{% trans 'HELP' %}</li>
+
+	{% if request.user|has_group:"manager" %}
+	<li class="nav-item">
+		<a href="{% url 'help:examples' %}" class="nav-link"> <i class="nav-icon fas fa-globe"></i>
+			<p>{% trans 'Examples' %}</p>
+		</a>
+	</li>	
+	<li class="nav-item">
+		<a href="{% url 'help:api' %}" class="nav-link"> <i class="nav-icon fas fa-exchange-alt"></i>
+			<p>{% trans 'Rest API' %}</p>
+		</a>
+	</li>
+	{% endif %}
+	<li class="nav-item">
+		<a href="{% url 'help:videos' %}" class="nav-link"> <i class="nav-icon fas fa-film"></i>
+			<p>{% trans 'Videos' %}</p>
+		</a>
+	</li>	
+	<li class="nav-item">
+		<a href="/media/files/users_manual.pdf" class="nav-link"> <i class="nav-icon fas fa-file-pdf"></i>
+			<p>{% trans 'Manual' %}</p>
+		</a>
+	</li>
+	
+
+	<li class="nav-header">
+		<a href="{% url 'applications' %}">
+			<p>{% trans 'APPLICATIONS' %}</p>
+		</a>
+	</li>	
+
+
+{% endif %}
+{% endblock nav_links %} 

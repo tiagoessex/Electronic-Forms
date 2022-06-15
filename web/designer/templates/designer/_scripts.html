@@ -1,0 +1,78 @@
+{% load static %}
+
+<!-- https://jquery.com/download/ -->
+<script src="{% static 'designer/plugins/jquery-3.6.0/jquery-3.6.0.min.js' %}"></script>
+<!-- https://jqueryui.com/ -->
+<script src="{% static 'designer/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+<!-- https://github.com/twbs/bootstrap/tree/v4-dev -->
+<script src="{% static 'designer/plugins/bootstrap-4.6.0/js/bootstrap.bundle.min.js' %}"></script>
+<!-- https://github.com/uuidjs/uuid -->
+<script src="{% static 'plugins/uuid/uuidv4.min.js' %}"></script>
+<!-- https://www.jstree.com/ -->
+<script src="{% static 'plugins/jstree-3.3.11-0/jstree.min.js' %}"></script>
+<!-- http://millermedeiros.github.io/js-signals/ -->
+<script src="{% static 'plugins/signals/signals.min.js' %}"></script>
+<!-- https://github.com/Kilian/gridBuilder.js/blob/master/gridBuilder.js -->
+<script src="{% static 'designer/plugins/gridBuilder-1.2/gridBuilder.js' %}"></script>
+
+<script type="module" src="{% static 'designer/js/main.js' %}"></script>
+
+<script>
+  // init tooltips
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+      trigger : 'hover',
+    });
+  
+    // side bars
+    $("#left-menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("left-toggled");
+      $("#toggleIcon-left").toggleClass("fa fa-angle-double-left fa fa-angle-double-right");
+    });
+                            
+    $("#right-menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("right-toggled");
+      $("#toggleIcon-right").toggleClass("fa fa-angle-double-left fa fa-angle-double-right");
+    });
+
+    // make grid menu draggable
+    $('#form-in-menu').draggable(
+      { 
+        containment: "#form-tab", 
+        scroll: false,
+      }
+    );
+
+    // make table element menu draggable
+    $('#element-table-menu').draggable(
+      { 
+        scroll: false,
+        containment: "#container",
+        
+      }
+    );
+    $( function() {
+      $( "#element-table-menu-accordion" ).accordion({
+        collapsible: true,
+        heightStyle: "content",
+        autoHeight: true,
+        clearStyle: true, 
+      });
+    } );    
+
+  });
+
+  $('#progress-modal').modal('show');
+ 
+  var DEBUG = true;
+  if(!DEBUG){
+    if(!window.console) window.console = {};
+    var methods = ["log", "debug", "info"];
+    for(var i=0;i<methods.length;i++){
+        console[methods[i]] = function(){};
+    }
+  }
+
+</script>

@@ -1,0 +1,163 @@
+<section id="listnoncompletedoperations">
+
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3>List all non-Completed Operations</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="card bg-dark text-white font-weight-bold text-monospace">
+                <div class="card-body">
+                    <span class="request-method">GET</span> {server}/rest/api/list_non_completed_operations/
+                </div>
+            </div>
+
+            <p>Get a list of all OPEN and CLOSED operations or an empty array if none exists.</p>
+
+            <span class="header-params">HEADER PARAMETERS:</span>
+            <hr>
+            <div class="row ml-4">
+                <dt class="col-2">Authorization</dt>
+                <dt class="col-1"><span class="badge badge-secondary">-</span></dt>
+                <dd class="col-9">Token [token]</dd>
+            </div>
+
+            <br>
+
+            <span class="header-params">RESPONSES:</span>
+            <hr>
+
+            <div class="response-success p-2">
+                <div class="response-title">200 Successful</div>
+                List of all non completed operations.
+            </div>
+            <br>
+            <div class="response-error p-2">
+                <div class="response-title">403 Forbidden</div>
+                Invalid token or Authentication credentials were not provided.
+            </div>
+
+            <br>
+
+            <span class="header-params">RESPONSE FIELDS DESCRIPTION:</span>
+            <hr>
+            
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>integer</td>
+                        <td>Operation's ID</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>Operation's name</td>
+                    </tr>
+                    <tr>
+                        <td>description</td>
+                        <td>string</td>
+                        <td>Operation's description</td>
+                    </tr>
+                    <tr>
+                        <td>form</td>
+                        <td>integer</td>
+                        <td>Form's ID used in the operation</td>
+                    </tr>
+                    <tr>
+                        <td>date_creation</td>
+                        <td>date/time</td>
+                        <td>Operation's Date/Time of creation</td>
+                    </tr>
+                    <tr>
+                        <td>date_updated</td>
+                        <td>date/time</td>
+                        <td>Operation's Date/Time of the last update</td>
+                    </tr>
+                    <tr>
+                        <td>author</td>
+                        <td>integer</td>
+                        <td>Original operation's author ID</td>
+                    </tr>
+                    <tr>
+                        <td>author_name</td>
+                        <td>string</td>
+                        <td>Original operation's author name</td>
+                    </tr>
+                    <tr>
+                        <td>updated_by</td>
+                        <td>integer</td>
+                        <td>ID of the user responsable for the last update</td>
+                    </tr>  
+                    <tr>
+                        <td>updated_by_name</td>
+                        <td>string</td>
+                        <td>Name of the user responsable for the last update</td>
+                    </tr>  
+                    <tr>
+                        <td>status_name</td>
+                        <td>string</td>
+                        <td>Current status of the Operation: 
+                            <span class="badge badge-success p-1">OPEN</span>
+                            <span class="badge badge-primary p-1">CLOSED</span>
+                        </td>
+                    </tr>                                                                                  
+                </tbody>
+            </table>
+
+
+            <br>
+            <span class="header-params">EXAMPLE:</span>
+            <hr>            
+            <h5>Request</h5>
+            <span class="example-request m-2">{server}/rest/api/list_non_completed_operations/</span>
+            
+            <br>
+            <br>
+
+            <h5>Response</h5>
+            <div class="example-response text-monospace m-2 p-2">
+                <pre>
+[
+    {
+        "id": 87,
+        "name": "operation 1",
+        "description": "dfsfsd",
+        "form": null,
+        "date_creation": "2021-09-05T18:37:54.804253Z",
+        "date_updated": "2021-09-06T09:06:45.706464Z",
+        "author": 1,
+        "author_name": "admin",
+        "updated_by": 1,
+        "updated_by_name": "admin",
+        "status_name": "OPEN"
+    },
+    {
+        "id": 94,
+        "name": "ope 4",
+        "description": "",
+        "form": 2838,
+        "form_name": "8f295735-e760-4014-ba18-21c4d70ab071",
+        "date_creation": "2021-09-06T09:36:53.510211Z",
+        "date_updated": "2021-09-06T09:36:56.486207Z",
+        "author": 1,
+        "author_name": "admin",
+        "updated_by": 1,
+        "updated_by_name": "admin",
+        "status_name": "OPEN"
+    },
+]</pre>
+            </div>
+
+        </div>
+    </div>
+
+</section>

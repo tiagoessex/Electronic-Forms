@@ -1,0 +1,55 @@
+{% load static %}
+{% load i18n %}
+
+<div id='form-in-menu' class="m-1 text-white collapse show" style="position: absolute; width: 150px; background-color: black; z-index: 100;">
+    <table class="m-1">
+      <tr>
+        <td class="text-white pr-1">{% trans "Mouse" %}: 
+        </td>
+        <td>
+          <select id="grid-mouse-config" name="grid-mouse-config" style="width: 100%;" autocomplete="off">
+            <option value="1">1x1
+            </option>
+            <option value="5">5x5
+            </option>
+            <option value="10" selected>10x10
+            </option>
+            <option value="20">20x20
+            </option>
+            <option value="50">50x50
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-white">{% trans "Cursor" %}:
+        </td>
+        <td>
+          <select id="grid-cursor-config" name="grid-cursor-config" style="width: 100%;" autocomplete="off">
+            <option value="1">1x1
+            </option>
+            <option value="5" selected>5x5
+            </option>
+            <option value="10">10x10
+            </option>
+            <option value="20">20x20
+            </option>
+            <option value="50">50x50
+            </option>
+          </select>											
+        </td>
+      </tr>
+      <tr>
+        <td class="text-white">{% trans "Grid: " %}:
+        </td>
+        <td>
+          <select id="grid-visibility-config" name="grid-show-config" style="width: 100%;" autocomplete="off">
+            <option value="show">Show
+            </option>
+            <option value="hide" selected>Hide
+            </option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </div> 
