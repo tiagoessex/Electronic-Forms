@@ -70,8 +70,15 @@ You can also add others console messages to the list of messages to enable/disab
 git clone https://gitlab.com/arkhamlord666/forms
 ```
 
+3. Permissions:
 
-3. Settings files:
+
+```bash
+chmod +x /web/wait-for-it.sh
+```
+
+
+4. Settings files:
 
 * [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)  (at */*)
 	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml).
@@ -79,7 +86,7 @@ git clone https://gitlab.com/arkhamlord666/forms
 * [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env/) (at */web/idrisk/*)
 	+ Rename *_env* file to *.env* and change its contents accordingly (see next).
 	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
-	+ Define a *SECRET_KEY* if desired. If not, comment or remove the line. A random key will be generated for you.
+	+ Define a 50 chars *SECRET_KEY*.
 	+ Change the *IDRISK* and *WORLD* databases hosts to *db*, if not already. 
 So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idrisk_, then it becomes *IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@db:3306/idrisk*. 
 	+ By default, *USERNAME* = *root* and *PASSWORD* = *pass2022*.  Change it, if *MYSQL_ROOT_PASSWORD* at *docker-compose.yml* was also changed.
@@ -87,7 +94,7 @@ So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idr
 	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
 
 
-4. Build:
+5. Build:
 ```bash
 docker-compose build
 ```
@@ -99,12 +106,6 @@ A default superuser (*admin*) is already present. The password should be *pass20
 
 
 
-5. Permissions:
-
-
-```bash
-chmod +x /home/web/wait-for-it.sh
-```
 
 6. Execution:
 

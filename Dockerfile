@@ -19,5 +19,3 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 
 RUN python manage.py collectstatic --noinput
-
-RUN /bin/bash -c 'chmod +x /home/web/wait-for-it.sh'
