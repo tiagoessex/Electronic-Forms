@@ -118,7 +118,7 @@ docker-compose stop
 ```
 
 
-**IF POINTS 1 TO 4 WERE FOLLOWED, AND NOTHING ELSE WAS CHANGED, THE REMAINING CHAPTER ISN'T NECESSARY AND IT CAN BE SKIPPED!!!**
+**IF POINTS 1 TO 5 WERE FOLLOWED, AND NOTHING ELSE WAS CHANGED, THE REMAINING CHAPTER ISN'T NECESSARY AND IT CAN BE SKIPPED!!!**
 
 * Migrations (if blank slate, make sure to restore the essential tables, otherwise, the app will fail):
 ```bash
