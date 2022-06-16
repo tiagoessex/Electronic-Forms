@@ -17,5 +17,6 @@ RUN pip install --upgrade pip
 # Install the requirements.
 RUN pip install --no-cache-dir -r requirements.txt
 
-
 RUN python manage.py collectstatic --noinput
+
+RUN chmod +x /home/web/wait-for-it.sh

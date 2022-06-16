@@ -23,17 +23,11 @@ services:
   web:
     container_name: idrisk_web
     build: .
-    # manage.py collectstatic --noinput already executed  
     command: sh -c "./wait-for-it.sh db:3306 -t 60 && gunicorn idrisk.wsgi -b 0.0.0.0:8000 --workers=4 --threads=4 --worker-class=gthread"
     volumes:
       - ./web:/home/web/
       - static:/home/web/static
       - media:/home/web/media
-      #- ./web:/web
-      #- ./web/static:/static
-      #- ./web/media:/media      
-    #ports:
-    #  - "8000:8000"
     expose:
       - "8000"      
     depends_on:
