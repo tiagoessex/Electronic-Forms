@@ -3,7 +3,7 @@ SECRET_KEY="a 50 char key or just comment or delete this line"
 # False if production, True if development/tests
 DEBUG=False
 # background cleanup workers
-N_WORKERS=4 
+N_WORKERS=4
 
 
 ###### EMAIL SERVICE ######

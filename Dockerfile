@@ -4,6 +4,8 @@ FROM python:3.8.2
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
+RUN chmod +x /web/wait-for-it.sh
+
 # Make a new directory to put the code in.
 RUN mkdir -p /home/web
 
@@ -19,4 +21,3 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN python manage.py collectstatic --noinput
 
-RUN chmod +x /home/web/wait-for-it.sh
