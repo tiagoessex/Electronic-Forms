@@ -55,22 +55,23 @@ Global Notes:
 
 You can also add others console messages to the list of messages to enable/disable, such as *warn* and *error*, however it's not recommended to disable these two.
 
+
 ### Deploy with Docker
 
 
-Install both **docker** and **docker-compose**:
+1. Install both **docker** and **docker-compose**:
 - docker: [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/) or [https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
 - docker-compose: [https://docs.docker.com/compose/](https://docs.docker.com/compose/) or [https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)
 
 
-1. Clone repository:
+2. Clone repository:
 
 ```bash
 git clone https://gitlab.com/arkhamlord666/forms
 ```
 
 
-2. Settings files:
+3. Settings files:
 
 * [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)  (at */*)
 	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml).
@@ -86,7 +87,7 @@ So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idr
 	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
 
 
-3. Build:
+4. Build:
 ```bash
 docker-compose build
 ```
@@ -97,7 +98,7 @@ All necessary databases will be automatically created and populated. They also c
 A default superuser (*admin*) is already present. The password should be *pass2022* (**change it after  installation is completed**).
 
 
-4. Execution:
+5. Execution:
 
 ```bash
 docker-compose up
@@ -111,7 +112,7 @@ docker-compose up -d
 
 Page will be available at: *http://127.0.0.1* (if running on a local computer) or *http[s]://domain|ip* (if on a server).
 
-5. Stop execution:
+6. Stop execution:
 ```bash
 docker-compose stop
 ```
