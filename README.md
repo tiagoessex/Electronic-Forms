@@ -74,7 +74,8 @@ git clone https://gitlab.com/arkhamlord666/forms
 
 
 ```bash
-chmod +x /web/wait-for-it.sh
+cd forms
+chmod +x web/wait-for-it.sh
 ```
 
 
