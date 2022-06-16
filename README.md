@@ -7,8 +7,8 @@
   * [Requirements](#requirements)
   * [.env](#env)
   * [Installation and Execution](#installation-and-execution)
-  	+ [Docker](#docker)
-	+ [Natively](#natively)  	
+  	+ [Deploy with Docker](#deploy-with-docker)
+	+ [Development without Docker](#development-without-docker)  	
   * [Automatic tasks](#automatic-tasks)
   * [Databases](#databases)
   * [Essential Tables](#essential_tables)
@@ -23,7 +23,7 @@
 
 ## Version
 
-0.1
+0.2
 
 ## Description
 * Forms something XXX.
@@ -41,15 +41,21 @@ The databases hosts present in the *.env* file, depends whether is running in do
 
 ## Installation and Execution
 
-Notes:
-* By default, the django application is set with DEBUG = False
-* By default, client side console messages are enabled (*LOG, DEBUG, INFO*). To disable them, set *DEBUG* to *false* in these files:
+Global Notes:
+
+* By default, the repository is set for **production**:
+	+ all *debug* settings are set to false
+	+ no console messages, other than *errors* and *warnings*
+
+* By default, the django application is set for production, with **DEBUG = False** at [settings.py](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/settings.py) (at */web/idrisk/*)
+
+* By default, client side console messages (*LOG, DEBUG, INFO*) are **disabled**. To enabled them, set *DEBUG* to *true* in these files:
 	+ [/web/templates/base.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/templates/base.html)
 	+ [/web/designer/templates/designer/_scripts.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/designer/templates/designer/_scripts.html)
 
-You can also add others console messages to the list, such as *warn* and *error* (not recommended).
+You can also add others console messages to the list of messages to enable/disable, such as *warn* and *error*, however it's not recommended to disable these two.
 
-### Docker
+### Deploy with Docker
 
 
 Install both **docker** and **docker-compose**:
@@ -64,19 +70,20 @@ git clone https://gitlab.com/arkhamlord666/forms
 ```
 
 
-2. Change files:
+2. Settings files:
 
-* [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)
+* [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)  (at */*)
 	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml).
 
 * [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env/) (at */web/idrisk/*)
-	+ Rename *_env_* file to *.env* and change its contents accordingly.
-	+ Define a *SECRET_KEY* if desired. If not, comment or remove line. A random key will be generated for you.
-	+ Change the *IDRISK* and *WORLD* databases hosts to *db*. 
-So, for example, _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idrisk_ becomes *IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@db:3306/idrisk*, if not already. 
-	+ By default, *USERNAME* = *root* and *PASSWORD* = *pass2022*.  Change it if *MYSQL_ROOT_PASSWORD* at *docker-compose.yml* was also changed.
-	+ Make sure *DEBUG* is set to *False* in *.env*  -- **IMPORTANT** -- otherwise, static files won't be collected correctly and/or errors may occur.
-	+ Set the email credentials. This email, will be used by the system to notify users.
+	+ Rename *_env* file to *.env* and change its contents accordingly (see next).
+	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
+	+ Define a *SECRET_KEY* if desired. If not, comment or remove the line. A random key will be generated for you.
+	+ Change the *IDRISK* and *WORLD* databases hosts to *db*, if not already. 
+So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idrisk_, then it becomes *IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@db:3306/idrisk*. 
+	+ By default, *USERNAME* = *root* and *PASSWORD* = *pass2022*.  Change it, if *MYSQL_ROOT_PASSWORD* at *docker-compose.yml* was also changed.
+	+ Make sure *DEBUG* is set to *False* in *.env*  -- **IMPORTANT** -- otherwise, static files (*js* and *css* files) won't be collected correctly and the application may not work properly.
+	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
 
 
 3. Build:
@@ -110,7 +117,7 @@ docker-compose stop
 ```
 
 
-**THE REMAINING CHAPTER ISN'T NECESSARY AND IT CAN BE SKIPED!!!**
+**IF POINTS 1 TO 4 WERE FOLLOWED, AND NOTHING ELSE WAS CHANGED, THE REMAINING CHAPTER ISN'T NECESSARY AND IT CAN BE SKIPPED!!!**
 
 * Migrations (if blank slate, make sure to restore the essential tables, otherwise, the app will fail):
 ```bash
@@ -129,14 +136,40 @@ docker exec -i mariadb mysql --user=[USERNAME] --password=[PASSWORD] X < dumpfil
 ```
 
 
-### Natively
+### Development without Docker
 
-
- **FOR NATIVE DEVELOPEMENT**
+**INCOMPLETE**
+**INCOMPLETE**
+**INCOMPLETE**
+**INCOMPLETE**
 
 * All operations should be done at the */web/* folder level.
-* In *.env* set *DEBUG* to *True* -- **IMPORTANT** -- otherwise, static files won't be served.
+* All necessary databases to restore the most up to date version of the database are present in [databases](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/) directory. Restoring avoids the need to create +  apply migrations + populate essential tables. It also contains 3 + 3 forms and a default superuser.
+* A default superuser (*admin*) is already present. The password is *pass2022* (**change it after a successfully completed installation**).
 
+
+1. Clone repository:
+
+```bash
+git clone https://gitlab.com/arkhamlord666/forms
+```
+
+
+2. Settings files:
+
+* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env/) (at */web/idrisk/*)
+	+ Rename *_env* file to *.env* and change its contents accordingly (see next).
+	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
+	+ Define a *SECRET_KEY* if desired. If not, comment or remove the line. A random key will be generated for you.
+	+ Change the *IDRISK* and *WORLD* databases hosts to *127.0.0.1*, if not already. 
+So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@db:3306/idrisk_, then it becomes *IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idrisk*. 
+	+ Make sure *DEBUG* is set to *True* in *.env*  -- **IMPORTANT** -- otherwise, static files (*js* and *css* files) won't be serve correctly
+	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
+
+* Enable the console messages (check global notes at the beginning of this chapter)
+
+
+3. Install dependencies:
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the necessary packages.
 
@@ -163,11 +196,14 @@ Or just:
 pip install -r requirements.txt
 ```
 
+4. Create superuser, if clean slate:
+
 Create a superuser:
 ```bash
 python manage.py createsuperuser
 ```
 
+5. Apply migrations, if clean slate:
 
 Migrations (only if clean slate - also check Essential Tables chapter, otherwise, restore with the databases present at [databases](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/):
 
@@ -176,14 +212,15 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+6. Execute:
+
 Executing:
 ```bash
 python manage.py runserver
 ```
 
-* Page will be available at: *http://127.0.0.1:8000* (if running on a local computer) or *http[s]://domain|ip:8000* (if on a server).
-* All necessary databases to restore the most up to date version of the database are present in [databases](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/) directory. Restoring avoids the need to create +  apply migrations + populate essential tables. It also contains 3 + 3 forms and a default superuser.
-* A default superuser (*admin*) is already present. The password is *pass2022* (**change it after a successfully completed installation**).
+* The application will be available at: *http://127.0.0.1:8000* (if running on a local computer) or *http[s]://domain|ip:8000* (if on a server).
+
 
 
 
@@ -195,7 +232,8 @@ python manage.py runserver
 
 ## Databases
 
-Currently supported databases (for elements creation and/or database queries):
+The application is set to use either MySql or MariaDB as its database.
+However, it supports other databases, that can be used for creating elements and/or perform queries over:
 * MySql
 * MariaDB
 * PostgreSQL

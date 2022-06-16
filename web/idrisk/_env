@@ -1,5 +1,5 @@
-SECRET_KEY="some key here" # example: 543fgsdfsd=i2qz)4)%vdm!69*rh^)!uvfvdftbai%6%5scvx8twert
-DEBUG=False # False if in dev, True if in production
+SECRET_KEY="a 50 char key or just comment or delete this line" # example: 543fgsdfsd=i2qz)4)%vdm!69*rh^)!uvfvdftbai%6%5scvx8
+DEBUG=False # False if production, True if development/tests
 N_WORKERS=4 # background cleanup workers
 
 
