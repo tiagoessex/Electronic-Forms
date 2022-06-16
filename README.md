@@ -81,10 +81,10 @@ chmod +x web/wait-for-it.sh
 
 4. Settings files:
 
-* [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)  (at */*)
+* [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)  (at */forms/*)
 	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml).
 
-* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env) (at */web/idrisk/*)
+* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env) (at */forms/web/idrisk/*)
 	+ Rename *_env* file to *.env* and change its contents accordingly (see next).
 	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
 	+ Define a 50 chars *SECRET_KEY*.
@@ -94,7 +94,7 @@ So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idr
 	+ Make sure *DEBUG* is set to *False* in *.env*  -- **IMPORTANT** -- otherwise, static files (*js* and *css* files) won't be collected correctly and the application may not work properly.
 	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
 
-* [settings.py](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/settings.py) (at */web/idrisk/*)
+* [settings.py](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/settings.py) (at */forms/web/idrisk/*)
 	+ Add the ip/domain to ALLOWED_HOSTS and to CORS_ALLOWED_ORIGINS.
 
 
