@@ -83,7 +83,7 @@ chmod +x /web/wait-for-it.sh
 * [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)  (at */*)
 	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml).
 
-* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env/) (at */web/idrisk/*)
+* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env) (at */web/idrisk/*)
 	+ Rename *_env* file to *.env* and change its contents accordingly (see next).
 	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
 	+ Define a 50 chars *SECRET_KEY*.
@@ -92,6 +92,10 @@ So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idr
 	+ By default, *USERNAME* = *root* and *PASSWORD* = *pass2022*.  Change it, if *MYSQL_ROOT_PASSWORD* at *docker-compose.yml* was also changed.
 	+ Make sure *DEBUG* is set to *False* in *.env*  -- **IMPORTANT** -- otherwise, static files (*js* and *css* files) won't be collected correctly and the application may not work properly.
 	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
+
+* [settings.py](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/settings.py) (at */web/idrisk/*)
+	+ Add the ip/domain to ALLOWED_HOSTS and to CORS_ALLOWED_ORIGINS.
+
 
 
 5. Build:
@@ -156,6 +160,7 @@ docker exec -i mariadb mysql --user=[USERNAME] --password=[PASSWORD] X < dumpfil
 * All operations should be done at the */web/* folder level.
 * All necessary databases to restore the most up to date version of the database are present in [databases](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/) directory. Restoring avoids the need to create +  apply migrations + populate essential tables. It also contains 3 + 3 forms and a default superuser.
 * A default superuser (*admin*) is already present. The password is *pass2022* (**change it after a successfully completed installation**).
+* Enable the console messages (check global notes at the beginning of this chapter)
 
 
 1. Clone repository:
@@ -167,16 +172,18 @@ git clone https://gitlab.com/arkhamlord666/forms
 
 2. Settings files:
 
-* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env/) (at */web/idrisk/*)
+* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env) (at */web/idrisk/*)
 	+ Rename *_env* file to *.env* and change its contents accordingly (see next).
 	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
-	+ Define a *SECRET_KEY* if desired. If not, comment or remove the line. A random key will be generated for you.
+	+ Define a 50 chars *SECRET_KEY*.
 	+ Change the *IDRISK* and *WORLD* databases hosts to *127.0.0.1*, if not already. 
 So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@db:3306/idrisk_, then it becomes *IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idrisk*. 
 	+ Make sure *DEBUG* is set to *True* in *.env*  -- **IMPORTANT** -- otherwise, static files (*js* and *css* files) won't be serve correctly
 	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
+* [settings.py](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/settings.py) (at */web/idrisk/*)
+	+ Add the ip/domain to ALLOWED_HOSTS and to CORS_ALLOWED_ORIGINS.
 
-* Enable the console messages (check global notes at the beginning of this chapter)
+
 
 
 3. Install dependencies:

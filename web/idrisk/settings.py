@@ -34,7 +34,11 @@ SECRET_KEY = env('SECRET_KEY', default=get_random_secret_key())
 DEBUG = env.bool('DEBUG', default=False)
 
 # when on real server, remove de '*' and add the page's domain
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    '0.0.0.0',
+]
 
 
 # Application definition
