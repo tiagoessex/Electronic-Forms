@@ -36,8 +36,8 @@ DEBUG = env.bool('DEBUG', default=False)
 # when on real server, remove de '*' and add the page's domain
 ALLOWED_HOSTS = [
     'localhost', 
-    '127.0.0.1', 
-    '0.0.0.0',
+    '127.0.0.1',
+    '*',
 ]
 
 
@@ -246,8 +246,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:8080",
-    "http://0.0.0.0:8000",
-    "http://0.0.0.0:8080",
 ]
 
 ###########

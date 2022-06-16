@@ -95,7 +95,7 @@ So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idr
 	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
 
 * [settings.py](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/settings.py) (at */forms/web/idrisk/*)
-	+ Add the ip/domain to ALLOWED_HOSTS and to CORS_ALLOWED_ORIGINS.
+	+ If necessary, add the ips/domains to ALLOWED_HOSTS and to CORS_ALLOWED_ORIGINS.
 
 
 
@@ -182,7 +182,7 @@ So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@db:3306/idrisk_, t
 	+ Make sure *DEBUG* is set to *True* in *.env*  -- **IMPORTANT** -- otherwise, static files (*js* and *css* files) won't be serve correctly
 	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
 * [settings.py](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/settings.py) (at */web/idrisk/*)
-	+ Add the ip/domain to ALLOWED_HOSTS and to CORS_ALLOWED_ORIGINS.
+	+ If necessary, add the ips/domains to ALLOWED_HOSTS and to CORS_ALLOWED_ORIGINS.
 
 
 
