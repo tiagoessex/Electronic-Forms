@@ -98,7 +98,15 @@ All necessary databases will be automatically created and populated. They also c
 A default superuser (*admin*) is already present. The password should be *pass2022* (**change it after  installation is completed**).
 
 
-5. Execution:
+
+5. Permissions:
+
+
+```bash
+chmod +x /home/web/wait-for-it.sh
+```
+
+6. Execution:
 
 ```bash
 docker-compose up
@@ -112,13 +120,13 @@ docker-compose up -d
 
 Page will be available at: *http://127.0.0.1* (if running on a local computer) or *http[s]://domain|ip* (if on a server).
 
-6. Stop execution:
+7. Stop execution:
 ```bash
 docker-compose stop
 ```
 
 
-**IF POINTS 1 TO 5 WERE FOLLOWED, AND NOTHING ELSE WAS CHANGED, THE REMAINING CHAPTER ISN'T NECESSARY AND IT CAN BE SKIPPED!!!**
+**IF POINTS 1 TO 6 WERE FOLLOWED, AND NOTHING ELSE WAS CHANGED, THE REMAINING CHAPTER ISN'T NECESSARY AND IT CAN BE SKIPPED!!!**
 
 * Migrations (if blank slate, make sure to restore the essential tables, otherwise, the app will fail):
 ```bash
