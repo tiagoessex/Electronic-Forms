@@ -94,7 +94,7 @@ mv web/idrisk/_env web/idrisk/.env
 * [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)  (at */forms/*)
 	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml).
 
-* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env) (at */forms/web/idrisk/*)
+* [.env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/.env) (at */forms/web/idrisk/*)
 	+ Change its contents accordingly (see next).
 	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
 	+ Define a 50 chars *SECRET_KEY*.
