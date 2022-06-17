@@ -26,7 +26,7 @@
 
 ## Description
 
-* Project *IDRISK*.
+* Project Name: *IDRISK*.
 * Project Code: *FEUP/INSA/2021-77453*
 * Description: Development of a software solution for the creation, management and usage of electronic forms to be used in sample collection and food classification according to Foodex2.
 * Partner(s)/Co-promoter(s)/Participating institution(s):
