@@ -70,22 +70,32 @@ You can also add others console messages to the list of messages to enable/disab
 git clone https://gitlab.com/arkhamlord666/forms
 ```
 
-3. Permissions:
-
+3. Change directory:
 
 ```bash
 cd forms
+```
+
+4. Permissions:
+
+```bash
 chmod +x web/wait-for-it.sh
 ```
 
+5. .env
 
-4. Settings files:
+```bash
+mv web/idrisk/_env web/idrisk/.env
+```
+
+
+6. Settings files:
 
 * [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)  (at */forms/*)
 	+ If desired, change the database root password, *MYSQL_ROOT_PASSWORD* in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml).
 
 * [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env) (at */forms/web/idrisk/*)
-	+ Rename *_env* file to *.env* and change its contents accordingly (see next).
+	+ Change its contents accordingly (see next).
 	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
 	+ Define a 50 chars *SECRET_KEY*.
 	+ Change the *IDRISK* and *WORLD* databases hosts to *db*, if not already. 
@@ -99,7 +109,7 @@ So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idr
 
 
 
-5. Build:
+7. Build:
 ```bash
 docker-compose build
 ```
@@ -112,7 +122,7 @@ A default superuser (*admin*) is already present. The password should be *pass20
 
 
 
-6. Execution:
+8. Execution:
 
 ```bash
 docker-compose up
@@ -126,13 +136,13 @@ docker-compose up -d
 
 Page will be available at: *http://127.0.0.1* (if running on a local computer) or *http[s]://domain|ip* (if on a server).
 
-7. Stop execution:
+9. Stop execution:
 ```bash
 docker-compose stop
 ```
 
 
-**IF POINTS 1 TO 6 WERE FOLLOWED, AND NOTHING ELSE WAS CHANGED, THE REMAINING CHAPTER ISN'T NECESSARY AND IT CAN BE SKIPPED!!!**
+**IF POINTS 1 TO 8 WERE FOLLOWED, AND NOTHING ELSE WAS CHANGED, THE REMAINING CHAPTER ISN'T NECESSARY AND IT CAN BE SKIPPED!!!**
 
 * Migrations (if blank slate, make sure to restore the essential tables, otherwise, the app will fail):
 ```bash
