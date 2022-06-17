@@ -316,6 +316,8 @@ Both the extension and the native application can be found in: [files](https://g
 | FoodEx2 validation | MEDIUM | |
 | languages support | LOW | In progress |
 | import/export doc | LOW ||
+| import/export forms as zip | LOW ||
+| import/export operations as zip | LOW ||
 | email user if password change| LOW ||
 | help pages     | LOW | In progress |
 | background images/pdf: import from pdf | LOW ||
