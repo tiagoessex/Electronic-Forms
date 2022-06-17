@@ -55,6 +55,8 @@ Global Notes:
 
 You can also add others console messages to the list of messages to enable/disable, such as *warn* and *error*, however it's not recommended to disable these two.
 
+* It's only set for **http** at port 80. To include **https**, add the necessary instructions to both [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml) and [default.conf](https://gitlab.com/arkhamlord666/forms/-/blob/master/nginx/default.conf) (Docker only).
+
 
 ### Deploy with Docker
 
