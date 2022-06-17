@@ -29,14 +29,14 @@
 * Project *IDRISK*.
 * Project Code: *FEUP/INSA/2021-77453*
 * Description: Development of a software solution for the creation, management and usage of electronic forms to be used in sample collection and food classification according to Foodex2.
-* Participants / Partners / Promotors: 
+* Partner(s)/Co-promoter(s)/Participating institution(s):
 	+ Autoridade de Segurança Alimentar e Económica
 	+ EFSA
 	+ Faculdade de Engenharia da Universidade do Porto	
 	+ Hrvatska agencija za poljoprivredu i hranu
 	+ Instituto Nacional de Saúde Dr. Ricardo Jorge
-* Starting Date: 2021-02-11
-* End Date: 2022-01-10
+* Start Date: 2021-02-11
+* Completion Date: 2022-01-10
 
 
 ## Requirements
