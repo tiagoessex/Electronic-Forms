@@ -41,12 +41,20 @@ export class OpFormData {
                 if (this.onReady) this.onReady(this.processData(result));
             },
             (error) => {
+                if (error_codes && error_codes.length > 0 && error_codes[0] == 404) {
+                    // no data to process
+                    if (this.onReady) this.onReady(this.processData(null));
+                } else {
+                    this.context.signals.onError.dispatch(error,"[OpFormData::fetch]");
+                }
+                /*
                 if (error && getAllNumbers(error.toString())[0] == 404) {
                     // no data to process
                     if (this.onReady) this.onReady(this.processData(null));
                 } else {
                     this.context.signals.onError.dispatch(error,"[OpFormData::fetch]");
-                }                
+                }  
+                */              
             })
     }
 

@@ -514,7 +514,16 @@ function openForm(id) {
             //console.log(error);
             $("body").css("cursor","auto");
             $(PROGRESS_MODAL).modal('hide');
+
+            const error_codes = getAllNumbers(error.toString());
+            if (error_codes && error_codes.length > 0 && error_codes[0] == 404) {
+                context.signals.onError.dispatch(Translator.translate("Unable to open the form. Does it exist and is it EDITABLE/TEMPORARY? Contact an administrator!"),"[main::openForm]");
+            } else {
+                context.signals.onError.dispatch(Translator.translate("Critical Error! Possible Errors: the form is not editable, it does not exists, it has an invalid format or some unknown error! Contact an administrator!"),"[main::openForm]");
+            }
+            /*
             if (error.hasOwnProperty('message')) {
+                console.warn(error);
                 if (getAllNumbers(error.message.toString())[0] == 404) {
                     context.signals.onError.dispatch(Translator.translate("Unable to open the form. Does it exist and is it EDITABLE/TEMPORARY? Contact an administrator!"),"[main::openForm]");
                 } else {
@@ -522,7 +531,7 @@ function openForm(id) {
                 }
             } else {
                 context.signals.onError.dispatch(Translator.translate("Critical Error! Possible Errors: the form is not editable, it does not exists, it has an invalid format or some unknown error! Contact an administrator!"),"[main::openForm]");
-            }            
+            } */           
             context.signals.onLoadEnded.dispatch();
         })
 
@@ -566,10 +575,18 @@ function save(callback_on_success=()=>{}) {
             },
             (error) => {
 				$("body").css("cursor","auto");
+                const error_codes = getAllNumbers(error.toString());
+                if (error_codes && error_codes.length > 0 && error_codes[0] == 403) {
+                    context.signals.onError.dispatch(Translator.translate('Form is locked. You cannot edit it anymore!'),"[main::save]");                    
+                } else {
+                    context.signals.onError.dispatch(error,"[main::save]");
+                }
+                /*
                 if (getAllNumbers(error.toString())[0] == 403)
                     context.signals.onError.dispatch(Translator.translate('Form is locked. You cannot edit it anymore!'),"[main::save]");
                 else
                     context.signals.onError.dispatch(error,"[main::save]");
+                */
             }
         );
 }

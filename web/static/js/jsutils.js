@@ -115,6 +115,7 @@ export function copyAttrs(targt, sourc) {
  * @returns Array of all the numbers in the string.
  */
 export function getAllNumbers(str) {
+    if (!str || typeof str == undefined || typeof str === 'object') return [];    
     const r = /\d+/;
     return str.match(r);
 }

@@ -296,11 +296,19 @@ EditView.prototype = {
             },
             (error) => {
                 if (onError) onError();
+                const error_codes = getAllNumbers(error.toString());
+                if (error_codes && error_codes.length > 0 && error_codes[0] == 404) {
+                    this.context.signals.onError.dispatch('Invalid Operation!',"[opeditview::getOperation]");
+                } else {
+                    this.context.signals.onError.dispatch(error,"[opeditview::getOperation]");
+                }
+                /*
                 if (getAllNumbers(error.toString())[0] == 404) {
                     this.context.signals.onError.dispatch('Invalid Operation!',"[opeditview::getOperation]");
                 } else {
                     this.context.signals.onError.dispatch(error,"[opeditview::getOperation]");
                 }
+                */
             }
         );
     },
