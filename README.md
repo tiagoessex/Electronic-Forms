@@ -8,7 +8,6 @@
   * [.env](#env)
   * [Installation and Execution](#installation-and-execution)
   	+ [Deploy with Docker](#deploy-with-docker)
-	+ [Development without Docker](#development-without-docker)  	
   * [Automatic tasks](#automatic-tasks)
   * [Databases](#databases)
   * [Essential Tables](#essential_tables)
@@ -53,7 +52,7 @@ Global Notes:
 	+ [/web/templates/base.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/templates/base.html)
 	+ [/web/designer/templates/designer/_scripts.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/designer/templates/designer/_scripts.html)
 
-You can also add others console messages to the list of messages to enable/disable, such as *warn* and *error*, however it's not recommended to disable these two.
+You can also add others console messages, such as *warn* and *error*, to the list of messages to enable/disable them (however it's not recommended to disable these last two).
 
 * It's only set for **http** at port 80. To include **https**, add the necessary instructions to both [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml) and [default.conf](https://gitlab.com/arkhamlord666/forms/-/blob/master/nginx/default.conf) (Docker only).
 
@@ -163,96 +162,6 @@ docker exec -i mariadb mysql --user=[USERNAME] --password=[PASSWORD] X < dumpfil
 ```
 
 
-### Development without Docker
-
-**INCOMPLETE**
-**INCOMPLETE**
-**INCOMPLETE**
-**INCOMPLETE**
-
-* All operations should be done at the */web/* folder level.
-* All necessary databases to restore the most up to date version of the database are present in [databases](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/) directory. Restoring avoids the need to create +  apply migrations + populate essential tables. It also contains 3 + 3 forms and a default superuser.
-* A default superuser (*admin*) is already present. The password is *pass2022* (**change it after a successfully completed installation**).
-* Enable the console messages (check global notes at the beginning of this chapter)
-
-
-1. Clone repository:
-
-```bash
-git clone https://gitlab.com/arkhamlord666/forms
-```
-
-
-2. Settings files:
-
-* [_env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/_env) (at */web/idrisk/*)
-	+ Rename *_env* file to *.env* and change its contents accordingly (see next).
-	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
-	+ Define a 50 chars *SECRET_KEY*.
-	+ Change the *IDRISK* and *WORLD* databases hosts to *127.0.0.1*, if not already. 
-So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@db:3306/idrisk_, then it becomes *IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idrisk*. 
-	+ Make sure *DEBUG* is set to *True* in *.env*  -- **IMPORTANT** -- otherwise, static files (*js* and *css* files) won't be serve correctly
-	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
-* [settings.py](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/settings.py) (at */web/idrisk/*)
-	+ If necessary, add the ips/domains to ALLOWED_HOSTS and to CORS_ALLOWED_ORIGINS.
-
-
-
-
-3. Install dependencies:
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the necessary packages.
-
-```bash
-pip install django==3.1.7
-pip install mysqlclient==2.0.3	# is mysql
-pip install django-adminlte3==0.1.6
-pip install django-environ==0.4.5
-pip install django-cors-headers==3.7.0
-pip install djangorestframework==3.12.2
-pip install pandas==1.2.4			# required for tables
-pip install django_cleanup==5.2.0	# model record deleted => fielfield file deleted
-pip install django-q==1.3.9
-pip install cx-Oracle==8.1.0    # if oracle
-pip install psycopg2==2.9.1    	# if postgresql
-pip install js_regex==1.0.1		# js regex to python - required for mirror validation
-pip install django-pwa==1.0.10
-pip install gunicorn==20.1.0
-```
-
-Or just:
-
-```bash
-pip install -r requirements.txt
-```
-
-4. Create superuser, if clean slate:
-
-Create a superuser:
-```bash
-python manage.py createsuperuser
-```
-
-5. Apply migrations, if clean slate:
-
-Migrations (only if clean slate - also check Essential Tables chapter, otherwise, restore with the databases present at [databases](https://gitlab.com/arkhamlord666/forms/-/blob/master/databases/):
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-6. Execute:
-
-Executing:
-```bash
-python manage.py runserver
-```
-
-* The application will be available at: *http://127.0.0.1:8000* (if running on a local computer) or *http[s]://domain|ip:8000* (if on a server).
-
-
-
 
 ## Automatic tasks
 
@@ -357,8 +266,8 @@ INSERT INTO `query` (`id`, `name`, `query`, `date`, `status_id`, `description`) 
 
 | Link | Description |
 | ------ | ------ |
-| [Dev Document](https://gitlab.com/arkhamlord666/forms/-/blob/master/media/files/forms_dev_notes.pdf) | Development document |
-| [User's Manual](https://gitlab.com/arkhamlord666/forms/-/blob/master/media/files/users_manual.pdf) | Use's manual |
+| [Dev Document](https://gitlab.com/arkhamlord666/forms/-/tree/master/web/media/files/forms_dev_notes.pdf) | Development document |
+| [User's Manual](https://gitlab.com/arkhamlord666/forms/-/tree/master/web/media/files/users_manual.pdf) | Use's manual |
 | ------ | ------ |
 | [dev_notes](https://docs.google.com/spreadsheets/d/1vGtAhm7YxXVWHyIYrxnPj9vx_n9GWocKswIZAJKdyl8/edit?usp=sharing) | roadmap, TODO, bugs |
 | [EAs](https://docs.google.com/spreadsheets/d/1M9wPL5e4km3ARaaxbRxLKjaMaoH-18uzLWDx4HoJghs/edit?usp=sharing) | Some details related with the Events/Actions system |
@@ -373,7 +282,7 @@ INSERT INTO `query` (`id`, `name`, `query`, `date`, `status_id`, `description`) 
 
 For now, it's only possible to electronically sign with the portuguese identification card.
 Also, it's only possible to sign in windows and in chrome.
-Both the extension and the native application can be found in: [files](https://gitlab.com/arkhamlord666/forms/-/tree/master/web/media/files).
+Both the extension and the native application can be found in: [files](https://gitlab.com/arkhamlord666/forms/-/tree/master/web/media/files/).
 
 
 
