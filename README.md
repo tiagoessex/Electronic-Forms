@@ -8,6 +8,8 @@
   * [.env](#env)
   * [Installation and Execution](#installation-and-execution)
   	+ [Deploy with Docker](#deploy-with-docker)
+	+ [Development with Docker](#development-with-docker)
+	+ [Development without Docker](#development-without-docker)
   * [Automatic tasks](#automatic-tasks)
   * [Databases](#databases)
   * [Essential Tables](#essential_tables)
@@ -71,6 +73,8 @@ You can also add others console messages, such as *warn* and *error*, to the lis
 
 ### Deploy with Docker
 
+
+**DEPLOY => PRODUCTION**
 
 1. Install both **docker** and **docker-compose**:
 - docker: [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/) or [https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
@@ -147,7 +151,7 @@ or for running in the background (prefered):
 docker-compose up -d
 ```
 
-Page will be available at: *http://127.0.0.1* (if running on a local computer) or *http[s]://domain|ip* (if on a server).
+The application is now available at: *http://127.0.0.1* (if running on a local computer) or *http[s]://domain|ip* (if on a server).
 
 9. Stop execution:
 ```bash
@@ -172,6 +176,91 @@ docker-compose exec web python manage.py createsuperuser
 ```bash
 docker exec -i mariadb mysql --user=[USERNAME] --password=[PASSWORD] X < dumpfile.sql
 ```
+
+### Development with Docker
+
+* Follow the same procedure presented in the previous chapter (deploy with Docker), and make sure to:
+	+ Set *DEBUG = true* in [/web/templates/base.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/templates/base.html) and [/web/designer/templates/designer/_scripts.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/designer/templates/designer/_scripts.html)
+	+ Set *DEBUG = True* in [.env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/.env) (at */forms/web/idrisk/*)
+
+* To avoid the necessity to collect the static files, everytime there's a change:
+	+ Comment or remove the collectstatic line in [Dockerfile](https://gitlab.com/arkhamlord666/forms/-/blob/master/Dockerfile)
+	+ Remove the *nginx* container from [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml)
+	+ Use Djando own server, by replacing gunicorn in [docker-compose.yml](https://gitlab.com/arkhamlord666/forms/-/blob/master/docker-compose.yml), with *python manage.py runserver*
+	
+
+
+### Development without Docker
+
+**Run the application, natively (no Docker), in development mode.**
+
+* The following procedure is for a *windows* environment. In *Linux* the procedure is similar.
+
+1. Clone repository:
+
+```bash
+git clone https://gitlab.com/arkhamlord666/forms
+```
+
+2. Working directory:
+
+```bash
+cd forms/web
+```
+3. Virtual environment
+
+```bash
+virtualenv env
+\env\scripts\activate
+```
+
+4. Install requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+
+5. Rename files:
+
+```bash
+ren web/idrisk/_env web/idrisk/.env
+```
+
+
+6. Restore the databases present at */forms/databases/*.
+This prevents the requirement to apply migratins, restore the essential tables and create a superuser.
+All necessary databases will be automatically created and populated. They also contain 6 forms and a default superuser.
+A default superuser (*admin*) is already present. The password should be *pass2022* (**id desired, change it after  installation is completed**).
+
+7. Settings files:
+
+* [.env](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/idrisk/.env) (at */forms/web/idrisk/*)
+	+ Change its contents accordingly (see next).
+	+ Comment (add **#** at the start of the line) or remove all unecessary lines.
+	+ Define a 50 chars *SECRET_KEY*.
+	+ Change the *IDRISK* and *WORLD* databases hosts to *127.0.0.1*, if not already. 
+So, for example, if _IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@db:3306/idrisk_, then it becomes *IDRISK_URL=mysql://[USERNAME]:[PASSWORD]@127.0.0.1:3306/idrisk*. 
+	+ Set the *USERNAME* and *PASSWORD* for the *MySql* ou *MariaDB* database.
+	+ Make sure *DEBUG* is set to *True* in *.env*  -- **IMPORTANT**
+	+ If desired, set the email credentials. This email, will be used by the system to notify users, in case of password changes, etc.
+
+* Set *DEBUG = true* in:
+	+ [/web/templates/base.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/templates/base.html)
+	+ [/web/designer/templates/designer/_scripts.html](https://gitlab.com/arkhamlord666/forms/-/blob/master/web/designer/templates/designer/_scripts.html)
+
+
+8. Execute:
+
+```bash
+python manage.py runserver
+```
+
+The application is now available at: *http://127.0.0.1:8000* (if running on a local computer) or *http[s]://domain|ip:8000* (if on a server).
+
+
+
+
 
 
 
